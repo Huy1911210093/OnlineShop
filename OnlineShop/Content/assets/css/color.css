@@ -1,0 +1,129 @@
+.template-button:hover,
+.theme-color,
+.message-section a:hover,
+.banner-middle-part a:hover,
+ul.cart-icon li a:hover,
+.product_menu ul li a::after,
+.contact-location-box:hover,
+.vertical-slider a.bx-next:hover,
+.vertical-slider a.bx-prev:hover,
+.add-to-cart a,
+ul.product-social-icon li a:hover,
+.accordian-one .ui-state-default:hover,
+.accordian-one .ui-state-active,
+figure.blog-overlay:after,
+.blog-pagination .pagination>li>a:hover,
+.blog-slider-overlay,
+.blog-sidebar .input-group .btn-default,
+.scroll-top #stop i:hover,
+.cs_content .input-group span button.btn,
+ul.blog-shared-post.cs-social-icon li a:hover,
+.blogSlide_box:before,
+.loaderArea,
+.details-about,
+figcaption.news-sticker p span,
+ul.nav.navbar-nav li ul.cart-icon li a:hover,
+li.mega-menu ul.dropdown-menu>li .menu-image-text a.template-button:hover {
+    background-color: #1bbc9b;
+}
+.template-button:hover,
+input:focus,
+textarea:focus,
+ul.cart-icon li a:hover,
+.banner-middle-part a:hover,
+.login-form input:focus,
+.loginForm:hover,
+.register-form:hover,
+.register-form input:focus,
+.vertical-slider img:hover,
+.blog-pagination .pagination>li>a:hover,
+.blog-sidebar .input-group .btn-default,
+ul.blog-shared-post li a:hover,
+ul.comming-soon-menu li a:before,
+.cs_content .input-group span button.btn,
+ul.nav.navbar-nav li ul.cart-icon li a:hover {
+    border-color: #1bbc9b;
+}
+.navbar-default .navbar-nav>li>a.header-menu-one::before,
+figcaption.news-sticker p span:after {
+    border-top-color: #1bbc9b;
+}
+.message-section p input:focus,
+.message-section p textarea:focus,
+.header_menu:after,
+.accordian-one .ui-state-default,
+.accordian-one.ui-accordion .ui-accordion-content {
+    border-bottom-color: #1bbc9b;
+}
+ul.widget-content li a:hover:before {
+    border-left-color: #1bbc9b;
+}
+.cs_content h1:after {
+    border-right-color: #1bbc9b;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.product_menu ul li a:hover,
+.arrival-image-content h4 a:hover,
+.free-shipping:hover h4 a,
+.free-shipping:hover p,
+.free-shipping:hover i,
+ul.footer-services li a:hover,
+.shopping-cart-icon:before,
+ul.breadcrum li.active,
+ul.breadcrum li a:hover,
+.contact-location-box i,
+.login-box p:hover,
+.register-form p:hover,
+ul.widget-content li a:hover,
+ul.widget-content li.active a,
+.product-page-heading h3,
+.product-rating ul li:last-child,
+.product-page-heading p span,
+.blog-text h6,
+.calendar a:hover,
+ul.blog-social li:hover,
+input[type="checkbox"]:checked:after,
+.blog-text h4 a:hover,
+.blog-slider-content h1 a:hover,
+.blog-slider-content h5 a span:hover,
+ul.category-list li a:hover,
+ul.social-list li a:hover,
+.recent-list h6 a:hover,
+.recent-list p:hover,
+.temlate-quote-blockquote:after,
+.temlate-quote-blockquote p,
+ul.blog-shared-post li a:hover,
+.product-color,
+.time-cross i,
+.price,
+.tab-two-section p a:hover,
+.tab-three-address p:last-child,
+.payment-total p:last-child,
+.customer-returing h5 a,
+.error-page-detail p a i,
+.review-pra-content p a,
+.list-item-product a:hover,
+.news_details h4 a:hover,
+.news_details p a:hover,
+.page-links div a:hover,
+.product_menu ul li a.active,
+.footer-text p a:hover,
+.about-box-one h2 span.casual-color {
+    color: #1bbc9b;
+}
+@media screen and (max-width: 767px) {
+    #horizantal_slider_one.owl-theme .owl-nav [class*='owl-']:hover {
+        background-color: #1bbc9b;
+    }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .header_menu:after {
+        border-bottom: 50px solid #1bbc9b;
+    }
+}

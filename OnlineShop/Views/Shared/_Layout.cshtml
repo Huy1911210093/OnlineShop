@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if IE]>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <![endif]-->
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Journey Casual - Multipourpose Fashion HTML Template" />
+    <meta name="author" content="desideals4u.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
+    <title>N30 shop</title>
+    <!-- Bootstrap -->
+    <!-- Master Css -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
+    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/assets/css/color.css" rel="stylesheet">
+    <link href="~/Content/assets/css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    <!--//================Preloder start==============//-->
+    <div class="preloder-section">
+        <div class="loaderArea">
+            <div class="loader">
+                <h1>NTQH </h1>
+                <div class="loaderSquare"></div>
+                <h2>Shop</h2>
+            </div>
+        </div>
+    </div>
+    <!--//================Preloder end==============//-->
+    <!--//================Header section start==============//-->
+    <header>
+        <div class="main-hrader">
+            <div class="container">
+                <div class="row">
+                    <div class="top-bar padTB20">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <div class="top-bar-register padTB10">
+                                <h6><a href="login.html">Đăng nhập</a><span></span> <a href="register.html">Đăng kí</a></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <figure class="logo">
+                                <a href="index.html"><img src="~/Content/assets/images/logo.png" alt=""></a>
+                            </figure>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <div class="usd">
+                                <select name="usd">
+                                    <option value="USD">USD</option>
+                                    <option value="VND">VND</option>
+                                </select>
+                                <select name="language">
+                                    <option value="eng">Tiếng Việt</option>
+                                    <option value="french">Tiếng Anh</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header_menu">
+            <div id="main-menu" class="wa-main-menu">
+                <!-- Menu -->
+                @RenderPage("_HeaderMenu.cshtml");
+                <!--  Menu -->
+            </div>
+        </div>
+    </header>
+    <!--//================Header section end==============//-->
+    @RenderBody();
+    <!--//================Footer section start==============//-->
+    <div class="footer-section footer_fixed">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-box">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <div class="footer-box-two footer-first-box footer-res">
+                                    <h5>Thông tin</h5>
+                                    <ul class="footer-services">
+                                        <li><a href="#">Giới thiệu</a></li>
+                                        <li><a href="#">Dịch vụ</a></li>
+                                        <li><a href="#">blog</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="footer-box-two footer-res">
+                                    <h5>Bản đồ đường đi</h5>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8297228054107!2d106.77710911436085!3d10.824339592289007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527e8d3174571%3A0xac2e55e1787a262f!2zMTUgxJDGsOG7nW5nIHPhu5EgMTg1LCBQaMaw4bubYyBMb25nIEIsIFF14bqtbiA5LCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1624427229814!5m2!1svi!2s"
+                                            style="border:0; width:100%; height:100%;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-7 col-xs-12">
+                                <div class="footer-box-right footer-box-two">
+                                    <h5>Nhận thông báo</h5>
+                                    <p>Đăng nhập email để nhận những thông báo mới nhất</p>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Enter your email address" aria-describedby="basic-addon2">
+                                        <span class="input-group-addon" id="basic-addon2"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+                                    </div>
+                                    <ul class="footer-social-icon">
+                                        <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-last-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-sm-8 col-xs-12">
+                        <div class="footer-last-text">
+                            <ul class="footer-menu">
+                                <li><a href="#">about us</a></li>
+                                <li><a href="#">help & FAQs </a></li>
+                                <li><a href="#">privacy policy</a></li>
+                            </ul>
+                            <p>&copy; N30 shop</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-4 col-xs-12">
+                        <div class="footer-last-right">
+                            <figure>
+                                <img src="~/Content/assets/images/footer/payment-icons.png" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//================Footer section end==============//-->
+    <!--//================xem nhanh section start==============//-->
+    <div class="quick-vive-popap">
+        <div class="container">
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="Quick-view-popup modal-content text-left">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="col-md-12 col-xs-12 popap-open-box">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-12 marB30">
+                                            <figure>
+                                                <img src="~/Content/assets/images/best-product/product-3.jpg" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
+                                    <h3 class="theme-headdings text-left  product-detail-title s"><a href="#">Your Product Title</a></h3>
+                                    <div class="product-rating">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">3 review(s)</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="per-box texy-left marT15">
+                                        <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
+                                    </div>
+                                    <div class="product-detail-btn  padT15">
+                                        <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
+                                            <div class="row">
+                                                <p>
+                                                    <label for="billing_state28">Material</label>
+                                                    <select class="billing_state28" id="billing_state28" name="billing_state">
+                                                        <option value="">Select Color</option>
+                                                        <option value="AP">Red</option>
+                                                        <option value="AR">Blue</option>
+                                                        <option value="AS">Green</option>
+                                                        <option value="BR">Yellow</option>
+                                                        <option value="CT">Black</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="form-row col-sm-5 country-boxs billing-box select down ">
+                                            <div class="row ">
+                                                <p>
+                                                    <label for="billing_state27">Brands</label>
+                                                    <select class="billg_state" id="billing_state27" name="billing_state">
+                                                        <option value="">Select Brands</option>
+                                                        <option value="AP">PTM</option>
+                                                        <option value="AR">Clara</option>
+                                                        <option value="AS">Ziveg</option>
+                                                        <option value="BR">Clara</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-7 row">
+                                        <div class="order-data box order-table ">
+                                            <div class="order-table-cell order-text product-input-type">
+                                                <input type="number" value="01" class="qty" name="qty1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-sm-5 product-box-btm-blog row">
+                                        <a href="#" class="template-button light pro btn left marT">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//================xem nhanh section end==============//-->
+    <!--//================Js file start==============//-->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/plugin/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/plugin/megamenu/js/hover-dropdown-menu.js"></script>
+    <script src="~/Content/assets/plugin/megamenu/js/jquery.hover-dropdown-menu-addon.js"></script>
+    <script src="~/Content/assets/plugin/jquery-ui/js/jquery-ui.js"></script>
+    <script src="~/Content/assets/plugin/mixitup/js/jquery.mixitup.js"></script>
+    <script src="~/Content/assets/plugin/fancyBox/js/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/assets/plugin/fancyBox/js/jquery.fancybox-media.js"></script>
+    <script src="~/Content/assets/plugin/jquery-bxslider/js/jquery.bxslider.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB9P8720RmV-t4df_U1TxC-JJ_FKVcc6I"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+    <!--//================Js file end==============//-->
+</body>
+
+<!-- Mirrored from preview.desideals4u.com/new-journey-casual/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Sep 2018 02:29:27 GMT -->
+
+</html>
