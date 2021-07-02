@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,6 +129,39 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\assets\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Admin\Content\assets\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\assets\css\custom-styles.css" />
+    <Content Include="Areas\Admin\Content\assets\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\assets\css\materialize.min.css" />
+    <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\assets\img\bg-img.jpg" />
+    <Content Include="Areas\Admin\Content\assets\img\favicon.ico" />
+    <Content Include="Areas\Admin\Content\assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\chart-data.js" />
+    <Content Include="Areas\Admin\Content\assets\js\chart.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\custom-scripts.js" />
+    <Content Include="Areas\Admin\Content\assets\js\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Content\assets\js\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Content\assets\js\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\Content\assets\js\easypiechart-data.js" />
+    <Content Include="Areas\Admin\Content\assets\js\easypiechart.js" />
+    <Content Include="Areas\Admin\Content\assets\js\jquery-1.10.2.js" />
+    <Content Include="Areas\Admin\Content\assets\js\jquery.metisMenu.js" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\chart.js" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\cssCharts.css" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\index - Copy.html" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\index.html" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\jquery.chart.js" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\jquery.chart.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\morris\morris-0.4.3.min.css" />
+    <Content Include="Areas\Admin\Content\assets\js\morris\morris.js" />
+    <Content Include="Areas\Admin\Content\assets\js\morris\raphael-2.1.0.min.js" />
+    <Content Include="Areas\Admin\Content\assets\materialize\css\materialize.css" />
+    <Content Include="Areas\Admin\Content\assets\materialize\css\materialize.min.css" />
+    <Content Include="Areas\Admin\Content\assets\materialize\js\materialize.js" />
+    <Content Include="Areas\Admin\Content\assets\materialize\js\materialize.min.js" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\color.css" />
     <Content Include="Content\assets\css\responsive.css" />
@@ -320,6 +354,40 @@
     <Content Include="Content\assets\plugin\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
     <Content Include="Content\assets\plugin\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
     <Content Include="Content\assets\plugin\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.ttf" />
+    <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Areas\Admin\Content\assets\js\Lightweight-Chart\README.md" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Bold.eot" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Bold.ttf" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Light.eot" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Light.ttf" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Light.woff" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Medium.eot" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Medium.ttf" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Regular.eot" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Regular.ttf" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Thin.eot" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Thin.ttf" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="Areas\Admin\Content\assets\materialize\LICENSE" />
+    <Content Include="Areas\Admin\Content\assets\materialize\README.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -349,9 +417,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Content\assets\plugins\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -57,9 +57,10 @@
                                         <a href="blog-style-1.html" class="header-menu-one">blog</a>
                                     </li>
                                     <li>
-                                        <a href="About.cshtml" class="header-menu-one">Giới thiệu</a>
+                                        <a href="@Url.Action("About", "Home")" class="header-menu-one">Giới thiệu</a>
+                                        @*@Html.ActionLink("Giới thiệu", "About","Home")*@
                                     </li>
-                                    <li><a href="contact.html" class="header-menu-one">liên hệ</a></li>
+                                    <li><a href="@Url.Action("Contact", "Home")" class="header-menu-one">liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>

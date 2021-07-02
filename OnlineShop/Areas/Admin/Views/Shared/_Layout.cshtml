@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N30 Shop | Admin</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/Areas/Admin/Content/assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="shortcut icon" href="~/Areas/Admin/Content/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Areas/Admin/Content/assets/img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap Styles-->
+    <link href="~/Areas/Admin/Content/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="~/Areas/Admin/Content/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="~/Areas/Admin/Content/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="~/Areas/Admin/Content/assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/Areas/Admin/Content/assets/js/Lightweight-Chart/cssCharts.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" href="index.html"><strong>N30 Shop</strong></a>
+
+                <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>John Doe</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </nav>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li>
+                <a href="empty.html"><i class="fa fa-user fa-fw"></i> Hồ sơ</a>
+            </li>
+            <li>
+                <a href="empty.html"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
+            </li>
+            <li>
+                <a href="empty.html"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+            </li>
+        </ul>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-home"></i> Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Cá</a>
+                            </li>
+                            <li>
+                                <a href="#">Phụ kiện</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Quản lý đơn hàng</a>
+                    </li>
+                    <li>
+                        <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Biểu đồ</a>
+                    </li>
+                    <li>
+                        <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-user"></i> Quản lý tài khoản</a>
+                    </li>
+
+                    <li>
+                        <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        @RenderBody();
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="~/Areas/Admin/Content/assets/js/jquery-1.10.2.js"></script>
+
+    <!-- Bootstrap Js -->
+    <script src="~/Areas/Admin/Content/assets/js/bootstrap.min.js"></script>
+
+    <script src="~/Areas/Admin/Content/assets/materialize/js/materialize.min.js"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="~/Areas/Admin/Content/assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="~/Areas/Admin/Content/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/morris/morris.js"></script>
+
+
+    <script src="~/Areas/Admin/Content/assets/js/easypiechart.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/easypiechart-data.js"></script>
+
+    <script src="~/Areas/Admin/Content/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+
+    <!-- Custom Js -->
+    <script src="~/Areas/Admin/Content/assets/js/custom-scripts.js"></script>
+
+
+</body>
+
+</html>

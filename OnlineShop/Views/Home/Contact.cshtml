@@ -2,7 +2,102 @@
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
->
+<!--//================Breadcrumb section start==============//-->
+<section>
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-heading">
+                        <div class="page-header-heading padB10">
+                            <h3>Liên hệ</h3>
+                        </div>
+                        <div class="breadcrum-box">
+                            <ul class="breadcrum">
+                                <li><a href="index.html">Trang chủ</a></li>
+                                <li class="active"><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//================Breadcrumb section end==============//-->
+<!--//================Contact section start==============//-->
+<div class="contact-section padTB60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 padB60">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="contact-location-box contact-location-xs">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <h4>Địa chỉ</h4>
+                            <p>Text location</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="contact-location-box contact-location-xs">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <h4>Hotline</h4>
+                            <p>0971621634</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="contact-location-box">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <h4>Email</h4>
+                            <p>phamchinghi11@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="location-map">
+                    <h4>Bản đồ</h4>
+                    <div id="gmap_canvas" class="marT30"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="message-section contact-message">
+                    <h4>góp ý chúng tôi</h4>
+                    <div class="col-md-12 col-sm-12 col-xs-12 marT30">
+                        <div class="row">
+                            <p>
+                                <label>Họ tên</label>
+                                <input type="text" placeholder="Nhập họ tên...">
+                            </p>
+                            <p>
+                                <label>email</label>
+                                <input type="text" placeholder="Nhập email...">
+                            </p>
+                            <p>
+                                <label>Số điện thoại</label>
+                                <input type="text" placeholder="Nhập sdt...">
+                            </p>
+                            <p>
+                                <label>góp ý</label>
+                                <textarea cols="10" rows="5" placeholder="Nhập tin nhắn" style="resize: none;"></textarea>
+                            </p>
+                            <a href="#" class="template-button">Gửi góp ý</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//================Contact section end==============//-->
+<!--//================Scroll section start==============//-->
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="scroll-top">
+            <div id="stop" class="scrollTop">
+                <span><a href="#"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//================Scroll section end==============//-->

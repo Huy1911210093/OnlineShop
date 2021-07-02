@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------
+ /*------------------------------------------------------------------
 [Table of contents]
 
 1 Fonts
@@ -2295,21 +2295,6 @@ ul.cart-icon li a i {
     color: #999999;
     margin-left: 5px;
 }
-
-ul.cloth-rating {
-    float: left;
-    width: 100%;
-}
-
-ul.cloth-rating li {
-    display: inline-block;
-    list-style: none;
-}
-
-
-/* ul.cloth-rating li i:hover {
-    color: #006eff;
-} */
 
 #menu_slider.owl-theme .owl-nav,
 #new_arrival.owl-theme .owl-nav {
