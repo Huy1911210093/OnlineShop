@@ -20,20 +20,21 @@
                                 <!-- nav -->
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <a href="index.html" class="header-menu-one">Trang chủ</a>
+                                        @* <a href="@Url.Action("Index", "Home")" class="header-menu-one">Trang chủ</a>*@
+                                        @Html.ActionLink("Trang chủ", "Index", "Home", new { @class = "header-menu-one"})
                                     </li>
                                     <!-- /.dropdown -->
                                     <li>
-                                        <a href="phukien.html" class="header-menu-one">Phụ kiện<i class="fa fa-caret-down marL5" aria-hidden="true"></i></a>
+                                        <a href="@Url.Action("Index","PhuKien")" class="header-menu-one">Phụ kiện<i class="fa fa-caret-down marL5" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Lọc</a></li>
+                                            <li><a href="@Url.Action("Loc","PhuKien")">Lọc</a></li>
                                             <li><a href="#">Trang trí</a></li>
                                             <li><a href="#">Chế phẩm nước</a></li>
                                             <li><a href="#">Thiết bị chiếu sáng</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="cua-hang.html" class="header-menu-one">Cửa hàng<i class="fa fa-caret-down marL5" aria-hidden="true"></i></a>
+                                        <a href="@Url.Action("Index","CuaHang")" class="header-menu-one">Cửa hàng<i class="fa fa-caret-down marL5" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class="right-side">
                                                 <a href="#">Cá vàng</a>
@@ -54,13 +55,13 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="blog-style-1.html" class="header-menu-one">blog</a>
+                                        <a href="@Url.Action("Index","Blog")" class="header-menu-one">blog</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("About", "Home")" class="header-menu-one">Giới thiệu</a>
+                                        <a href="@Url.Action("Index","About")" class="header-menu-one">Giới thiệu</a>
                                         @*@Html.ActionLink("Giới thiệu", "About","Home")*@
                                     </li>
-                                    <li><a href="@Url.Action("Contact", "Home")" class="header-menu-one">liên hệ</a></li>
+                                    <li><a href="@Url.Action("Index", "Contact")" class="header-menu-one">liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>

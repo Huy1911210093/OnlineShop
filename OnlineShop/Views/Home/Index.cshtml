@@ -3,93 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!--//================Slider section start==============//-->
-<div class="slider-section">
-    <div id="slider_one" class="owl-carousel owl-theme">
-        <div class="item">
-            <div class="slider-box">
-                <figure>
-                    <img src="~/Content/assets/images/slider/slider-one.jpg" alt="">
-                </figure>
-                <div class="slider-text">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="slider-content slider-right item-1">
-                                    <h4>Chúng tôi đem đến những chú cá khỏe mạnh</h4>
-                                    <h1>Cá vàng</h1>
-                                    <a href="#" class="template-button">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="slider-box">
-                <figure>
-                    <img src="~/Content/assets/images/slider/slider-two.jpg" alt="">
-                </figure>
-                <div class="slider-text">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="slider-content slider-right item-2">
-                                    <h4>Chúng tôi đem đến những chú cá khỏe mạnh</h4>
-                                    <h1>Huyết long</h1>
-                                    <a href="#" class="template-button">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="slider-box">
-                <figure>
-                    <img src="~/Content/assets/images/slider/slider-three.jpg" alt="">
-                </figure>
-                <div class="slider-text">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="slider-content item-3">
-                                    <h4>Chúng tôi đem đến những chú cá khỏe mạnh</h4>
-                                    <h1>Betta</h1>
-                                    <a href="#" class="template-button">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="slider-box">
-                <figure>
-                    <img src="~/Content/assets/images/slider/slider-four.jpg" alt="">
-                </figure>
-                <div class="slider-text">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="slider-content slider-right item-1">
-                                    <h4>Chúng tôi đem đến những chú cá khỏe mạnh</h4>
-                                    <h1>La hán</h1>
-                                    <a href="#" class="template-button">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--//================Mega collection section end==============//-->
+@Html.Partial("_Slider");
 <!--//================New arrival section start==============//-->
 <div class="new-arrival-section padB60">
     <div class="container">
@@ -502,7 +416,7 @@
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="product-button">
-                                <a href="#" class="template-button">Xem tất cả</a>
+                                <a href="@Url.Action("Index","CuaHang")" class="template-button">Xem tất cả</a>
                             </div>
                         </div>
                     </div>
@@ -561,14 +475,3 @@
     </div>
 </div>
 <!--//================Slider-two section end==============//-->
-<!--//================Scroll section start==============//-->
-<div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="row">
-        <div class="scroll-top">
-            <div id="stop" class="scrollTop">
-                <span><a href="#"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a></span>
-            </div>
-        </div>
-    </div>
-</div>
-<!--//================Scroll section end==============//-->

@@ -1,0 +1,227 @@
+﻿
+@{
+    ViewBag.Title = "Loc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--//================Breadcrumb section start==============//-->
+<section>
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-heading">
+                        <div class="page-header-heading padB10">
+                            <h3>Chi tiết sản phẩm</h3>
+                        </div>
+                        <div class="breadcrum-box">
+                            <ul class="breadcrum">
+                                <li><a href="index.html">Trang chủ</a></li>
+                                <li class="active"><a href="#">Chi tiết sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//================Breadcrumb section end==============//-->
+<!--//================Product section start==============//-->
+<div class="product-page padTB60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="col-md-10 col-sm-10 col-xs-12 pull-right">
+                    <figure class="product-page-image">
+                        <img src="~/Content/assets/images/all-image/betta-xanh.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="product-page-heading">
+                    <h4>Tên sản phẩm</h4>
+                    <h3>$90.00</h3>
+                    <p class="marT10">Vivamus at ligula tortor. Nunc eu velit orci. Suspendisse potenti. Aliquam mattis adipiscing nisi quis faucibus.</p>
+                    <p class="marB0"><a href="#"><span>read more....</span></a></p>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="row">
+                        <div class="select-size">
+                            <select>
+                                <option value="0">Chọn size:</option>
+                                <option>nhỏ</option>
+                                <option>trung bình</option>
+                                <option>trưởng thành</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="row">
+                        <div class="incress-button">
+                            <ul>
+                                <li><button class="minus"><i class="fa fa-minus" aria-hidden="true"></i></button></li>
+                                <li><input type="text" value="01" class="qty"></li>
+                                <li><button class="add"><i class="fa fa-plus" aria-hidden="true"></i></button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="add-to-cart">
+                            <a href="#" class="template-button"><i class="fa fa-shopping-bag marR10" aria-hidden="true"></i>Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="product-ability">
+                            <p><strong>mã sản phẩm</strong> : <span>dpc001</span></p>
+                            <p><strong>Còn</strong> : <span>2</span></p>
+                            <p><strong>loại</strong> : loại cá</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//================Product section end==============//-->
+<!--//================Related product start==============//-->
+<div class="new-arrival-section padTB60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="journey-heading">
+                    <h4><span>Sản phẩm liên quan(hiện chung 1 loại cá)</span></h4>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="slider-two">
+                        <div id="new_arrival" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="arrival-image">
+                                        <div class="arrival-image-overlay">
+                                            <figure>
+                                                <span class="overlay-two"></span>
+                                                <img src="~/Content/assets/images/arrival/arrival1.jpg" alt="">
+                                                <figcaption>
+                                                    <ul class="cart-icon">
+                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">Cras in nunc non ipsum duo</a></h4>
+                                            <span>$90.00<del>$55.00</del></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="arrival-image">
+                                        <div class="arrival-image-overlay">
+                                            <figure>
+                                                <span class="overlay-two"></span>
+                                                <img src="~/Content/assets/images/arrival/arrival2.jpg" alt="">
+                                                <figcaption>
+                                                    <ul class="cart-icon">
+                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">Cras in nunc non ipsum duo</a></h4>
+                                            <span>$90.00<del>$55.00</del></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="arrival-image">
+                                        <div class="arrival-image-overlay">
+                                            <figure>
+                                                <span class="overlay-two"></span>
+                                                <img src="~/Content/assets/images/arrival/arrival3.jpg" alt="">
+                                                <figcaption>
+                                                    <ul class="cart-icon">
+                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">Cras in nunc non ipsum duo</a></h4>
+                                            <span>$90.00<del>$55.00</del></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="arrival-image">
+                                        <div class="arrival-image-overlay">
+                                            <figure>
+                                                <span class="overlay-two"></span>
+                                                <img src="~/Content/assets/images/arrival/arrival4.jpg" alt="">
+                                                <figcaption>
+                                                    <ul class="cart-icon">
+                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">Cras in nunc non ipsum duo</a></h4>
+                                            <span>$90.00<del>$55.00</del></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="arrival-image">
+                                        <div class="arrival-image-overlay">
+                                            <figure>
+                                                <span class="overlay-two"></span>
+                                                <img src="~/Content/assets/images/arrival/arrival1.jpg" alt="">
+                                                <figcaption>
+                                                    <ul class="cart-icon">
+                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">Cras in nunc non ipsum duo</a></h4>
+                                            <span>$90.00<del>$55.00</del></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

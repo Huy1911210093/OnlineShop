@@ -24,7 +24,7 @@ namespace OnlineShop
                 name: "Admin",
                 url: "{controllers}/{action}/{id}",
                 defaults: new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "OnlineShop.Controllers" }
+                namespaces: new[] { "OnlineShop.Areas.Admin.Controllers" }
             );
         }
     }

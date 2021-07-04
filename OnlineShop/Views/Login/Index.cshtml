@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--//================Breadcrumb section start==============//-->
+<section>
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-heading">
+                        <div class="page-header-heading padB10">
+                            <h3>Đăng nhập</h3>
+                        </div>
+                        <div class="breadcrum-box">
+                            <ul class="breadcrum">
+                                <li><a href="index.html">Trang chủ</a></li>
+                                <li class="active"><a href="#">Đăng nhập</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//================Breadcrumb section end==============//-->
+<!--//================Your account section start==============//-->
+<div class="account-box padTB60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form action="" method="get">
+                    <div class="loginForm log-in-xs">
+                        <div class="login-box" id="loginbox">
+                            <h4>Đăng nhập</h4>
+                            <form class="login-form">
+                                <label>email</label>
+                                <input type="text" placeholder="email">
+                                <label>mật khẩu</label>
+                                <input type="password" placeholder="mật khẩu">
+                            </form>
+                            <p><a class="view-password"><i>quên mật khẩu?</i></a></p>
+                            <a href="index.html" class="template-button"><i class="fa fa-lock marR10" aria-hidden="true"></i>Đăng nhập</a>
+                        </div>
+                        <div class="forget-password" style="display:none;" id="forget">
+                            <h4>Đặt lại mật khẩu</h4>
+                            <p>Chúng tôi sẽ gửi đến bạn 1 email để đặt lại mật khẩu</p>
+                            <form class="login-form">
+                                <label>email</label>
+                                <input type="text" placeholder="Nhập email">
+                            </form>
+                            <p><a class="template-button">Gửi</a></p>
+                            <p class="backto"><a class="template-button"><i class="fa fa-long-arrow-left marR10" aria-hidden="true"></i>Trở về trang đăng nhập</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="loginForm">
+                    <div class="create-account">
+                        <h4>Tạo tài khoản</h4>
+                        <p>Bằng cách tạo tài khoản trên trang web của chúng tôi, bạn sẽ có thể mua sắm nhanh hơn, cập nhật tình trạng đơn hàng và theo dõi các đơn hàng bạn đã thực hiện trước đó.</p>
+                        <a href="register.html" class="template-button"><i class="fa fa-user marR10" aria-hidden="true"></i>Tạo một tài khoản</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//================Your account section end==============//-->

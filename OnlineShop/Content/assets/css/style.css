@@ -1,4 +1,4 @@
- /*------------------------------------------------------------------
+/*------------------------------------------------------------------
 [Table of contents]
 
 1 Fonts
@@ -1807,7 +1807,7 @@ span.overlay {
 .template-button {
     background-color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
     padding: 7px 30px;
     font-weight: bold;
@@ -2295,6 +2295,21 @@ ul.cart-icon li a i {
     color: #999999;
     margin-left: 5px;
 }
+
+ul.cloth-rating {
+    float: left;
+    width: 100%;
+}
+
+ul.cloth-rating li {
+    display: inline-block;
+    list-style: none;
+}
+
+
+/* ul.cloth-rating li i:hover {
+    color: #006eff;
+} */
 
 #menu_slider.owl-theme .owl-nav,
 #new_arrival.owl-theme .owl-nav {
@@ -4461,7 +4476,7 @@ ul.breadcrum li:nth-child(2):before {
 
 .Quick-view-popup {
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     float: left;
     margin-top: 60px;
 }
@@ -4497,7 +4512,7 @@ ul.breadcrum li:nth-child(2):before {
 
 .product-box-btm-blog a {
     border-radius: 0;
-    color: #fff;
+    color: rgb(0, 0, 0);
     margin-left: 10px;
 }
 
@@ -6451,9 +6466,8 @@ figcaption.mega-collection-box.hometwo-mega-collection {
     margin-bottom: 10px;
 }
 
-
 .footer-box-one p {
-	color: #969595;
+    color: #969595;
 }
 
 .faraway {
@@ -6644,4 +6658,3 @@ ul.footer-menu li:first-child a {
     text-align: right;
     padding: 14px 0;
 }
-

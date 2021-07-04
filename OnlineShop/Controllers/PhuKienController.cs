@@ -6,12 +6,16 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Controllers
 {
-    public class HomeController : Controller
+    public class PhuKienController : Controller
     {
+        // GET: PhuKien
         public ActionResult Index()
         {
             return View();
         }
-
+        public ActionResult Loc()
+        {
+            return View();
+        }
     }
 }

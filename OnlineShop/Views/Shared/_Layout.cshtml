@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head  runat="server">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--[if IE]>
@@ -17,7 +17,7 @@
     <!-- Master Css -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
-    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/assets/css/style.css" type="text/css" rel="stylesheet" media="screen">
     <link href="~/Content/assets/css/color.css" rel="stylesheet">
     <link href="~/Content/assets/css/responsive.css" rel="stylesheet">
 </head>
@@ -26,7 +26,7 @@
     <div class="preloder-section">
         <div class="loaderArea">
             <div class="loader">
-                <h1>NTQH </h1>
+                <h1>N30 </h1>
                 <div class="loaderSquare"></div>
                 <h2>Shop</h2>
             </div>
@@ -41,19 +41,19 @@
                     <div class="top-bar padTB20">
                         <div class="col-md-3 col-sm-3 col-xs-12">
                             <div class="top-bar-register padTB10">
-                                <h6><a href="login.html">Đăng nhập</a><span></span> <a href="register.html">Đăng kí</a></h6>
+                                <h6><a href="@Url.Action("Index","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("index","Register")">Đăng kí</a></h6>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <figure class="logo">
-                                <a href="index.html"><img src="~/Content/assets/images/logo.png" alt=""></a>
+                                <a href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo.png" alt=""></a>
                             </figure>
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-12">
                             <div class="usd">
                                 <select name="usd">
-                                    <option value="USD">USD</option>
                                     <option value="VND">VND</option>
+                                    <option value="USD">USD</option>
                                 </select>
                                 <select name="language">
                                     <option value="eng">Tiếng Việt</option>
@@ -68,13 +68,16 @@
         <div class="header_menu">
             <div id="main-menu" class="wa-main-menu">
                 <!-- Menu -->
-                @RenderPage("_HeaderMenu.cshtml");
+                @Html.Partial("_HeaderMenu")
                 <!--  Menu -->
             </div>
         </div>
     </header>
     <!--//================Header section end==============//-->
     @RenderBody();
+    <!--//================Scroll section start==============//-->
+    @Html.Partial("_ScrollTop")
+    <!--//================Scroll section end==============//-->
     <!--//================Footer section start==============//-->
     <div class="footer-section footer_fixed">
         <div class="container">
@@ -166,20 +169,6 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
                                     <h3 class="theme-headdings text-left  product-detail-title s"><a href="#">Your Product Title</a></h3>
-                                    <div class="product-rating">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="#">3 review(s)</a></li>
-                                        </ul>
-                                    </div>
                                     <div class="clear"></div>
                                     <div class="per-box texy-left marT15">
                                         <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
@@ -206,7 +195,7 @@
                                                     <label for="billing_state27">Brands</label>
                                                     <select class="billg_state" id="billing_state27" name="billing_state">
                                                         <option value="">Select Brands</option>
-                                                        <option value="AP">PTM</option>
+                                                        <option value="AP">nghị</option>
                                                         <option value="AR">Clara</option>
                                                         <option value="AS">Ziveg</option>
                                                         <option value="BR">Clara</option>

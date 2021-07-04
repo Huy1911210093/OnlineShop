@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Controllers
 {
-    public class HomeController : Controller
+    public class RegisterController : Controller
     {
+        // GET: Register
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }
