@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,7 +129,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -132,6 +144,102 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupProduct.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineShopDbContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShopDbContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineShopDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineShopDbContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineShopDbContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shop.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Admin_Getall_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Admin_GetById_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Admin_SortLastName_Decrease_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Admin_SortLastName_Increase_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Customers_GetByID_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Customer_Getall_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Customer_SortLastName_Decrease_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Customer_SortLastName_Increase_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Users_Getall_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Users_GetByEmail_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Users_SortLastName_Decrease_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_Users_SortLastName_Increase_Result.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserAccount.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserActivation.cs">
+      <DependentUpon>OnlineShopDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -169,6 +277,48 @@
     <Content Include="Areas\Admin\Content\assets\materialize\css\materialize.min.css" />
     <Content Include="Areas\Admin\Content\assets\materialize\js\materialize.js" />
     <Content Include="Areas\Admin\Content\assets\materialize\js\materialize.min.js" />
+    <Content Include="Areas\Admin\Content\login\css\main.css" />
+    <Content Include="Areas\Admin\Content\login\css\util.css" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Areas\Admin\Content\login\images\icons\favicon.ico" />
+    <Content Include="Areas\Admin\Content\login\images\icons\favicon1.ico" />
+    <Content Include="Areas\Admin\Content\login\js\main.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\animate\animate.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\animsition\css\animsition.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\animsition\js\animsition.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\js\popper.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\daterangepicker\moment.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\select2\select2.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\select2\select2.js" />
+    <Content Include="Areas\Admin\Content\login\vendor\select2\select2.min.css" />
+    <Content Include="Areas\Admin\Content\login\vendor\select2\select2.min.js" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\color.css" />
     <Content Include="Content\assets\css\responsive.css" />
@@ -353,6 +503,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\OnlineShopDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineShopDbContext.edmx</DependentUpon>
+      <LastGenOutput>OnlineShopDbContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\OnlineShopDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineShopDbContext.edmx</DependentUpon>
+      <LastGenOutput>OnlineShopDbContext.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -363,7 +523,6 @@
     <Content Include="Content\assets\plugin\font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
     <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.ttf" />
     <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
@@ -395,6 +554,81 @@
     <Content Include="Areas\Admin\Content\assets\materialize\fonts\roboto\Roboto-Thin.woff2" />
     <Content Include="Areas\Admin\Content\assets\materialize\LICENSE" />
     <Content Include="Areas\Admin\Content\assets\materialize\README.md" />
+    <Content Include="Areas\Admin\Views\Home\Home.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\Ca.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPham\PhuKien.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\DonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoan\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Areas\Admin\Content\login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Areas\Admin\Content\login\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="libman.json" />
+    <Content Include="Areas\Admin\Views\LogIn\Index.cshtml" />
+    <EntityDeploy Include="Models\OnlineShopDbContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineShopDbContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\OnlineShopDbContext.edmx.diagram">
+      <DependentUpon>OnlineShopDbContext.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -434,7 +668,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\assets\plugins\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -448,6 +681,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

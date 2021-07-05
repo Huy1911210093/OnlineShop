@@ -9,7 +9,7 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         // GET: Admin/Home
-        public ActionResult Index()
+        public ActionResult Home()
         {
             return View();
         }

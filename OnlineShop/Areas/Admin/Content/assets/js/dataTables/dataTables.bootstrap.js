@@ -1,4 +1,4 @@
-/* Set the defaults for DataTables initialisation */
+﻿/* Set the defaults for DataTables initialisation */
 $.extend(true, $.fn.dataTable.defaults, {
     "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>" + "t" + "<'row'<'col-sm-6'i><'col-sm-6'p>>",
     "oLanguage": {
@@ -145,10 +145,10 @@ if ($.fn.dataTable.Api) {
                 );
                 var els = $('a', nPaging);
                 $(els[0]).bind('click.DT', {
-                    action: "previous"
+                    action: "trước"
                 }, fnClickHandler);
                 $(els[1]).bind('click.DT', {
-                    action: "next"
+                    action: "sau"
                 }, fnClickHandler);
             },
 

@@ -659,6 +659,7 @@ ul.nav.nav-second-level.collapse.in {
 .sidebar-collapse .nav>li>a:hover,
 .sidebar-collapse .nav>li>a:focus {
     outline: 0;
+	color: aqua;
 }
 
 .navbar-side {
@@ -756,10 +757,13 @@ ul.dropdown-menu.dropdown-messages li a div {
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.card-content .row{
+	align-items:end;
+}
 .dashboard-cards .card-action strong {
-    font-weight: 700;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.65);
+	font-weight: 700;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.65);
 }
 
 .donutpad {
@@ -957,6 +961,8 @@ ul.dropdown-menu.dropdown-messages li a div {
     padding-top: 5px;
     color: #f44336;
 }
+
+
 
 @media(max-width:768px) {
     .navbar-header {

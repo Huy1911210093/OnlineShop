@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand waves-effect waves-dark" href="index.html"><strong>N30 Shop</strong></a>
+                <a class="navbar-brand waves-effect waves-dark" href="@Url.Action("Home","Home")"><strong>N30 Shop</strong></a>
 
                 <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
             </div>
@@ -59,31 +59,28 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-home"></i> Trang chủ</a>
+                        <a class="  waves-effect waves-dark" href="@Url.Action("Home","Home")"><i class="fa fa-home"></i> Trang chủ</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
+                        <a href="#" class="  waves-effect waves-dark"><i class="fa fa-sitemap"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Cá</a>
+                                <a href="@Url.Action("Ca","SanPham")">Cá</a>
                             </li>
                             <li>
-                                <a href="#">Phụ kiện</a>
+                                <a href="@Url.Action("PhuKien","SanPham")">Phụ kiện</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Quản lý đơn hàng</a>
+                        <a href="@Url.Action("DonHang","DonHang")" class="  waves-effect waves-dark"><i class="fa fa-table"></i> Quản lý đơn hàng</a>
                     </li>
                     <li>
-                        <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Biểu đồ</a>
-                    </li>
-                    <li>
-                        <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-user"></i> Quản lý tài khoản</a>
+                        <a href="empty.html" class="  waves-effect waves-dark"><i class="fa fa-fw fa-user"></i> Quản lý tài khoản</a>
                     </li>
 
                     <li>
-                        <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                        <a href="empty.html" class="  waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty Page</a>
                     </li>
 
                 </ul>
@@ -115,10 +112,29 @@
     <script src="~/Areas/Admin/Content/assets/js/easypiechart-data.js"></script>
 
     <script src="~/Areas/Admin/Content/assets/js/Lightweight-Chart/jquery.chart.js"></script>
-
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="~/Areas/Admin/Content/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
     <!-- Custom Js -->
     <script src="~/Areas/Admin/Content/assets/js/custom-scripts.js"></script>
+    @*<script>
 
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onlick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'active-menu';
+            }
+        }
+    </script>*@
 
 </body>
 

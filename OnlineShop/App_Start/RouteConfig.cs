@@ -23,7 +23,7 @@ namespace OnlineShop
             routes.MapRoute(
                 name: "Admin",
                 url: "{controllers}/{action}/{id}",
-                defaults: new { action = "Index", id = UrlParameter.Optional },
+                defaults: new { action = "Home", id = UrlParameter.Optional },
                 namespaces: new[] { "OnlineShop.Areas.Admin.Controllers" }
             );
         }
