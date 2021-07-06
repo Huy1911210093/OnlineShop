@@ -42,40 +42,42 @@
             <div class="wrap-login100">
                 @using (Html.BeginForm("LogIn", "LogIn", FormMethod.Post, new { @class = "login100-form validate-form" }))
                 {
-                        <span class="login100-form-title p-b-26">
-                            Welcome
-                        </span>
-                        <span class="login100-form-title p-b-48">
-                            <img src="~/Areas/Admin/Content/login/images/icons/favicon1.ico" />
-                        </span>
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, null, new {@class = "alert alert-danger"})
-                        <div class="wrap-input100 validate-input" data-validate="Email hợp lệ: abc@gmail.com">
-                            @Html.TextBoxFor(m => m.Email,"", new { @class = "input100"})
-                            <span class="focus-input100" data-placeholder="Email"></span>
-                        </div>
+                    <span class="login100-form-title p-b-26">
+                        Welcome
+                    </span>
+                    <span class="login100-form-title p-b-48">
+                        <img src="~/Areas/Admin/Content/login/images/icons/favicon1.ico" />
+                    </span>
+                    @Html.AntiForgeryToken()
 
-                        <div class="wrap-input100 validate-input" data-validate="Nhập password">
-                            <span class="btn-show-pass">
-                                <i class="zmdi zmdi-eye"></i>
-                            </span>
-                            @Html.PasswordFor(m => m.Password, new { @class = "input100" })
-                            <span class="focus-input100" data-placeholder="Password"></span>
-                        </div>
+                    <div class="wrap-input100 validate-input" data-validate="Email hợp lệ: abc@gmail.com">
+                        <span >Email</span>
+                        @Html.TextBoxFor(m => m.Email, "", new { @class = "input100" })
+                        @*<span class="focus-input100" data-placeholder="Email"></span>*@
+                    </div>
 
-                        <div class="container-login100-form-btn">
-                            <div class="wrap-login100-form-btn">
-                                <div class="login100-form-bgbtn"></div>
-                                <button class="login100-form-btn">
-                                    Login
-                                </button>
-                            </div>
+                    <div class="wrap-input100 validate-input" data-validate="Nhập password">
+                        <span>Password</span>
+                        <span class="btn-show-pass">
+                            <i class="zmdi zmdi-eye"></i>
+                        </span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "input100" })
+                        @*<span class="focus-input100" data-placeholder="Password"></span>*@
+                    </div>
+                    @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn">
+                                Login
+                            </button>
                         </div>
-                        <div class="text-center p-t-115">
-                            <a class="txt2" href="#">
-                                Quên mật khẩu?
-                            </a>
-                        </div>
+                    </div>
+                    <div class="text-center p-t-115">
+                        <a class="txt2" href="#">
+                            Quên mật khẩu?
+                        </a>
+                    </div>
                 }
             </div>
         </div>

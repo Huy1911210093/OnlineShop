@@ -9,7 +9,7 @@ using OnlineShop.Models;
 using OnlineShop.Models.Dao;
 
 namespace OnlineShop.Areas.Admin.Controllers
-{ 
+{
     public class LogInController : Controller
     {
         ShopDbContext objModel = new ShopDbContext();
@@ -35,21 +35,25 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
 
                 var dao = new AdminDao();
-                var result = dao.Login(model.Email, model.Password);
+                var result = dao.Login(model.Email, EncryptPassword.MD5Hash(model.Password));
 
-                if (result)
+                switch (result)
                 {
-                    var admin = dao.GetById(model.Email);
-                    var adminSession = new UserLogin();
-                    adminSession.Email = admin.Email;
-                    adminSession.UserId = admin.Id;
-                    Session.Add(CommonConstant.ADMIN_SESSION,adminSession);
-                    Session["Name"] = admin.LastName;
-                    return RedirectToAction("Home", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Sai email hoặc mật khẩu");
+                    case 1:
+                        var admin = dao.GetById(model.Email);
+                        var adminSession = new UserLogin();
+                        adminSession.Email = admin.Email;
+                        adminSession.UserId = admin.Id;
+                        Session.Add(CommonConstant.ADMIN_SESSION, adminSession);
+                        Session["Name"] = admin.LastName;
+                        return RedirectToAction("Home", "Home");
+                    case 0:
+                        ModelState.AddModelError("", "Tài khoản chưa có!");
+                        break;
+                    case -1:
+                        ModelState.AddModelError("", "Sai mật khẩu");
+                        break;
+
                 }
 
             }

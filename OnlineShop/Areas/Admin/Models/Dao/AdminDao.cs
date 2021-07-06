@@ -24,16 +24,23 @@ namespace OnlineShop.Models.Dao
             return entity.Id;
         }
 
-        public bool Login(string email, string passWord)
+        public int Login(string email, string passWord)
         {
-            var result = db.Admins.Count(m => m.Email == email && m.Password == passWord);
-            if(result > 0)
+            var result = db.Admins.SingleOrDefault(m => m.Email == email);
+            if(result == null)
             {
-                return true;
+                return 0;//tai khoan khong ton tai
             }
             else
             {
-                return false;
+                if (result.Password == passWord)
+                {
+                    return 1;//dung email dung pass
+                }
+                else
+                {
+                    return -1;//sai pass
+                }
             }
         }
     }

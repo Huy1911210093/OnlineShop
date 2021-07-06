@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Common\CommonConstant.cs" />
+    <Compile Include="Areas\Admin\Common\EncryptPassword.cs" />
     <Compile Include="Areas\Admin\Common\UserLogin.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
