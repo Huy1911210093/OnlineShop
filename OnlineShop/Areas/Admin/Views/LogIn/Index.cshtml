@@ -1,4 +1,4 @@
-﻿@model OnlineShop.Models.Admin
+﻿@model OnlineShop.Areas.Admin.Models.LoginModel
 @{
     Layout = null;
 }
@@ -49,6 +49,7 @@
                             <img src="~/Areas/Admin/Content/login/images/icons/favicon1.ico" />
                         </span>
                         @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, null, new {@class = "alert alert-danger"})
                         <div class="wrap-input100 validate-input" data-validate="Email hợp lệ: abc@gmail.com">
                             @Html.TextBoxFor(m => m.Email,"", new { @class = "input100"})
                             <span class="focus-input100" data-placeholder="Email"></span>
@@ -70,7 +71,6 @@
                                 </button>
                             </div>
                         </div>
-
                         <div class="text-center p-t-115">
                             <a class="txt2" href="#">
                                 Quên mật khẩu?

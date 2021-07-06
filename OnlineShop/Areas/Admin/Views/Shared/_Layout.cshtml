@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -38,7 +39,12 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
-                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>John Doe</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+                
+                @if(Session["Name"] != null) 
+                {
+                    <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i><b>@Session["Name"].ToString()</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+                }
+                
             </ul>
         </nav>
         <!-- Dropdown Structure -->
@@ -124,17 +130,17 @@
     <script src="~/Areas/Admin/Content/assets/js/custom-scripts.js"></script>
     @*<script>
 
-        let list = document.querySelectorAll('.list');
-        for (let i = 0; i < list.length; i++) {
-            list[i].onlick = function () {
-                let j = 0;
-                while (j < list.length) {
-                    list[j++].className = 'list';
+            let list = document.querySelectorAll('.list');
+            for (let i = 0; i < list.length; i++) {
+                list[i].onlick = function () {
+                    let j = 0;
+                    while (j < list.length) {
+                        list[j++].className = 'list';
+                    }
+                    list[i].className = 'active-menu';
                 }
-                list[i].className = 'active-menu';
             }
-        }
-    </script>*@
+        </script>*@
 
 </body>
 

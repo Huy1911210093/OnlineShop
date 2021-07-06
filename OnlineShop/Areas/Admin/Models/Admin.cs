@@ -6,13 +6,21 @@ namespace OnlineShop.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("UserActivation")]
-    public partial class UserActivation
+    [Table("Admin")]
+    public partial class Admin
     {
-        [Key]
+        public int Id { get; set; }
+
+        [StringLength(300)]
+        public string FirstName { get; set; }
+
+        [StringLength(300)]
+        public string LastName { get; set; }
+
         [StringLength(300)]
         public string Email { get; set; }
 
-        public Guid Code { get; set; }
+        [StringLength(300)]
+        public string Password { get; set; }
     }
 }
