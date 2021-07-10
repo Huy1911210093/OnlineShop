@@ -311,8 +311,9 @@
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyCaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyPhuKienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyTaiKhoanController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -326,9 +327,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Models\Admin.cs" />
+    <Compile Include="Areas\Admin\Models\Dao\AdminDao.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Areas\Admin\Models\Dao\AdminDao.cs" />
     <Compile Include="Models\GroupProduct.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Order.cs" />
@@ -715,6 +716,16 @@
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyCa\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyCa\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyCa\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyCa\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

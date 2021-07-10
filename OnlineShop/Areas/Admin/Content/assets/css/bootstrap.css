@@ -2473,7 +2473,7 @@ pre code {
         width: 91.66666667%
     }
     .col-md-10 {
-        width: 83.33333333%
+        width: 50%
     }
     .col-md-9 {
         width: 75%
@@ -3128,7 +3128,7 @@ output {
 
 .form-control {
     display: block;
-    width: 100%;
+    width: 20%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -3660,7 +3660,7 @@ textarea.form-group-lg .form-control {
 }
 .btn {
 	display: inline-block;
-	padding: 6px 12px;
+	padding: 8px 12px;
 	margin-bottom: 0;
 	font-size: 14px;
 	font-weight: 400;
