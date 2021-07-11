@@ -13,5 +13,25 @@ namespace OnlineShop.Controllers
         {
             return View();
         }
+        public ActionResult CaVang()
+        {
+            return View();
+        }
+        public ActionResult Guppy()
+        {
+            return View();
+        }
+        public ActionResult Betta()
+        {
+            return View();
+        }
+        public ActionResult LaHan()
+        {
+            return View();
+        }
+        public ActionResult Koi()
+        {
+            return View();
+        }
     }
 }

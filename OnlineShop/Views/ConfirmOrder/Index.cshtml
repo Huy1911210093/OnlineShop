@@ -1,0 +1,166 @@
+﻿@model OnlineShop.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--//================Breadcrumb section start==============//-->
+<section>
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-heading">
+                        <div class="page-header-heading padB10">
+                            <h3>order</h3>
+                        </div>
+                        <div class="breadcrum-box">
+                            <ul class="breadcrum">
+                                <li><a href="index-2.html">Trang chủ</a></li>
+                                <li class="active"><a href="#">Đơn hàng</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//================Breadcrumb section end==============//-->
+<!--//================Order section start==============//-->
+<div class="order-section padTB60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="order-receive bg-color">
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                    <p>cảm ơn, đơn hàng của bạn đã được ghi nhận</p>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="order-number">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="order-total order-res">
+                            <p>Mã đơn hàng</p>
+                            <span><strong>6542</strong></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="order-total order-res">
+                            <p>Ngày đặt</p>
+                            <span><strong>november 9,2017</strong></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="order-total order-res">
+                            <p>tổng cộng</p>
+                            <span><strong>$140.00</strong></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="order-total">
+                            <p>Phương thức thanh toán</p>
+                            <span><strong>Lấy từ 3 cái radio bên kia qua</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                <div class="order-detail-bottom text-center padT60">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4>Chi tiết đơn hàng</h4>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h5>Sản phẩm</h5>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                <h5>tổng cộng</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box order-page-res">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-5 col-xs-6 text-left">
+                                    <p>rocha sleeve sweater</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-2 text-left">
+                                    <p><span>x</span> 1</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                    <p><strong>$140.00</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box order-page-res">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-5 col-xs-6 text-left">
+                                    <p>ammani green</p>
+                                    <p><i class="fa fa-caret-right" aria-hidden="true"></i>color : black</p>
+                                    <p><i class="fa fa-caret-right" aria-hidden="true"></i>size : xL</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-2 text-left">
+                                    <p><span>x</span>3</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                    <p><strong>$140.00</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box order-page-res">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-5 col-xs-6 text-left">
+                                    <p>mauris tincidunt</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-2 text-left">
+                                    <p><span>x</span> 6</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                    <p><strong>$140.00</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-subtotal">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                    <p class="padB10"><strong>Phí vận chuyển</strong></p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                    <p class="padB10">free shipping</p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                    <p><strong>phương thức thanh toán</strong></p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                    <p>direct bank transfer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="final_total padT20">
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                    <p><strong>Tổng: </strong></p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                    <p class="product-color"><strong>$140.00</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//================Order section end==============//-->

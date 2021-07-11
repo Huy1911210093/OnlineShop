@@ -17,5 +17,17 @@ namespace OnlineShop.Controllers
         {
             return View();
         }
+        public ActionResult TrangTri()
+        {
+            return View();
+        }
+        public ActionResult ChePhamNuoc()
+        {
+            return View();
+        }
+        public ActionResult ThietBiChieuSang()
+        {
+            return View();
+        }
     }
 }

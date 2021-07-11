@@ -317,6 +317,7 @@
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ConfirmOrderController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CuaHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -717,6 +718,15 @@
     <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\ThanhToan\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\CuaHang\CaVang.cshtml" />
+    <Content Include="Views\CuaHang\Guppy.cshtml" />
+    <Content Include="Views\CuaHang\Betta.cshtml" />
+    <Content Include="Views\CuaHang\LaHan.cshtml" />
+    <Content Include="Views\CuaHang\Koi.cshtml" />
+    <Content Include="Views\PhuKien\TrangTri.cshtml" />
+    <Content Include="Views\PhuKien\ChePhamNuoc.cshtml" />
+    <Content Include="Views\PhuKien\ThietBiChieuSang.cshtml" />
+    <Content Include="Views\ConfirmOrder\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

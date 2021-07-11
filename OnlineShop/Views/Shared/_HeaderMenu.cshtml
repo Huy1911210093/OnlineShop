@@ -28,28 +28,28 @@
                                         <a href="@Url.Action("Index","PhuKien")" class="header-menu-one">Phụ kiện<i class="fa fa-caret-down marL5" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="@Url.Action("Loc","PhuKien")">Lọc</a></li>
-                                            <li><a href="#">Trang trí</a></li>
-                                            <li><a href="#">Chế phẩm nước</a></li>
-                                            <li><a href="#">Thiết bị chiếu sáng</a></li>
+                                            <li><a href="@Url.Action("TrangTri","PhuKien")">Trang trí</a></li>
+                                            <li><a href="@Url.Action("ChePhamNuoc","PhuKien")">Chế phẩm nước</a></li>
+                                            <li><a href="@Url.Action("ThietBiChieuSang","PhuKien")">Thiết bị chiếu sáng</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="@Url.Action("Index","CuaHang")" class="header-menu-one">Cửa hàng<i class="fa fa-caret-down marL5" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class="right-side">
-                                                <a href="#">Cá vàng</a>
+                                                <a href="@Url.Action("CaVang","CuaHang")">Cá vàng</a>
                                             </li>
                                             <li>
-                                                <a href="#">Guppy</a>
+                                                <a href="@Url.Action("Guppy","CuaHang")">Guppy</a>
                                             </li>
                                             <li>
-                                                <a href="#">Cá Betta</a>
+                                                <a href="@Url.Action("Betta","CuaHang")">Cá Betta</a>
                                             </li>
                                             <li>
-                                                <a href="#">Cá la hán</a>
+                                                <a href="@Url.Action("LaHan","CuaHang")">Cá la hán</a>
                                             </li>
                                             <li>
-                                                <a href="#">Cá Koi</a>
+                                                <a href="@Url.Action("Koi","CuaHang")">Cá Koi</a>
                                             </li>
 
                                         </ul>
@@ -74,7 +74,7 @@
                         <ul>
                             <li><a href="#" class="search-click"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                            <li><a href="@Url.Action("Index","GioHang")"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
