@@ -19,11 +19,6 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Index1()
-        {
-            return View();
-        }
-
 
         //LOGIN DÙNG SESSION
 
