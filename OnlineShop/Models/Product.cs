@@ -41,7 +41,7 @@
         [Column(TypeName = "date")]
         [DisplayName("Ngày tạo")]
         public DateTime? Date { get; set; }
-        [DisplayName("Trạng thái")]
+        [DisplayName("Số lượng")]
         public int? Status { get; set; }
 
         [StringLength(100)]

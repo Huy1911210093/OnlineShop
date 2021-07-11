@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--//================Breadcrumb section start==============//-->
+<section>
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-heading">
+                        <div class="page-header-heading padB10">
+                            <h3>Thanh toán</h3>
+                        </div>
+                        <div class="breadcrum-box">
+                            <ul class="breadcrum">
+                                <li><a href="index-2.html">Trang chủ</a></li>
+                                <li class="active"><a href="#">Thanh toán</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//================Breadcrumb section end==============//-->
+<!--//================checkout section start==============//-->
+<div class="checkout-section padTB60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="bil-detail padT30">
+                    <h4>Địa chỉ thanh toán</h4>
+                    <div class="bill-contact-detail">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>họ & tên<sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <input type="text" class="marB20" name="billing_first_name">
+                            </div>
+                            <div class="col-md-6">
+                                <label>email  <sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <input type="text" class="marB20" name="billing_email_address">
+                            </div>
+                            <div class="col-md-6">
+                                <label>số điện thoại <sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <input type="text" class="marB20" name="billing_phone">
+                            </div>
+                            <div class="col-md-12">
+                                <label>Thành phố <sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <select name="billing_TP" class="marB20">
+                                    <option value="">(tên thành phố)Chỗ này get API bỏ vô</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Quận/Huyện <sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <select name="billing_quan_huyen" class="marB20">
+                                    <option value="">(tên quận huyện)Chỗ này get API bỏ vô</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Phường/Xã <sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <select name="billing_phuong_xa" class="marB20">
+                                    <option value="">(tên phường xã)Chỗ này get API bỏ vô</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Địa chỉ <sup><i class="fa fa-star" aria-hidden="true"></i></sup></label>
+                                <input type="text" placeholder="Số nhà/tên đường" class="marB20" name="billing_street_address">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="checkout-order-section bg-color text-center checkout-order-section-res">
+                    <h4>Đơn hàng</h4>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box checkout-order-total">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-8 col-xs-8 text-left">
+                                    <p><strong>Mã đơn hàng</strong></p>
+                                </div>
+                                <div class="col-md-6 col-sm-4 col-xs-4 text-right">
+                                    <p>ABCXYZMLJGDUF</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 marT30">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h5><strong>Sản phẩm</strong></h5>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                <h5><strong>Tổng cộng</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-xs-8 text-left">
+                                    <div class="row">
+                                        <div class="col-md-9 col-sm-12 col-xs-12 text-left">
+                                            <p>rocha sleeve sweater</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-12 col-xs-12 text-left">
+                                            <p><span>x</span> 1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                    <p>$140.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-xs-8 text-left">
+                                    <div class="row">
+                                        <div class="col-md-9 col-sm-12 col-xs-12 text-left">
+                                            <p>mauris tincidunt</p>
+                                        </div>
+                                        <div class="col-md-3 col-sm-12 col-xs-12 text-left">
+                                            <p><span>x</span> 6</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                    <p>$140.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="order-detail-box checkout-order-total">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-5 text-left">
+                                    <p><strong>phí vận chuyển</strong></p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-7 text-right">
+                                    <p>free shipping</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="checkout-order-total padT20">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-8 col-xs-8 text-left">
+                                    <p><strong>tổng đơn hàng</strong></p>
+                                </div>
+                                <div class="col-md-6 col-sm-4 col-xs-4 text-right">
+                                    <p class="product-color"><strong>$140.00</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="checkout-payment-method padT20">
+                            <div class="row">
+                                <h4>Phương thức thanh toán</h4>
+                                <div class="payment-transfer-detail marT30">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                            <input type="radio" name="payment" id="direct_bank" value="direct_bank"><label for="direct_bank">Chuyển khoản</label>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                            <p>
+                                                Thực hiện thanh toán của bạn trực tiếp vào tài khoản của chúng tôi. Vui lòng sử dụng mã đơn đặt hàng của bạn làm nội dung chuyển khoản. Đơn đặt hàng của bạn sẽ không được chuyển cho đến khi chuyển khoản
+                                                thành công.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                            <input type="radio" name="payment" id="cash" value="cash"><label for="cash">Thanh toán khi giao hàng</label>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                            <p>Vui lòng thanh toán 30% giá trị đơn hàng để đảm bảo bạn nhận hàng của chùng tôi.</p>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                            <input type="radio" name="payment" id="paypal" value="paypal"><label for="paypal">paypal</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="payment-check checkout-proceed">
+                            <div class="remember_me">
+                                <input type="checkbox" id="readyI">
+                                <label for="readyI">Tôi đã đọc và chấp nhận các điều khoản và điều kiện</label>
+                            </div>
+                            <a href="order.html" class="template-button">Thanh toán</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//================checkout section end==============//-->

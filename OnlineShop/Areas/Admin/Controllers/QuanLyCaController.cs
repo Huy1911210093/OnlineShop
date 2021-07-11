@@ -10,7 +10,7 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class QuanLyCaController : Controller
+    public class QuanLyCaController : BaseController
     {
         private ShopDbContext db = new ShopDbContext();
 
