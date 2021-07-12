@@ -10,7 +10,8 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class QuanLyCaController : BaseController
+    public class QuanLyCaController : Controller
+    //public class QuanLyCaController : BaseController
     {
         private ShopDbContext db = new ShopDbContext();
 
@@ -40,7 +41,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name");
-            ViewBag.DVT = new SelectList(db.GroupProducts, "DVT", "Name");
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
         }
 
@@ -59,7 +60,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             }
 
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
-          
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View(product);
         }
 
@@ -76,6 +77,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
+           
             return View(product);
         }
 
@@ -84,7 +86,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,DVT,Status,Size")] Product product)
+        public ActionResult Edit([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -93,6 +95,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View(product);
         }
 

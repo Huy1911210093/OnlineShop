@@ -674,13 +674,13 @@
     <Content Include="Areas\Admin\Views\QuanLyCa\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

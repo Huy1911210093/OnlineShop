@@ -6,8 +6,8 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-
-    public class HomeController : BaseController
+    //public class HomeController : BaseController
+    public class HomeController : Controller
     {
         // GET: Admin/Home
         public ActionResult Home()
