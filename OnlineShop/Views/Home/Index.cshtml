@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var listNewProducts = (List<OnlineShop.Models.Product>)ViewBag.NewProducts;
 }
 
 @Html.Partial("_Slider");
@@ -17,121 +18,36 @@
                 <div class="slider-two">
                     <div class="row">
                         <div id="new_arrival" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/arrival/arrival1.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên Sản Phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/arrival/arrival2.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
+                            @foreach (var item in listNewProducts)
+                            {
+                                //var url = "/Chi-tiet/" + item.GroupProduct + "-" + item.IdProduct;
+                              
+                                <div class="item">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="arrival-image">
+                                            <div class="arrival-image-overlay">
+                                                <figure>
+                                                    <span class="overlay-two"></span>
+                                                    <img src="@item.Image" alt="@item.Name">
+                                                    <figcaption>
+                                                        <ul class="cart-icon">
+                                                            <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                            <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                            <div class="arrival-image-content">
+                                                <h4><a href="product-detail.html">@item.Name</a></h4>
+                                                <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0"):"Liên hệ ")</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/arrival/arrival3.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/arrival/arrival5.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/arrival/arrival5.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            }
+
+
                         </div>
                     </div>
                 </div>

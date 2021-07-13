@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Models.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace OnlineShop.Controllers
     {
         public ActionResult Index()
         {
+            var productDao = new ProductDao();
+            ViewBag.NewProducts = productDao.ListNewProduct(4);
             return View();
         }
 
