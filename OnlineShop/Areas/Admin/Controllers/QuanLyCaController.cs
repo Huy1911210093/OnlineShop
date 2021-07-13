@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
@@ -100,6 +101,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyCa/Delete/5
+        //Khởi tạo trang delete
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,13 +117,22 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // POST: Admin/QuanLyCa/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Product product = db.Products.Find(id);
+        //    db.Products.Remove(product);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+        //Delete bằng ajax
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            new ProductDao().Delete(id);
+
             return RedirectToAction("Index");
         }
 
