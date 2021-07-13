@@ -33,7 +33,7 @@
 
                         <div class="row">
 
-                            <a class="waves-effect waves-light btn" href="@Url.Action("Create", "QuanLyCa")"><i class="material-icons right">add</i>Thêm</a>
+                            <a class="waves-effect waves-light btn" href="@Url.Action("Create", "QuanLyCa")"><i class="material-icons right">add</i>Thêm mới</a>
                             @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")"><i class="material-icons right">delete</i>Xóa</a>
                             <a class="waves-effect waves-light btn" href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
                         </div>
@@ -58,22 +58,31 @@
                                     {
                                         //while (item.GroupProduct.IdGroupProduct < 6)
                                         //{
-                                    <tr class="odd gradeX">
-                                        <td> @Html.DisplayFor(modelItem => item.GroupProduct.Name)</td>
-                                        <td>  @Html.DisplayFor(modelItem => item.Name)</td>
-                                        <td class="center">@Html.DisplayFor(modelItem => item.Price)</td>
-                                        <td class="center"> @Html.DisplayFor(modelItem => item.Date)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.Image)</td>
-                                        <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
-                                        <td class="center">@Html.DisplayFor(modelItem => item.Size)</td>
-                                        <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>
-                                        <td class="center">
-                                            @*<a class="waves-effect waves-light btn" id = @(item.IdProduct) href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
-                                            @Html.ActionLink("Edit","Edit" ,"QuanLyCa",null ,new { @class = "waves-effect waves-light btn", id = item.IdProduct })
-                                            @Html.ActionLink("Xóa", "Delete",null,new { @class = "waves-effect waves-light btn", id = item.IdProduct })
-                                            @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")">Xóa</a>*@
-                                        </td>
-                                    </tr>
+                                        <tr class="odd gradeX" id="row_@item.IdProduct">
+                                            <td> @Html.DisplayFor(modelItem => item.GroupProduct.Name)</td>
+                                            <td>  @Html.DisplayFor(modelItem => item.Name)</td>
+                                            <td class="center">@Html.DisplayFor(modelItem => item.Price)</td>
+                                            <td class="center"> @Html.DisplayFor(modelItem => item.Date)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Image)</td>
+                                            <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
+                                            <td class="center">@Html.DisplayFor(modelItem => item.Size)</td>
+                                            <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>
+                                            <td class="center">
+                                                @*<a class="waves-effect waves-light btn" id = @(item.IdProduct) href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
+                                                @Html.ActionLink("Sửa","Edit" ,new { id = item.IdProduct })
+
+                                                @*Xóa abwngf ajax*@
+                                                @Ajax.ActionLink("Xóa","Delete",new { id = item.IdProduct} ,new AjaxOptions
+                                           {
+                                               Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                               OnComplete = "$('#row_"+@item.IdProduct+"').remove()",
+                                               HttpMethod = "Delete"
+                                           })
+
+                                                @*@Html.ActionLink("Xóa", "Delete",new { @class = "waves-effect waves-light btn", id = item.IdProduct })*@
+                                                @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")">Xóa</a>*@
+                                            </td>
+                                        </tr>
                                         //}
 
                                      }
