@@ -40,6 +40,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name");
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             }
 
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View(product);
         }
 
