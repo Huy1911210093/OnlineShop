@@ -4,7 +4,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 <div id="page-wrapper">
     <div class="header">
         <h1 class="page-header">
@@ -12,7 +11,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#">Trang chủ</a></li>
-            <li><a href="#">Đơn hàng</a></li>
+            <li><a href="#">Quản lý đơn hàng</a></li>
         </ol>
 
     </div>
@@ -24,7 +23,7 @@
                 <!-- Advanced Tables -->
                 <div class="card">
                     <div class="card-action">
-                        Danh sách Đơn đặt hàng
+                        Danh sách đơn đặt hàng
                     </div>
                     <div class="card-content">
                         <div class="row">
@@ -35,11 +34,11 @@
                                 <thead>
                                     <tr>
                                         <th>Mã đơn hàng</th>
-                                        <th>Mã KH</th>
-                                        @*<th>sản phẩm</th>*@
-                                        <th>Ngày tạo đơn</th>
+                                        <th>Tên KH</th>
+                                        <th>Ngày tạo</th>
                                         <th>Trạng thái</th>
                                         <th>Tác vụ</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,27 +46,15 @@
                                     {
                                     <tr>
                                         <td>@Html.DisplayFor(modeliteam => item.IdOder)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.IdCustomer)</td>
-                                        @*<td>@Html.DisplayFor(modeliteam => item.Product.Name)</td>*@
+                                        <td>@Html.DisplayFor(modeliteam => item.Customer.LastName)</td>
                                         <td>@Html.DisplayFor(modeliteam => item.Date)</td>
-                                        <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Đơn hàng chưa xác nhận"):"Đã xác nhận")</td>
+                                        <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
                                         @if (item.Status.Value == 0)
                                         {
                                             <td class="center">
-                                                @Html.ActionLink("Xác nhận", "Edit", new { id = item.IdOder }) |
+                                                @*@Html.ActionLink("Xác nhận", "Edit", new { id = item.IdOder }) |*@
+                                                <a href="@Url.Action("Index","ChiTietDonHang")" id="@item.IdOder">Xác nhận</a> |
 
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
-                                                {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        }
-                                        else
-                                        {
-                                            <td class="center">
                                                 @*Xóa bảng dùng ajax*@
                                                 @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
                                                 {
@@ -93,3 +80,4 @@
     </div>
     <!-- /. PAGE INNER  -->
 </div>
+

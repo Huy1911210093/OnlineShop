@@ -311,6 +311,7 @@
     <Compile Include="Areas\Admin\Common\EncryptPassword.cs" />
     <Compile Include="Areas\Admin\Common\UserLogin.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietDonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\GopYController.cs" />
@@ -689,11 +690,6 @@
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Create.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Details.cshtml" />
@@ -701,6 +697,16 @@
     <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
