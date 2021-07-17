@@ -73,19 +73,16 @@
 
                                                     @*Xóa bảng dùng ajax*@
                                                     @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdProduct }, new AjaxOptions
-                                               {
-                                                   Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                   OnComplete = "$('#row_" + @item.IdProduct + "').remove()",
-                                                   HttpMethod = "Delete"
-                                               })
+                                                       {
+                                                           Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                           OnComplete = "$('#row_" + @item.IdProduct + "').remove()",
+                                                           HttpMethod = "Delete"
+                                                       })
 
                                                     @*@Html.ActionLink("Xóa", "Delete",new { @class = "waves-effect waves-light btn", id = item.IdProduct })*@
                                                     @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")">Xóa</a>*@
                                                 </td>
                                             </tr>
-                                            //} }
-
-
                                         }
                                     }
                                 </tbody>

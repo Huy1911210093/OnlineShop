@@ -10,116 +10,107 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class DonHangController : Controller
+    public class GopYController : Controller
     {
         private ShopDbContext db = new ShopDbContext();
 
-        // GET: Admin/DonHang
+        // GET: Admin/GopY
         public ActionResult Index()
         {
-            var orderDetails = db.OrderDetails.Include(o => o.Order).Include(o => o.Product);
-            return View(orderDetails.ToList());
+            return View(db.Contacts.ToList());
         }
 
-        // GET: Admin/DonHang/Details/5
+        // GET: Admin/GopY/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            if (orderDetail == null)
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
             {
                 return HttpNotFound();
             }
-            return View(orderDetail);
+            return View(contact);
         }
 
-        // GET: Admin/DonHang/Create
+        // GET: Admin/GopY/Create
         public ActionResult Create()
         {
-            ViewBag.IdOder = new SelectList(db.Orders, "IdOder", "IdOder");
-            ViewBag.IdProduct = new SelectList(db.Products, "IdProduct", "Name");
             return View();
         }
 
-        // POST: Admin/DonHang/Create
+        // POST: Admin/GopY/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdOderDetail,IdProduct,IdOder,IdCustomer,Quantity")] OrderDetail orderDetail)
+        public ActionResult Create([Bind(Include = "IdContact,Name,Tel,Email,Phone,Content,Status")] Contact contact)
         {
             if (ModelState.IsValid)
             {
-                db.OrderDetails.Add(orderDetail);
+                db.Contacts.Add(contact);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdOder = new SelectList(db.Orders, "IdOder", "IdOder", orderDetail.IdOder);
-            ViewBag.IdProduct = new SelectList(db.Products, "IdProduct", "Name", orderDetail.IdProduct);
-            return View(orderDetail);
+            return View(contact);
         }
 
-        // GET: Admin/DonHang/Edit/5
+        // GET: Admin/GopY/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            if (orderDetail == null)
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdOder = new SelectList(db.Orders, "IdOder", "IdOder", orderDetail.IdOder);
-            ViewBag.IdProduct = new SelectList(db.Products, "IdProduct", "Name", orderDetail.IdProduct);
-            return View(orderDetail);
+            return View(contact);
         }
 
-        // POST: Admin/DonHang/Edit/5
+        // POST: Admin/GopY/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdOderDetail,IdProduct,IdOder,IdCustomer,Quantity")] OrderDetail orderDetail)
+        public ActionResult Edit([Bind(Include = "IdContact,Name,Tel,Email,Phone,Content,Status")] Contact contact)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(orderDetail).State = EntityState.Modified;
+                db.Entry(contact).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdOder = new SelectList(db.Orders, "IdOder", "IdOder", orderDetail.IdOder);
-            ViewBag.IdProduct = new SelectList(db.Products, "IdProduct", "Name", orderDetail.IdProduct);
-            return View(orderDetail);
+            return View(contact);
         }
 
-        // GET: Admin/DonHang/Delete/5
+        // GET: Admin/GopY/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            if (orderDetail == null)
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
             {
                 return HttpNotFound();
             }
-            return View(orderDetail);
+            return View(contact);
         }
 
-        // POST: Admin/DonHang/Delete/5
+        // POST: Admin/GopY/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            db.OrderDetails.Remove(orderDetail);
+            Contact contact = db.Contacts.Find(id);
+            db.Contacts.Remove(contact);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

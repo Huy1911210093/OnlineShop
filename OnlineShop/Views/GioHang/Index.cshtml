@@ -95,7 +95,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                                                <p class="product-color">@item.product.PriceNew.GetValueOrDefault(0).ToString("N0")</p>
+                                                                <p class="product-color">@item.product.PriceNew.GetValueOrDefault(0).ToString("NO")</p>
                                                             </div>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
                                                                 <div class="quantity" data-id="@item.product.IdProduct">
@@ -143,7 +143,8 @@
                                         else
                                         {
 
-                                            <span class="alert alert-danger">Chưa có sản phẩm nào !!!</span>}
+                                            <h4 class="alert alert-danger">Chưa có sản phẩm nào !!!</h4>
+                                        }
 
 
 

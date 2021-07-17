@@ -1,7 +1,8 @@
-namespace OnlineShop.Models
+﻿namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -16,14 +17,16 @@ namespace OnlineShop.Models
         }
 
         [Key]
+
+        [DisplayName("Mã đơn hàng")]
         public int IdOder { get; set; }
-
+        [DisplayName("Mã KH")]
         public int IdCustomer { get; set; }
-
+        [DisplayName("Tổng tiền")]
         public double? TotalMoney { get; set; }
-
+        [DisplayName("Ngày tạo đơn")]
         public DateTime? Date { get; set; }
-
+        [DisplayName("Trang thái")]
         public int? Status { get; set; }
 
         public virtual Customer Customer { get; set; }

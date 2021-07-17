@@ -14,6 +14,12 @@ namespace OnlineShop.Areas.Admin.Models.Dao
         {
             db = new ShopDbContext();
         }
+        public long Insert(Product entity)
+        {
+            db.Products.Add(entity);
+            db.SaveChanges();
+            return entity.IdProduct;
+        }
         public bool Delete(int id)
         {
             try
@@ -27,6 +33,10 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 return false;
             }
             
+        }
+        public List<Product> GetByType(int typeid)
+        {
+            return db.Products.Where(m => m.GroupProduct.TypeId == typeid).ToList();
         }
     }
 }

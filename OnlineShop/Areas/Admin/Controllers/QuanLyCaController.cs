@@ -41,7 +41,9 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/QuanLyCa/Create
         public ActionResult Create()
         {
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name");
+            var productDao = new ProductDao();
+            //khai báo view bag để bỏ qua view cái thằng typeid =1
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 1), "IdGroupProduct", "Name");
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
         }
@@ -49,20 +51,56 @@ namespace OnlineShop.Areas.Admin.Controllers
         // POST: Admin/QuanLyCa/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Products.Add(product);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
+        //    ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
+        //    return View(product);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
+        public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var dao = new ProductDao();
+                var pro = new Product();
+                pro.IdProduct = product.IdProduct;
+                pro.IdGroupProduct = product.IdGroupProduct;
+                pro.Name = product.Name;
+                pro.Detail = product.Detail;
+                pro.Price = product.Price;
+                pro.Image = product.Image;
+                pro.PriceNew = 0;
+                pro.Date = DateTime.Now;
+                pro.Status = product.Status;
+                pro.Size = product.Size;
+                long id = dao.Insert(pro);
+                if(id > 0)
+                {
+                    return RedirectToAction("Index", "QuanLyCa");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+                }
+       
             }
 
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
-            return View(product);
+            return View("Index");
+
         }
 
         // GET: Admin/QuanLyCa/Edit/5

@@ -47,7 +47,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextBoxFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -55,7 +55,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextBoxFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -65,6 +65,9 @@
                 <div class="col-md-10">
                     @Html.TextBox("file", "", new { type = "file" })
                     @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                </div>
+                <div style="width:250px; height:300px; position: absolute; right: 130px;top: 335px; z-index: 100; border: 1px solid black;">
+                    <img id="blah" src="#" alt="Review ảnh" />
                 </div>
             </div>
 

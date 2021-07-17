@@ -35,37 +35,16 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(userAccount);
         }
 
-        // GET: Admin/QuanLyTaiKhoan/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/QuanLyTaiKhoan/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
-        {
-            if (ModelState.IsValid)
-            {
-                db.UserAccounts.Add(userAccount);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(userAccount);
-        }
 
         // GET: Admin/QuanLyTaiKhoan/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(string email)
         {
-            if (id == null)
+            if (email == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             }
-            UserAccount userAccount = db.UserAccounts.Find(id);
+            UserAccount userAccount = db.UserAccounts.Find(email);
             if (userAccount == null)
             {
                 return HttpNotFound();

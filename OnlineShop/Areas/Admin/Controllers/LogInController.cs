@@ -35,7 +35,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 switch (result)
                 {
                     case 1:
-                        var admin = dao.GetById(model.Email);
+                        var admin = dao.GetByEmail(model.Email);
                         var adminSession = new UserLogin();
                         adminSession.Email = admin.Email;
                         adminSession.UserId = admin.Id;

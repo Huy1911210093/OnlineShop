@@ -13,7 +13,7 @@ namespace OnlineShop.Models.Dao
         {
             db = new ShopDbContext();
         }
-        public Admin GetById(string email)
+        public Admin GetByEmail(string email)
         {
             return db.Admins.SingleOrDefault(m => m.Email == email);
         }
