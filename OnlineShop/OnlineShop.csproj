@@ -340,19 +340,19 @@
     </Compile>
     <Compile Include="Areas\Admin\Models\Admin.cs" />
     <Compile Include="Areas\Admin\Models\Dao\AdminDao.cs" />
-    <Compile Include="Models\Dao\CartItem.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Dao\CartItem.cs" />
     <Compile Include="Models\Dao\ContactDao.cs" />
     <Compile Include="Models\Dao\ProductDao.cs" />
     <Compile Include="Models\GroupProduct.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\Shop.cs" />
-    <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserActivation.cs" />
@@ -678,7 +678,6 @@
     <Content Include="Areas\Admin\Views\LogIn\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Delete.cshtml" />
@@ -701,6 +700,7 @@
     <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

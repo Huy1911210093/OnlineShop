@@ -17,7 +17,6 @@
         }
 
         [Key]
-
         [DisplayName("Mã đơn hàng")]
         public int IdOder { get; set; }
         [DisplayName("Mã KH")]

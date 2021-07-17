@@ -9,7 +9,8 @@ namespace OnlineShop.Models
     [Table("UserAccount")]
     public partial class UserAccount
     {
-        [Key]
+        public int Id { get; set; }
+
         [StringLength(300)]
         public string Email { get; set; }
 

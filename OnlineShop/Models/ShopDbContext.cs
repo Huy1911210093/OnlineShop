@@ -11,7 +11,6 @@ namespace OnlineShop.Models
             : base("name=ShopDbContext")
         {
         }
-
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }

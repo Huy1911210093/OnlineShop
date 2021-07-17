@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineShop.Models.OrderDetail>
+﻿@model IEnumerable<OnlineShop.Models.Order>
 
 @{
     ViewBag.Title = "Index";
@@ -36,21 +36,48 @@
                                     <tr>
                                         <th>Mã đơn hàng</th>
                                         <th>Mã KH</th>
-                                        <th>Sản phẩm</th>
+                                        @*<th>sản phẩm</th>*@
                                         <th>Ngày tạo đơn</th>
                                         <th>Trạng thái</th>
+                                        <th>Tác vụ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
                                     <tr>
-                                        <td>@Html.DisplayFor(modeliteam => item.Order.IdOder)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.Order.IdCustomer)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.Product.Name)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.Order.Date)</td>
-                                        <td>@(item.Order.Status.Value == 0 ? item.Order.Status.Value.ToString("Đơn hàng chưa xác nhận"):"Đã xác nhận")</td>
-    
+                                        <td>@Html.DisplayFor(modeliteam => item.IdOder)</td>
+                                        <td>@Html.DisplayFor(modeliteam => item.IdCustomer)</td>
+                                        @*<td>@Html.DisplayFor(modeliteam => item.Product.Name)</td>*@
+                                        <td>@Html.DisplayFor(modeliteam => item.Date)</td>
+                                        <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Đơn hàng chưa xác nhận"):"Đã xác nhận")</td>
+                                        @if (item.Status.Value == 0)
+                                        {
+                                            <td class="center">
+                                                @Html.ActionLink("Xác nhận", "Edit", new { id = item.IdOder }) |
+
+                                                @*Xóa bảng dùng ajax*@
+                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                                {
+                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                                    HttpMethod = "Delete"
+                                                })
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="center">
+                                                @*Xóa bảng dùng ajax*@
+                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                                {
+                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                                    HttpMethod = "Delete"
+                                                })
+                                            </td>
+                                        }
+
                                     </tr>
                                     }
 

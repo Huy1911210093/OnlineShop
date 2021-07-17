@@ -18,6 +18,7 @@
 
         [Key]
         public int IdProduct { get; set; }
+
         [DisplayName("Nhóm")]
         public int IdGroupProduct { get; set; }
 

@@ -37,14 +37,13 @@ namespace OnlineShop.Areas.Admin.Controllers
 
 
         // GET: Admin/QuanLyTaiKhoan/Edit/5
-        public ActionResult Edit(string email)
+        public ActionResult Edit(int? id)
         {
-            if (email == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
             }
-            UserAccount userAccount = db.UserAccounts.Find(email);
+            UserAccount userAccount = db.UserAccounts.Find(id);
             if (userAccount == null)
             {
                 return HttpNotFound();
@@ -57,7 +56,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
+        public ActionResult Edit([Bind(Include = "Id,Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
         {
             if (ModelState.IsValid)
             {

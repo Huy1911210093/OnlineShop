@@ -17,7 +17,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/DonHang
         public ActionResult Index()
         {
-            var orderDetails = db.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            var orderDetails = db.Orders.Include(o => o.Customer);
             return View(orderDetails.ToList());
         }
 
@@ -28,12 +28,12 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            if (orderDetail == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orderDetail);
+            return View(order);
         }
 
         // GET: Admin/DonHang/Create
@@ -70,14 +70,14 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderDetail orderDetail = db.OrderDetails.Find(id);
-            if (orderDetail == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdOder = new SelectList(db.Orders, "IdOder", "IdOder", orderDetail.IdOder);
-            ViewBag.IdProduct = new SelectList(db.Products, "IdProduct", "Name", orderDetail.IdProduct);
-            return View(orderDetail);
+            ViewBag.IdOder = new SelectList(db.Orders, "IdOder", "IdOder", order.IdOder);
+            ViewBag.IdProduct = new SelectList(db.Products, "IdProduct", "Name", order.IdCustomer);
+            return View(order);
         }
 
         // POST: Admin/DonHang/Edit/5

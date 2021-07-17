@@ -40,29 +40,31 @@
                                         <th>Tên</th>
                                         <th>SDT</th>
                                         <th>Ngày tạo</th>
+                                        <th>Tác vụ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@Html.DisplayFor(modeliteam => item.Email)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.Password)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.FirstName)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.LastName)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.CreatedDay)</td>
-                                            <td class="center">
-                                                @Html.ActionLink("Sửa", "Edit", new { id = item.Email }) |
+                                    <tr>
+                                        <td>@Html.DisplayFor(modeliteam => item.Email)</td>
+                                        <td>@Html.DisplayFor(modeliteam => item.Password)</td>
+                                        <td>@Html.DisplayFor(modeliteam => item.FirstName)</td>
+                                        <td>@Html.DisplayFor(modeliteam => item.LastName)</td>
+                                        <td>@Html.DisplayFor(modeliteam => item.Phone)</td>
+                                        <td>@Html.DisplayFor(modeliteam => item.CreatedDay)</td>
+                                        <td class="center">
+                                            @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
 
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.Email }, new AjaxOptions
-                                                {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.Email + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        </tr>
+                                            @*Xóa bảng dùng ajax*@
+                                            @Ajax.ActionLink("Xóa", "Delete", new { id = item.Id }, new AjaxOptions
+                                            {
+                                                Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                OnComplete = "$('#row_" + @item.Id + "').remove()",
+                                                HttpMethod = "Delete"
+                                            })
+                                        </td>
+                                    </tr>
                                     }
 
 
