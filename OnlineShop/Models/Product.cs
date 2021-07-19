@@ -49,6 +49,9 @@
         public string Size { get; set; }
 
         public virtual GroupProduct GroupProduct { get; set; }
+        
+        
+        
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,28 +7,36 @@ using System.Web.Mvc;
 
 namespace OnlineShop.Controllers
 {
+
     public class PhuKienController : Controller
     {
         // GET: PhuKien
+        ShopDbContext objwebsitePhuKien = new ShopDbContext();
         public ActionResult Index()
         {
-            return View();
+            var lstPhuKien = objwebsitePhuKien.Products.Where(n => n.GroupProduct.TypeId == 2).ToList();
+            return View(lstPhuKien);
         }
         public ActionResult Loc()
         {
-            return View();
+            var listLoc = objwebsitePhuKien.Products.Where(n => n.IdGroupProduct == 6).ToList();
+            return View(listLoc);
         }
         public ActionResult TrangTri()
         {
-            return View();
+            var listTrangTri = objwebsitePhuKien.Products.Where(n => n.IdGroupProduct == 9).ToList();
+            return View(listTrangTri);
+
         }
         public ActionResult ChePhamNuoc()
         {
-            return View();
+            var listChePhamNuoc = objwebsitePhuKien.Products.Where(n => n.IdGroupProduct == 8).ToList();
+            return View(listChePhamNuoc);
         }
         public ActionResult ThietBiChieuSang()
         {
-            return View();
+            var listThietBiChieuSang = objwebsitePhuKien.Products.Where(n => n.IdGroupProduct == 7).ToList();
+            return View(listThietBiChieuSang);
         }
     }
 }
