@@ -1,5 +1,6 @@
-﻿@model IEnumerable<OnlineShop.Models.Product>
-
+﻿@*@model IEnumerable<OnlineShop.Models.Product>*@
+@model PagedList.IPagedList<OnlineShop.Models.Product>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";

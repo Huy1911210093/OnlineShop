@@ -28,7 +28,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                
                 var dao = new AdminDao();
                 var result = dao.Login(model.Email, EncryptPassword.MD5Hash(model.Password));
 

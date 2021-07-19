@@ -17,7 +17,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/GopY
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            return View(db.FeedBacks.ToList());
         }
 
         // GET: Admin/GopY/Details/5

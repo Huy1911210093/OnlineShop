@@ -17,12 +17,9 @@ namespace OnlineShop.Controllers
             return View(model);
         }
         [HttpPost]
-        public JsonResult Send(string Name, String Email, String Phone, String Content)
+        public JsonResult Send( String Content)
         {
             var contact = new Contact();
-            contact.Name = Name;
-            contact.Email = Email;
-            contact.Phone = Phone;
             contact.Content = Content;
 
             var id = new ContactDao().InsertContact(contact);

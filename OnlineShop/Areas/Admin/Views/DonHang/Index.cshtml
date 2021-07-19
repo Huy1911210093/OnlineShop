@@ -1,9 +1,13 @@
 ﻿@model IEnumerable<OnlineShop.Models.Order>
+@*@model PagedList.IPagedList<OnlineShop.Models.Order>
+@using PagedList.Mvc;*@
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 <div id="page-wrapper">
     <div class="header">
         <h1 class="page-header">
@@ -35,42 +39,57 @@
                                     <tr>
                                         <th>Mã đơn hàng</th>
                                         <th>Tên KH</th>
+                                        <th>Địa chỉ ship</th>
+                                        <th>SDT</th>
                                         <th>Ngày tạo</th>
                                         <th>Trạng thái</th>
                                         <th>Tác vụ</th>
-                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td>@Html.DisplayFor(modeliteam => item.IdOder)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.Customer.LastName)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.Date)</td>
-                                        <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
-                                        @if (item.Status.Value == 0)
-                                        {
-                                            <td class="center">
-                                                @*@Html.ActionLink("Xác nhận", "Edit", new { id = item.IdOder }) |*@
-                                                <a href="@Url.Action("Index","ChiTietDonHang")" id="@item.IdOder">Xác nhận</a> |
-
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
-                                                {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        }
-
-                                    </tr>
+                                        <tr>
+                                            <td>@Html.DisplayFor(modeliteam => item.IdOder)</td>
+                                            <td>@Html.DisplayFor(modeliteam => item.ShipName)</td>
+                                            <td>@Html.DisplayFor(modeliteam => item.ShipAddress)</td>
+                                            <td>@Html.DisplayFor(modeliteam => item.ShipMobile)</td>
+                                            <td>@Html.DisplayFor(modeliteam => item.Date)</td>
+                                            <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
+                                            @if (item.Status.Value == 0)
+                                            {
+                                                <td class="center">
+                                                    @Html.ActionLink("xác nhận", "ChiTietDonHang", new { id = item.IdOder }) |
+                                                    @*<a href="@Url.Action("ChiTietDonHang","DonHang")" id="@item.IdOder">Xác nhận</a> |*@
+                                                    @*Xóa bảng dùng ajax*@
+                                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                                    {
+                                                        Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                        OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                                        HttpMethod = "Delete"
+                                                    })
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td class="center">
+                                                    @*Xóa bảng dùng ajax*@
+                                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                                    {
+                                                        Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                        OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                                        HttpMethod = "Delete"
+                                                    })
+                                                </td>
+                                            }
+                                        </tr>
                                     }
 
 
                                 </tbody>
                             </table>
+                            @*Phân trang*@
+                            @*@Html.PagedListPager(Model, page => @Url.Action("Index", new { page }))*@
                         </div>
                     </div>
                 </div>
@@ -80,4 +99,3 @@
     </div>
     <!-- /. PAGE INNER  -->
 </div>
-

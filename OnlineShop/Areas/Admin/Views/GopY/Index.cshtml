@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineShop.Models.Contact>
+﻿@model IEnumerable<OnlineShop.Models.FeedBack>
 
 @{
     ViewBag.Title = "Index";
@@ -25,7 +25,7 @@
                 <div class="card">
                     @foreach (var item in Model)
                     {
-                        if(item.Email != null)
+                        if(item.IdContact != 0)
                         {
                             <div class="col-md-4 col-sm-4">
                                 <div class="card">

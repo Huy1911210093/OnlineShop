@@ -187,6 +187,9 @@
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -342,18 +345,18 @@
     <Compile Include="Areas\Admin\Models\Admin.cs" />
     <Compile Include="Areas\Admin\Models\Dao\AdminDao.cs" />
     <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Dao\CartItem.cs" />
     <Compile Include="Models\Dao\ContactDao.cs" />
     <Compile Include="Models\Dao\ProductDao.cs" />
+    <Compile Include="Models\FeedBack.cs" />
     <Compile Include="Models\GroupProduct.cs" />
     <Compile Include="Models\Menu.cs" />
-    <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserActivation.cs" />
@@ -566,6 +569,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -697,16 +701,17 @@
     <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHang\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHang\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\ChiTietDonHang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

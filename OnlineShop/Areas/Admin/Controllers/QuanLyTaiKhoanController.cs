@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models;
+using OnlineShop.Models.Dao;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -15,9 +16,12 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyTaiKhoan
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
-            return View(db.UserAccounts.ToList());
+            var dao = new AdminDao();
+            var model = dao.ListAllPaging(page, pageSize);
+            //return View(products.ToList());
+            return View(model);
         }
 
         // GET: Admin/QuanLyTaiKhoan/Details/5

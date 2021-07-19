@@ -20,6 +20,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.GroupProduct);
+
             return View(products.ToList());
         }
 

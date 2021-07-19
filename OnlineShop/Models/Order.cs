@@ -1,8 +1,7 @@
-﻿namespace OnlineShop.Models
+namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -17,20 +16,29 @@
         }
 
         [Key]
-        [DisplayName("Mã đơn hàng")]
         public int IdOder { get; set; }
-        [DisplayName("Mã KH")]
-        public int IdCustomer { get; set; }
-        [DisplayName("Tổng tiền")]
-        public double? TotalMoney { get; set; }
-        [DisplayName("Ngày tạo đơn")]
-        public DateTime? Date { get; set; }
-        [DisplayName("Trang thái")]
-        public int? Status { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public int IdUserAccount { get; set; }
+
+        [StringLength(500)]
+        public string ShipName { get; set; }
+
+        [StringLength(10)]
+        public string ShipMobile { get; set; }
+
+        [StringLength(500)]
+        public string ShipAddress { get; set; }
+
+        [StringLength(300)]
+        public string ShipEmail { get; set; }
+
+        public DateTime? Date { get; set; }
+
+        public int? Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public virtual UserAccount UserAccount { get; set; }
     }
 }

@@ -1,0 +1,81 @@
+﻿@model OnlineShop.Models.OrderDetail
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Đơn hàng
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Quản lý đơn hàng</a></li>
+        </ol>
+
+    </div>
+
+    <div id="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="card">
+                    <div class="card-action">
+                        Danh sách đơn đặt hàng
+                    </div>
+                    <div>
+                        @if (Session["Id"] != null)
+                        {
+                            <h4>OrderDetail</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Order.ShipName)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Order.ShipName)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Product.Name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Product.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Quantity)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Quantity)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TotalMoney)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.TotalMoney)
+                                </dd>
+
+                            </dl>
+                        }
+
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>

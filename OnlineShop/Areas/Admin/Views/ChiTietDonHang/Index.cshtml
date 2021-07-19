@@ -50,36 +50,40 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            @*<td>@Html.DisplayFor(modeliteam => item.IdOder)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.Order.Customer.LastName)</td>
-                                            <td>@Html.DisplayFor(modelitem => item.Order.Customer.Phone)</td>
-                                            <td>@Html.DisplayFor(modelitem => item.Order.Customer.Email)</td>
-                                            <td>@Html.DisplayFor(modelitem => item.Order.Customer.Address)</td>*@
-                                            <td>@Html.DisplayFor(modelitem => item.Product.Name)</td>
-                                            <td>@Html.DisplayFor(modelitem => item.Product.Price)</td>
-                                            <td>@Html.DisplayFor(modelitem => item.Quantity)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.Order.Date)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.Order.TotalMoney)</td>
-                                            @* <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
-                @if (item.Status.Value == 0)
-                {
-                    <td class="center">
-                        @Html.ActionLink("Xác nhận", "Edit", new { id = item.IdOder }) |
-                                <a href="@Url.Action("Index","ChiTietDonHang")" id="@item.IdOder">Xác nhận</a> |
+                                        if (Session["id"].ToString() == item.IdOder.ToString())
+                                        {
+                                            <tr>
+                                                @*<td>@Html.DisplayFor(modeliteam => item.IdOder)</td>
+                    <td>@Html.DisplayFor(modeliteam => item.Order.Customer.LastName)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Order.Customer.Phone)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Order.Customer.Email)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Order.Customer.Address)</td>*@
+                                                <td>@Html.DisplayFor(modelitem => item.Product.Name)</td>
+                                                <td>@Html.DisplayFor(modelitem => item.Product.Price)</td>
+                                                <td>@Html.DisplayFor(modelitem => item.Quantity)</td>
+                                                <td>@Html.DisplayFor(modeliteam => item.Order.Date)</td>
+                                                <td>@Html.DisplayFor(modeliteam => item.TotalMoney)</td>
+                                                @* <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
+                    @if (item.Status.Value == 0)
+                    {
+                        <td class="center">
+                            @Html.ActionLink("Xác nhận", "Edit", new { id = item.IdOder }) |
+                                    <a href="@Url.Action("Index","ChiTietDonHang")" id="@item.IdOder">Xác nhận</a> |
 
-                                @*Xóa bảng dùng ajax
-                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
-                                {
-                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
-                                    HttpMethod = "Delete"
-                                })
-                                </td>
-                            }*@
+                                    @*Xóa bảng dùng ajax
+                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                    {
+                                        Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                        OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                        HttpMethod = "Delete"
+                                    })
+                                    </td>
+                                }*@
 
-                                </tr>
-                                }
+                                            </tr>
+                                        }
+
+                                    }
 
 
                                 </tbody>

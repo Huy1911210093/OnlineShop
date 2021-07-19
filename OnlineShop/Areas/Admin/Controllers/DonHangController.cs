@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models;
+using OnlineShop.Models.Dao;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -17,10 +18,32 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/DonHang
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer);
+            //var dao = new OrderDao();
+            //var model = dao.ListAllPaging(page, pageSize);
+            var orders = db.Orders.Include(o => o.UserAccount);
             return View(orders.ToList());
+            //return View(model);
         }
+        [HttpPost]
+        public ActionResult ChiTietDonHang(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = db.OrderDetails.Where(m => m.IdOder.Equals(id)).ToList();
+                if (data.Count > 0)
+                {
+                    Session["Id"] = data.FirstOrDefault().IdOder;
+                    return RedirectToAction("ChiTietDonHang");
+                }
+                else
+                {
+                    //ViewBag.error = "Sai tên hoặc mật khẩu";
 
+                    //return RedirectToAction("Index");
+                }
+            }
+            return View();
+        }
         // GET: Admin/DonHang/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,7 +62,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/DonHang/Create
         public ActionResult Create()
         {
-            ViewBag.IdCustomer = new SelectList(db.Customers, "IdCustomer", "FirstName");
+            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email");
             return View();
         }
 
@@ -48,7 +71,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdOder,IdCustomer,TotalMoney,Date,Status")] Order order)
+        public ActionResult Create([Bind(Include = "IdOder,IdUserAccount,ShipName,ShipMobile,ShipAddress,ShipEmail,Date,Status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +80,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdCustomer = new SelectList(db.Customers, "IdCustomer", "FirstName", order.IdCustomer);
+            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email", order.IdUserAccount);
             return View(order);
         }
 
@@ -73,7 +96,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdCustomer = new SelectList(db.Customers, "IdCustomer", "FirstName", order.IdCustomer);
+            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email", order.IdUserAccount);
             return View(order);
         }
 
@@ -82,7 +105,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdOder,IdCustomer,TotalMoney,Date,Status")] Order order)
+        public ActionResult Edit([Bind(Include = "IdOder,IdUserAccount,ShipName,ShipMobile,ShipAddress,ShipEmail,Date,Status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +113,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdCustomer = new SelectList(db.Customers, "IdCustomer", "FirstName", order.IdCustomer);
+            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email", order.IdUserAccount);
             return View(order);
         }
 
