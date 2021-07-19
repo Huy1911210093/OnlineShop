@@ -17,8 +17,9 @@
         }
 
         [Key]
+        [DisplayName("Mã sp")]
         public int IdProduct { get; set; }
-        [DisplayName("Nhóm")]
+        [DisplayName("Mã nhóm sp")]
         public int IdGroupProduct { get; set; }
 
         [StringLength(500)]
@@ -26,7 +27,7 @@
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]
-        [DisplayName("Chi tiết")]
+        [DisplayName("Mô tả")]
         public string Detail { get; set; }
         [DisplayName("Giá")]
         public double? Price { get; set; }
@@ -35,17 +36,15 @@
         [DisplayName("Ảnh")]
         public string Image { get; set; }
         [DisplayName("Giá mới")]
-
         public double? PriceNew { get; set; }
 
         [Column(TypeName = "date")]
         [DisplayName("Ngày tạo")]
         public DateTime? Date { get; set; }
-        [DisplayName("Số lượng")]
+        [DisplayName("Trang thái")]
         public int? Status { get; set; }
 
         [StringLength(100)]
-        [DisplayName("Size")]
         public string Size { get; set; }
 
         public virtual GroupProduct GroupProduct { get; set; }

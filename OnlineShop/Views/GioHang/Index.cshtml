@@ -2,11 +2,11 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
-@section jsFooter{
-    
-}
-<!--//================Breadcrumb section start==============//-->
+
+<!--//================Breadcrumb section start==============//-->  
 <section>
     <div class="breadcrumb-section">
         <div class="container">
@@ -30,134 +30,69 @@
 </section>
 <!--//================Breadcrumb section end==============//-->
 <!--//================Cart section start==============//-->
-<div class="cart-section padTB60">
-    <div class="container">
-        <div class="row">
+
+
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã Sản Phẩm</td>
+                        <td>Tên Sản Phẩm</td>
+                        <td>Ảnh Sản Phẩm</td>
+                        <td>Số lượng</td>
+                        <td>Size</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                       
+                    <tr>
+                        <td>@item.Product.IdProduct</td>
+                        <td>@item.Product.Name</td>
+                        <td><img src="@item.Product.Image" width="100" /></td>
+                        <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
+                        <td>@item.Product.Size</td>
+                        <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                        <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                        <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                    </tr>
+                        }
+
+                </tbody>
+            </table>
+
+
+
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div id="exTab2">
-                    <ul class="nav nav-tabs cart-menu-tab">
-                        <li class="active"><a href="#1" data-toggle="tab">Giỏ hàng</a></li>
-                    </ul>
-                    <div class="tab-content cart-tab">
-                        <div class="tab-pane active padT20" id="1">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="product-table bg-color hidden-xs">
-                                        <div class="col-md-4 col-sm-4 col-xs-4">
-                                            <div class="product-table-heading">
-                                                <h4>sản phẩm</h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 col-sm-2 col-xs-2">
-                                            <div class="product-table-heading">
-                                                <h4>giá</h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <div class="product-table-heading">
-                                                <h4>số lượng</h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 col-sm-3 col-xs-3">
-                                            <div class="product-table-heading">
-                                                <h4>Size</h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 col-sm-2 col-xs-2">
-                                            <div class="product-table-heading">
-                                                <h4>tổng</h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 col-sm-1 col-xs-1"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="product-heading-title-bottom">
-
-
-                                        @if (Model.Count > 0)
-                                        {
-                                            foreach (var item in Model)
-                                            {
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="row">
-                                                        <div class="product-heading-title padTB15">
-                                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                <div class="row">
-                                                                    <div class="col-md-4 col-sm-5 col-xs-12">
-                                                                        <figure>
-                                                                            <img src="@item.product.Image" alt="@item.product.Name">
-                                                                        </figure>
-                                                                    </div>
-                                                                    <div class="col-md-8 col-sm-7 col-xs-12">
-                                                                        <p>@item.product.Name</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2 col-sm-2 col-xs-12">
-                                                                <p class="product-color">@item.product.PriceNew.GetValueOrDefault(0).ToString("N0")</p>
-                                                            </div>
-                                                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                                                <div class="quantity" data-id="@item.product.IdProduct">
-                                                                    <ul>
-                                                                        <li><button class="minus"><i class="fa 		fa-minus" aria-hidden="true"></i></button></li>
-                                                                        <li><input type="text" value="@item.Quantity" class="qty" /></li>
-                                                                        <li><button class="add"><i class="fa fa-plus" aria-hidden="true"></i></button></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-1 col-sm-3 col-xs-12">
-                                                                <p>@item.product.Size</p>
-                                                            </div>
-                                                            <div class="col-md-1 col-sm-2 col-xs-12">
-                                                                <p>@((item.product.PriceNew.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</p>
-                                                            </div>
-                                                            <div class="col-md-1 col-sm-1 col-xs-12">
-                                                                <div class="time-cross summary-sm">
-                                                                    <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <div class="row">
-                                                    <div class="product-heading-title coupon-button padTB15">
-                                                        <div class="col-md-6 col-sm-8 col-xs-12">
-                                                            <a href="@Url.Action("Index","Home")" id="btnContinue" class="template-button">Tiếp tục mua hàng</a>
-
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-4 col-xs-12">
-                                                            <div class="update-cart">
-
-                                                                <a id="btnUpdate" class="template-button">Cập nhật giỏ hàng</a>
-                                                                <a href="@Url.Action("Index","ThanhToan")" class="template-button">Tiến hành thanh toán</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        }
-                                        else
-                                        {
-
-                                            <span class="alert alert-danger">Chưa có sản phẩm nào !!!</span>}
-
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="product-heading-title coupon-button padTB15">
+                        <div class="col-md-6 col-sm-8 col-xs-12">
+          
+                        </div>
+                        <div class="col-md-6 col-sm-8 col-xs-12">
+                            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+                            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                            <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+                            <button id="btnPayment" class="btn">Thanh toán</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+          
+         
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
     </div>
 </div>
-
 

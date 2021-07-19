@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models;
+using OnlineShop.Models.Dao;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -15,9 +16,12 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyTaiKhoan
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
-            return View(db.UserAccounts.ToList());
+            var dao = new AdminDao();
+            var model = dao.ListAllPaging(page, pageSize);
+            //return View(products.ToList());
+            return View(model);
         }
 
         // GET: Admin/QuanLyTaiKhoan/Details/5
@@ -35,31 +39,9 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(userAccount);
         }
 
-        // GET: Admin/QuanLyTaiKhoan/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/QuanLyTaiKhoan/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
-        {
-            if (ModelState.IsValid)
-            {
-                db.UserAccounts.Add(userAccount);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(userAccount);
-        }
 
         // GET: Admin/QuanLyTaiKhoan/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -78,7 +60,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
+        public ActionResult Edit([Bind(Include = "Id,Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
         {
             if (ModelState.IsValid)
             {

@@ -1,4 +1,6 @@
-﻿using OnlineShop.Models.Dao;
+﻿using OnlineShop.Common;
+using OnlineShop.Models;
+using OnlineShop.Models.Dao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +18,16 @@ namespace OnlineShop.Controllers
             return View();
         }
 
+        [ChildActionOnly]
+        public PartialViewResult HeaderCart()
+        {
+            var cart = Session[CommonConstants.CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
+        }
     }
 }

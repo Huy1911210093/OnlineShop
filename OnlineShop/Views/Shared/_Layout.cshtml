@@ -21,7 +21,7 @@
     <link href="~/Content/assets/css/style.css" type="text/css" rel="stylesheet" media="screen">
     <link href="~/Content/assets/css/color.css" rel="stylesheet">
     <link href="~/Content/assets/css/responsive.css" rel="stylesheet">
-
+    <link href="~/Areas/Admin/Content/assets/css/jquery-ui.css" rel="stylesheet" />
 </head>
 <body>
     <!--//================Preloder start==============//-->
@@ -50,7 +50,9 @@
                             <figure class="logo">
                                 <a href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo.png" alt=""></a>
                             </figure>
+                  
                         </div>
+
                         <div class="col-md-3 col-sm-3 col-xs-12">
                             <div class="usd">
                                 <select name="language">
@@ -72,7 +74,10 @@
         </div>
     </header>
     <!--//================Header section end==============//-->
-    @RenderBody();
+
+    @RenderBody()
+  
+
     <!--//================Scroll section start==============//-->
     @Html.Partial("_ScrollTop")
     <!--//================Scroll section end==============//-->
@@ -146,7 +151,7 @@
     </div>
     <!--//================Footer section end==============//-->
     <!--//================xem nhanh section start==============//-->
-    <div class="quick-vive-popap">
+    @*<div class="quick-vive-popap">
         <div class="container">
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog modal-lg">
@@ -220,24 +225,45 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     <!--//================xem nhanh section end==============//-->
     <!--//================Js file start==============//-->
     <script src="~/Content/assets/js/jquery.min.js"></script>
+
+    <script src="~/Content/assets/js/contronllers/cartContronller.js"></script>
+    <script src="~/Content/assets/js/contronllers/contactcontroller.js"></script>
+
+    <script src="~/Content/assets/js/contronllers/cartContronller.js"></script>
+    <script src="~/Content/assets/js/contronllers/contactcontroller.js"></script>
+
     <script src="~/Content/assets/js/bootstrap.min.js"></script>
+
     <script src="~/Content/assets/plugin/owl-carousel/js/owl.carousel.min.js"></script>
+
     <script src="~/Content/assets/plugin/megamenu/js/hover-dropdown-menu.js"></script>
+ 
     <script src="~/Content/assets/plugin/megamenu/js/jquery.hover-dropdown-menu-addon.js"></script>
     <script src="~/Content/assets/plugin/jquery-ui/js/jquery-ui.js"></script>
     <script src="~/Content/assets/plugin/mixitup/js/jquery.mixitup.js"></script>
     <script src="~/Content/assets/plugin/fancyBox/js/jquery.fancybox.pack.js"></script>
     <script src="~/Content/assets/plugin/fancyBox/js/jquery.fancybox-media.js"></script>
     <script src="~/Content/assets/plugin/jquery-bxslider/js/jquery.bxslider.min.js"></script>
+    <script src="~/Content/assets/js/contronllers/jquery-ui.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB9P8720RmV-t4df_U1TxC-JJ_FKVcc6I"></script>
+    
     <script src="~/Content/assets/js/main.js"></script>
-    <script src="~/Content/assets/js/contronllers/cartContronller.js"></script>
+
+    <script src="~/Scripts/mustache.js"></script>
+
+    <script src="/Content/assets/js/contronllers/cartContronller.js"></script>
+
+    <!--//================Js file end==============///-->
+
+
     <!--//================Js file end==============///-->
     @RenderSection("jsFooter", required: false)
+
 </body>
 
 <!-- Mirrored from preview.desideals4u.com/new-journey-casual/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Sep 2018 02:29:27 GMT -->
