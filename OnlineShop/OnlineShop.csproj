@@ -323,7 +323,6 @@
     <Compile Include="Areas\Admin\Controllers\QuanLyCaController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyPhuKienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyTaiKhoanController.cs" />
-    <Compile Include="Areas\Admin\Models\Dao\OrderDao.cs" />
     <Compile Include="Areas\Admin\Models\Dao\ProductDao.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -346,20 +345,14 @@
     <Compile Include="Areas\Admin\Models\Admin.cs" />
     <Compile Include="Areas\Admin\Models\Dao\AdminDao.cs" />
     <Compile Include="Models\Contact.cs" />
-<<<<<<< HEAD
-
     <Compile Include="Models\Dao\ContactDao.cs" />
     <Compile Include="Models\Dao\CustomerDao.cs" />
     <Compile Include="Models\Dao\OrderDao.cs" />
     <Compile Include="Models\Dao\OrderDetailDao.cs" />
-
     <Compile Include="Models\Dao\CartItem.cs" />
     <Compile Include="Models\Dao\ContactDao.cs" />
-
-=======
     <Compile Include="Models\Dao\CartItem.cs" />
     <Compile Include="Models\Dao\ContactDao.cs" />
->>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
     <Compile Include="Models\Dao\ProductDao.cs" />
     <Compile Include="Models\FeedBack.cs" />
     <Compile Include="Models\GroupProduct.cs" />
@@ -544,15 +537,9 @@
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\contronllers\baseController.js" />
     <Content Include="Content\assets\js\contronllers\cartContronller.js" />
-<<<<<<< HEAD
-
     <Content Include="Content\assets\js\contronllers\jquery-ui.js" />
-
     <Content Include="Content\assets\js\contronllers\contactcontroller.js" />
-
-=======
     <Content Include="Content\assets\js\contronllers\contactcontroller.js" />
->>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
     <Content Include="Content\assets\js\jquery.min.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\plugin\comming-soon\js\comming_soon.js" />
@@ -716,8 +703,6 @@
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
-<<<<<<< HEAD
-
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -726,9 +711,6 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
-
-=======
->>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
     <Content Include="Areas\Admin\Views\GopY\Create.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Details.cshtml" />
@@ -752,7 +734,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -797,16 +778,10 @@
     <Content Include="Views\PhuKien\ChePhamNuoc.cshtml" />
     <Content Include="Views\PhuKien\ThietBiChieuSang.cshtml" />
     <Content Include="Views\ConfirmOrder\Index.cshtml" />
-<<<<<<< HEAD
-
     <Content Include="Views\GioHang\Payment.cshtml" />
     <Content Include="Views\GioHang\Success.cshtml" />
-
     <Content Include="Views\UserAccount\Index.cshtml" />
-
-=======
     <Content Include="Views\UserAccount\Index.cshtml" />
->>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

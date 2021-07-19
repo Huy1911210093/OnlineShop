@@ -20,32 +20,30 @@ namespace OnlineShop
             namespaces: new[] { "OnlineShop.Controllers" }
             );
             routes.MapRoute(
-     name: "Search",
-     url: "tim-kiem",
-     defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
-     namespaces: new[] { "OnlineShop.Controllers" }
- );
+            name: "Search",
+            url: "tim-kiem",
+            defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+            namespaces: new[] { "OnlineShop.Controllers" }
+            );
             routes.MapRoute(
-name: "Register",
-url: "dang-ky",
-defaults: new { controller = "Register", action = "Register", id = UrlParameter.Optional },
-namespaces: new[] { "OnlineShop.Controllers" } );
+            name: "Register",
+            url: "dang-ky",
+            defaults: new { controller = "Register", action = "Register", id = UrlParameter.Optional },
+            namespaces: new[] { "OnlineShop.Controllers" } );
 
-routes.MapRoute(
-       name: "Payment",
-       url: "thanh-toan",
-       defaults: new { controller = "GioHang", action = "Payment", id = UrlParameter.Optional },
-       namespaces: new[] { "OnlineShop.Controllers" }
-   );
+            routes.MapRoute(
+           name: "Payment",
+           url: "thanh-toan",
+           defaults: new { controller = "GioHang", action = "Payment", id = UrlParameter.Optional },
+           namespaces: new[] { "OnlineShop.Controllers" }
+            );
 
             routes.MapRoute(
             name: "Add Cart",
             url: "them-gio-hang",
             defaults: new { Controller = "GioHang", action = "AddItem", id = UrlParameter.Optional },
             namespaces: new[] { "OnlineShop.Controllers" }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    );
+             );
             routes.MapRoute(
             name: "Payment Success",
             url: "hoan-thanh",
@@ -53,9 +51,6 @@ routes.MapRoute(
             namespaces: new[] { "OnlineShop.Controllers" }
             );
 
-   routes.MapRoute(
-=======
-            );
 
             routes.MapRoute(
            name: "Contact",
@@ -63,21 +58,7 @@ routes.MapRoute(
            defaults: new { Controller = "Contact", action = "Index", id = UrlParameter.Optional },
            namespaces: new[] { "OnlineShop.Controllers" }
            );
-
             routes.MapRoute(
->>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
-=======
-            );
-
-            routes.MapRoute(
-           name: "Contact",
-           url: "lien-he",
-           defaults: new { Controller = "Contact", action = "Index", id = UrlParameter.Optional },
-           namespaces: new[] { "OnlineShop.Controllers" }
-           );
-
-            routes.MapRoute(
->>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
                 name:"Default",
                 url:"{controller}/{action}/{id}",
                 defaults:new { controller = "Home", action = "Index", id = UrlParameter.Optional },
