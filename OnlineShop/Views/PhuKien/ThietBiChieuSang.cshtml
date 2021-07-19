@@ -1,9 +1,8 @@
-﻿
+﻿@model IEnumerable<OnlineShop.Models.Product>
 @{
-    ViewBag.Title = "ThietBiChieuSang";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <!--//================Breadcrumb section start==============//-->
 <section>
@@ -13,12 +12,13 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="page-heading">
                         <div class="page-header-heading padB10">
-                            <h3>Phụ kiện</h3>
+                            <h3>thiết bị chiếu sáng</h3>
                         </div>
                         <div class="breadcrum-box">
                             <ul class="breadcrum">
                                 <li><a href="index.html">trang chủ</a></li>
-                                <li class="active"><a href="#">phụ kiện</a></li>
+                                <li><a href="#">phụ kiện</a></li>
+                                <li class="active"><a href="#">thiết bị chiếu sáng</a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,195 +50,32 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="row">
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product601.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product602.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-md-4 col-sm-6 col-xs-12 marB30">
+                                        <div class="arrival-image">
+                                            <div class="arrival-image-overlay">
+                                                <figure>
+                                                    <span class="overlay-two"></span>
+                                                    <img src="~/Content/assets/images/best-product/@item.Image">
+                                                    <figcaption>
+                                                        <ul class="cart-icon">
+                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                            <div class="arrival-image-content">
+                                                <h4><a href="product-detail.html">@item.Name </a></h4>
+                                                <span>@item.Price</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay best-product">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product600.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product601.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product600.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product603.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product4.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product2.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product7.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+
+
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="blog-pagination">
                                         <nav aria-label="Page navigation">
@@ -266,296 +103,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="best-product-deatil" style="display:none;" id="collection_sidebar_list">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-5 col-xs-12">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-1.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-9 col-sm-7 col-xs12">
-                                    <div class="short-description">
-                                        <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                        <span class="acme">Acme</span>
-                                        <p>
-                                            Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo
-                                            pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                        </p>
-                                        <ul class="cloth-rating">
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        </ul>
-                                        <p>$90.00 </p>
-                                        <a href="product-detail.html" class="template-button">select option</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-2.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-3.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-4.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-5.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-6.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 marB30">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-7.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">
-                            <div class="grid-border">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-5 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/product-8.jpg" alt="">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 col-sm-7 col-xs12">
-                                        <div class="short-description">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span class="acme">Acme</span>
-                                            <p>
-                                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                                commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...
-                                            </p>
-                                            <p>$90.00 </p>
-                                            <a href="product-detail.html" class="template-button">select option</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
 </div>
+

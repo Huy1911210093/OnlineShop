@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,29 +10,36 @@ namespace OnlineShop.Controllers
     public class CuaHangController : Controller
     {
         // GET: CuaHang
+        ShopDbContext objWebsiteCuaHang = new ShopDbContext();
         public ActionResult Index()
         {
-            return View();
+            var lstCuaHang = objWebsiteCuaHang.Products.Where(n => n.GroupProduct.TypeId == 1).ToList();
+            return View(lstCuaHang);
         }
         public ActionResult CaVang()
         {
-            return View();
+            var listCaVang = objWebsiteCuaHang.Products.Where(n => n.IdGroupProduct == 1).ToList();
+            return View(listCaVang);
         }
         public ActionResult Guppy()
         {
-            return View();
+            var listGuppy = objWebsiteCuaHang.Products.Where(n => n.IdGroupProduct == 4).ToList();
+            return View(listGuppy);
         }
         public ActionResult Betta()
         {
-            return View();
+            var listBetta = objWebsiteCuaHang.Products.Where(n => n.IdGroupProduct == 5).ToList();
+            return View(listBetta);
         }
         public ActionResult LaHan()
         {
-            return View();
+            var listLaHan = objWebsiteCuaHang.Products.Where(n => n.IdGroupProduct == 2).ToList();
+            return View(listLaHan);
         }
         public ActionResult Koi()
         {
-            return View();
+            var listKoi = objWebsiteCuaHang.Products.Where(n => n.IdGroupProduct == 3).ToList();
+            return View(listKoi);
         }
     }
 }
