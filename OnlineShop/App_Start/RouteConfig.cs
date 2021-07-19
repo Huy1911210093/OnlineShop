@@ -32,10 +32,16 @@ namespace OnlineShop
             namespaces: new[] { "OnlineShop.Controllers" } );
 
             routes.MapRoute(
-           name: "Payment",
-           url: "thanh-toan",
-           defaults: new { controller = "GioHang", action = "Payment", id = UrlParameter.Optional },
-           namespaces: new[] { "OnlineShop.Controllers" }
+            name: "Login",
+            url: "dang-nhap",
+            defaults: new { Controller = "Login", action = "Login", id = UrlParameter.Optional },
+            namespaces: new[] { "OnlineShop.Controllers" });
+
+            routes.MapRoute(
+            name: "Payment",
+            url: "thanh-toan",
+            defaults: new { controller = "GioHang", action = "Payment", id = UrlParameter.Optional },
+            namespaces: new[] { "OnlineShop.Controllers" }
             );
 
             routes.MapRoute(

@@ -1,10 +1,18 @@
-﻿
+﻿@model OnlineShop.Models.UserAccount
+@using BotDetect.Web.Mvc;
+
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+      rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Index";
+    MvcCaptcha RegisterCaptcha = new MvcCaptcha("RegisterCaptcha");
+    RegisterCaptcha.UserInputID = "CaptchaCode";
+}
+
+@{
+    ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!--//================Breadcrumb section start==============//-->
 <section>
     <div class="breadcrumb-section">
         <div class="container">
@@ -34,24 +42,77 @@
             <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
                 <div class="registerBox">
                     <h4>Tạo tài khoản</h4>
-                    <form class="register-form">
-                        <h4>Thông tin cá nhân</h4>
-                        <label>Họ</label>
-                        <input type="text" placeholder="họ">
-                        <label>Tên</label>
-                        <input type="text" placeholder="tên">
-                        <label>email</label>
-                        <input type="text" placeholder="email">
-                        <label>số điện thoại</label>
-                        <input type="text" placeholder="số điện thoại">
-                        <label>mật khẩu</label>
-                        <input type="password" placeholder="mật khẩu">
-                        <a href="#" class="template-button">Tạo tài khoản</a>
-                        <p><a href="@Url.Action("Index","Home")"><i class="fa fa-long-arrow-left marR10" aria-hidden="true"></i>trở về cửa hàng</a></p>
-                    </form>
+                    @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                    {
+                        <form class="register-form">
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <hr />
+                                <div class="form-group">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @if (ViewBag.Success != null)
+                                    {
+                                        <div class="alert alert-success">@ViewBag.Success</div>
+                                    }
+                                </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.Captcha(RegisterCaptcha)
+                                            @Html.TextBox("CaptchaCode")
+                                            @Html.ValidationMessage("CaptchaCode")
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Tạo tài khoản" class="template-button" />
+                                            <p><a href="@Url.Action("Index","Home")"><i class="fa fa-long-arrow-left marR10" aria-hidden="true"></i>trở về cửa hàng</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--//================Create account section end==============//-->
+
