@@ -44,6 +44,7 @@ routes.MapRoute(
             defaults: new { Controller = "GioHang", action = "AddItem", id = UrlParameter.Optional },
             namespaces: new[] { "OnlineShop.Controllers" }
 <<<<<<< HEAD
+<<<<<<< HEAD
     );
             routes.MapRoute(
             name: "Payment Success",
@@ -53,6 +54,18 @@ routes.MapRoute(
             );
 
    routes.MapRoute(
+=======
+            );
+
+            routes.MapRoute(
+           name: "Contact",
+           url: "lien-he",
+           defaults: new { Controller = "Contact", action = "Index", id = UrlParameter.Optional },
+           namespaces: new[] { "OnlineShop.Controllers" }
+           );
+
+            routes.MapRoute(
+>>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
 =======
             );
 
