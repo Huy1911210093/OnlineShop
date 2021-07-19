@@ -28,17 +28,17 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                
                 var dao = new AdminDao();
                 var result = dao.Login(model.Email, EncryptPassword.MD5Hash(model.Password));
 
                 switch (result)
                 {
                     case 1:
-                        var admin = dao.GetById(model.Email);
+                        var admin = dao.GetByEmail(model.Email);
                         var adminSession = new UserLogin();
                         adminSession.Email = admin.Email;
-                        adminSession.UserId = admin.Id;
+                        adminSession.UserId = admin.GetId();
                         Session.Add(CommonConstant.ADMIN_SESSION, adminSession);
                         Session["Name"] = admin.LastName;
                         return RedirectToAction("Home", "Home");

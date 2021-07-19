@@ -184,6 +184,12 @@
     <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.1\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -308,14 +314,19 @@
     <Compile Include="Areas\Admin\Common\EncryptPassword.cs" />
     <Compile Include="Areas\Admin\Common\UserLogin.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietDonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GopYController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyCaController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyPhuKienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyTaiKhoanController.cs" />
+    <Compile Include="Areas\Admin\Models\Dao\OrderDao.cs" />
     <Compile Include="Areas\Admin\Models\Dao\ProductDao.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ConfirmOrderController.cs" />
@@ -328,15 +339,24 @@
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ThanhToanController.cs" />
+    <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Models\Admin.cs" />
     <Compile Include="Areas\Admin\Models\Dao\AdminDao.cs" />
-    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\Customer.cs" />
+
+    <Compile Include="Models\Dao\ContactDao.cs" />
+    <Compile Include="Models\Dao\CustomerDao.cs" />
+    <Compile Include="Models\Dao\OrderDao.cs" />
+    <Compile Include="Models\Dao\OrderDetailDao.cs" />
+
+    <Compile Include="Models\Dao\CartItem.cs" />
+    <Compile Include="Models\Dao\ContactDao.cs" />
+
     <Compile Include="Models\Dao\ProductDao.cs" />
+    <Compile Include="Models\FeedBack.cs" />
     <Compile Include="Models\GroupProduct.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Order.cs" />
@@ -345,7 +365,6 @@
     <Compile Include="Models\Province.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\ShopDbContext.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserActivation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -355,10 +374,13 @@
     <Content Include="Areas\Admin\Content\assets\css\bootstrap.css" />
     <Content Include="Areas\Admin\Content\assets\css\custom-styles.css" />
     <Content Include="Areas\Admin\Content\assets\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\assets\css\jquery-ui.css" />
     <Content Include="Areas\Admin\Content\assets\css\materialize.min.css" />
+    <Content Include="Areas\Admin\Content\assets\css\style.css" />
     <Content Include="Areas\Admin\Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Areas\Admin\Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Areas\Admin\Content\assets\img\bg-img.jpg" />
+    <Content Include="Areas\Admin\Content\assets\img\emoji.png" />
     <Content Include="Areas\Admin\Content\assets\img\favicon.ico" />
     <Content Include="Areas\Admin\Content\assets\js\bootstrap.min.js" />
     <Content Include="Areas\Admin\Content\assets\js\chart-data.js" />
@@ -459,10 +481,6 @@
     <Content Include="Content\assets\images\best-product\product-2.jpg" />
     <Content Include="Content\assets\images\best-product\product-3.jpg" />
     <Content Include="Content\assets\images\best-product\product-4.jpg" />
-    <Content Include="Content\assets\images\best-product\product-5.jpg" />
-    <Content Include="Content\assets\images\best-product\product-6.jpg" />
-    <Content Include="Content\assets\images\best-product\product-7.jpg" />
-    <Content Include="Content\assets\images\best-product\product-8.jpg" />
     <Content Include="Content\assets\images\best-product\product1.jpg" />
     <Content Include="Content\assets\images\best-product\product2.jpg" />
     <Content Include="Content\assets\images\best-product\product3.jpg" />
@@ -519,7 +537,13 @@
     <Content Include="Content\assets\images\slider\slider-three.jpg" />
     <Content Include="Content\assets\images\slider\slider-two.jpg" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\contronllers\baseController.js" />
     <Content Include="Content\assets\js\contronllers\cartContronller.js" />
+
+    <Content Include="Content\assets\js\contronllers\jquery-ui.js" />
+
+    <Content Include="Content\assets\js\contronllers\contactcontroller.js" />
+
     <Content Include="Content\assets\js\jquery.min.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\plugin\comming-soon\js\comming_soon.js" />
@@ -558,6 +582,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -606,7 +631,6 @@
     <Content Include="Areas\Admin\Views\Home\Home.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Ca.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\PhuKien.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\DonHang.cshtml" />
     <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Areas\Admin\Content\login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -670,10 +694,8 @@
     <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="libman.json" />
     <Content Include="Areas\Admin\Views\LogIn\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Delete.cshtml" />
@@ -685,11 +707,40 @@
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
+
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+
+    <Content Include="Areas\Admin\Views\GopY\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\ChiTietDonHang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -698,6 +749,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\mustache.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -733,6 +785,12 @@
     <Content Include="Views\PhuKien\ChePhamNuoc.cshtml" />
     <Content Include="Views\PhuKien\ThietBiChieuSang.cshtml" />
     <Content Include="Views\ConfirmOrder\Index.cshtml" />
+
+    <Content Include="Views\GioHang\Payment.cshtml" />
+    <Content Include="Views\GioHang\Success.cshtml" />
+
+    <Content Include="Views\UserAccount\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -750,8 +808,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

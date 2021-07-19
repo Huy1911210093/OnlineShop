@@ -1,8 +1,17 @@
-﻿
+﻿@model OnlineShop.Models.Contact
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
+@section jsFooter{
+
+
+    <script>
+        var contentString = '@Html.Raw(Model.Content)';
+    </script>
+}
+
 <!--//================Breadcrumb section start==============//-->
 <section>
     <div class="breadcrumb-section">
@@ -25,7 +34,7 @@
         </div>
     </div>
 </section>
-<!--//================Breadcrumb section end==============//-->
+<!--//================Breadcrumb section end==============//--hello>
 <!--//================Contact section start==============//-->
 <div class="contact-section padTB60">
     <div class="container">
@@ -64,27 +73,32 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="message-section contact-message">
                     <h4>góp ý chúng tôi</h4>
-                    <div class="col-md-12 col-sm-12 col-xs-12 marT30">
-                        <div class="row">
-                            <p>
-                                <label>Họ tên</label>
-                                <input type="text" placeholder="Nhập họ tên...">
-                            </p>
-                            <p>
-                                <label>email</label>
-                                <input type="text" placeholder="Nhập email...">
-                            </p>
-                            <p>
-                                <label>Số điện thoại</label>
-                                <input type="text" placeholder="Nhập sdt...">
-                            </p>
-                            <p>
-                                <label>góp ý</label>
-                                <textarea cols="10" rows="5" placeholder="Nhập tin nhắn" style="resize: none;"></textarea>
-                            </p>
-                            <a href="#" class="template-button">Gửi góp ý</a>
+                    @Html.Raw(Model.Content)
+                    <form>
+                        <div class="col-md-12 col-sm-12 col-xs-12 marT30">
+                            <div class="row">
+                                <p>
+                                    <label>Họ tên</label>
+                                    <input type="text" id="txtName" class="form-control">
+                                </p>
+                                <p>
+                                    <label>email</label>
+                                    <input type="text" id="txtEmail" class="form-control">
+                                </p>
+                                <p>
+                                    <label>Số điện thoại</label>
+                                    <input type="text" id="txtPhone" class="form-control">
+                                </p>
+                                <p>
+                                    <label>góp ý</label>
+                                    <textarea cols="10" rows="5" id="txtContent" class="form-control" style="resize: none;"></textarea>
+                                </p>
+                                <button id="btnSend" class="template-button">
+                                    Góp ý
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

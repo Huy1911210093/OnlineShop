@@ -9,7 +9,15 @@ namespace OnlineShop.Models
     [Table("UserAccount")]
     public partial class UserAccount
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UserAccount()
+        {
+            Orders = new HashSet<Order>();
+        }
+
         [Key]
+        public int IdUser { get; set; }
+
         [StringLength(300)]
         public string Email { get; set; }
 
@@ -29,5 +37,8 @@ namespace OnlineShop.Models
         public DateTime? CreatedDay { get; set; }
 
         public int? Status { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

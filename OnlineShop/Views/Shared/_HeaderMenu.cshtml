@@ -54,9 +54,9 @@
 
                                         </ul>
                                     </li>
-                                    <li>
+                                    @*<li>
                                         <a href="@Url.Action("Index","Blog")" class="header-menu-one">blog</a>
-                                    </li>
+                                    </li>*@
                                     <li>
                                         <a href="@Url.Action("Index","About")" class="header-menu-one">Giới thiệu</a>
                                         @*@Html.ActionLink("Giới thiệu", "About","Home")*@
@@ -89,8 +89,11 @@
             <div class="row">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    <input type="text" class="form-control" placeholder="Search">
-                    <a class="input-group-addon close-search search-close"><i class="fa fa-times"></i></a>
+                    <form action="/tim-kiem" method="get">
+                        <input type="text"  class="form-control" id="txtKeyword" name="keywork" placeholder="Search">
+                    </form>
+
+                        <a class="input-group-addon close-search search-close"><i class="fa fa-times"></i></a>
                 </div>
             </div>
         </div>

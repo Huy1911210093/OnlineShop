@@ -9,7 +9,17 @@ namespace OnlineShop.Models
     [Table("Admin")]
     public partial class Admin
     {
-        public int Id { get; set; }
+        private int id;
+
+        public int GetId()
+        {
+            return id;
+        }
+
+        public void SetId(int value)
+        {
+            id = value;
+        }
 
         [StringLength(300)]
         public string FirstName { get; set; }
@@ -22,5 +32,6 @@ namespace OnlineShop.Models
 
         [StringLength(300)]
         public string Password { get; set; }
+        public int Id { get => id; set => id = value; }
     }
 }

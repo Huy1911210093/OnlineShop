@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PagedList;
+using PagedList.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,15 +15,20 @@ namespace OnlineShop.Models.Dao
         {
             db = new ShopDbContext();
         }
-        public Admin GetById(string email)
+        public Admin GetByEmail(string email)
         {
             return db.Admins.SingleOrDefault(m => m.Email == email);
+        }
+        public IEnumerable<UserAccount> ListAllPaging(int page, int pageSize)
+        {
+            //truyền ra số bản ghi và số trang
+            return db.UserAccounts.OrderByDescending(m => m.CreatedDay).ToPagedList(page, pageSize);
         }
         public long Insert(Admin entity)
         {
             db.Admins.Add(entity);
             db.SaveChanges();
-            return entity.Id;
+            return entity.GetId();
         }
 
         public int Login(string email, string passWord)

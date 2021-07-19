@@ -145,10 +145,10 @@ if ($.fn.dataTable.Api) {
                 );
                 var els = $('a', nPaging);
                 $(els[0]).bind('click.DT', {
-                    action: "trước"
+                    action: "<<"
                 }, fnClickHandler);
                 $(els[1]).bind('click.DT', {
-                    action: "sau"
+                    action: ">>"
                 }, fnClickHandler);
             },
 

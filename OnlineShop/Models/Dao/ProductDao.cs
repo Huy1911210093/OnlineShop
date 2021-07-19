@@ -16,7 +16,11 @@ namespace OnlineShop.Models.Dao
         {
             return db.Products.OrderByDescending(x => x.Date).Take(top).ToList();
         }
-
+        public List<string> ListName(string keyword)
+        {
+            return db.Products.Where(x => x.Name.Contains(keyword)).Select(x => x.Name).ToList();
+        }
+    
         public Product ViewDetail(long id)
         {
 

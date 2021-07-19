@@ -1,0 +1,54 @@
+﻿@model IEnumerable<OnlineShop.Models.FeedBack>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Góp ý
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Góp ý</a></li>
+        </ol>
+
+    </div>
+
+    <div id="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="card">
+                    @foreach (var item in Model)
+                    {
+                        if(item.IdContact != 0)
+                        {
+                            <div class="col-md-4 col-sm-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <span class="card-title">@item.Name - @item.Email</span>
+                                        <p>
+                                            @item.Content
+                                        </p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#">Xóa</a>
+                                        <a href="#">Phản hồi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        
+                    }
+
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>

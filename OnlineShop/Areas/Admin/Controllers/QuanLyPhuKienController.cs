@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
@@ -39,7 +40,10 @@ namespace OnlineShop.Areas.Admin.Controllers
         // GET: Admin/QuanLyPhuKien/Create
         public ActionResult Create()
         {
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name");
+            var productDao = new ProductDao();
+
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 2), "IdGroupProduct", "Name");
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
         }
 
@@ -58,6 +62,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             }
 
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View(product);
         }
 
@@ -110,13 +115,20 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // POST: Admin/QuanLyPhuKien/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Product product = db.Products.Find(id);
+        //    db.Products.Remove(product);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            new ProductDao().Delete(id);
+
             return RedirectToAction("Index");
         }
 

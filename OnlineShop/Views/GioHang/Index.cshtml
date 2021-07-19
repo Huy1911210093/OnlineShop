@@ -2,11 +2,11 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
-@section jsFooter{
-    
-}
-<!--//================Breadcrumb section start==============//-->
+
+<!--//================Breadcrumb section start==============//-->  
 <section>
     <div class="breadcrumb-section">
         <div class="container">
@@ -30,6 +30,8 @@
 </section>
 <!--//================Breadcrumb section end==============//-->
 <!--//================Cart section start==============//-->
+<<<<<<< HEAD
+=======
 <div class="cart-section padTB60">
     <div class="container">
         <div class="row">
@@ -95,7 +97,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                                                <p class="product-color">@item.product.PriceNew.GetValueOrDefault(0).ToString("N0")</p>
+                                                                <p class="product-color">@item.product.PriceNew.GetValueOrDefault(0).ToString("NO")</p>
                                                             </div>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
                                                                 <div class="quantity" data-id="@item.product.IdProduct">
@@ -131,33 +133,73 @@
                                                         </div>
                                                         <div class="col-md-6 col-sm-4 col-xs-12">
                                                             <div class="update-cart">
+>>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
 
-                                                                <a id="btnUpdate" class="template-button">Cập nhật giỏ hàng</a>
-                                                                <a href="@Url.Action("Index","ThanhToan")" class="template-button">Tiến hành thanh toán</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã Sản Phẩm</td>
+                        <td>Tên Sản Phẩm</td>
+                        <td>Ảnh Sản Phẩm</td>
+                        <td>Số lượng</td>
+                        <td>Size</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    
+                    <tr>
+                        <td>@item.Product.IdProduct</td>
+                        <td>@item.Product.Name</td>
+                        <td><img src="@item.Product.Image" width="100" /></td>
+                        <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
+                        <td>@item.Product.Size</td>
+                        <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                        <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                        <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                    </tr>
+                        }
+                  
+
+<<<<<<< HEAD
+                </tbody>
+            </table>
+=======
+                                            <h4 class="alert alert-danger">Chưa có sản phẩm nào !!!</h4>
                                         }
-                                        else
-                                        {
+>>>>>>> 0d343ad5cb25965fcaaa1d3e783658aeabff20a5
 
-                                            <span class="alert alert-danger">Chưa có sản phẩm nào !!!</span>}
-
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="product-heading-title coupon-button padTB15">
+                        <div class="col-md-6 col-sm-8 col-xs-12">
+          
+                        </div>
+                        <div class="col-md-6 col-sm-8 col-xs-12">
+                            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+                            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                            <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+                            <button id="btnPayment" class="btn">Thanh toán</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+          
+         
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
     </div>
 </div>
-
 
