@@ -126,7 +126,7 @@ namespace OnlineShop.Controllers
             //Nhớ set ID theo customer đăng nhập
 
             //order.UserAccount.IdUser =order.IdUserAccount ;
-
+            order.IdUserAccount = 1;
             order.Date = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;
@@ -161,6 +161,7 @@ namespace OnlineShop.Controllers
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
                 new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
+
                 new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
             }
             catch (Exception)
