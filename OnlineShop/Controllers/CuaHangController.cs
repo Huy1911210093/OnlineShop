@@ -13,7 +13,7 @@ namespace OnlineShop.Controllers
         ShopDbContext objWebsiteCuaHang = new ShopDbContext();
         public ActionResult Index()
         {
-            var lstCuaHang = objWebsiteCuaHang.Products.Where(n => n.GroupProduct.TypeId == 1).ToList();
+            var lstCuaHang = objWebsiteCuaHang.Products.Where(n => n.GroupProduct.GetTypeId() == 1).ToList();
             return View(lstCuaHang);
         }
         public ActionResult CaVang()

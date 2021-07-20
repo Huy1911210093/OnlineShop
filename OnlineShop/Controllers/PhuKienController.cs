@@ -14,7 +14,7 @@ namespace OnlineShop.Controllers
         ShopDbContext objwebsitePhuKien = new ShopDbContext();
         public ActionResult Index()
         {
-            var lstPhuKien = objwebsitePhuKien.Products.Where(n => n.GroupProduct.TypeId == 2).ToList();
+            var lstPhuKien = objwebsitePhuKien.Products.Where(n => n.GroupProduct.GetTypeId() == 2).ToList();
             return View(lstPhuKien);
         }
         public ActionResult Loc()

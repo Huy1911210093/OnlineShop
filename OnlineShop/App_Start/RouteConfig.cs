@@ -15,6 +15,9 @@ namespace OnlineShop
             //chặn không cho ttruy cập vào captcha
             routes.IgnoreRoute("{*botdetect}", new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
+            routes.IgnoreRoute("{*botdetect}",
+            new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
             routes.MapRoute(
             name: "GioHang",
             url: "gio-hang",

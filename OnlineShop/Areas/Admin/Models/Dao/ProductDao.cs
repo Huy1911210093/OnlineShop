@@ -35,7 +35,7 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 db.Products.Remove(product);
                 db.SaveChanges();
                 return true;
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 return false;
             }
@@ -43,7 +43,7 @@ namespace OnlineShop.Areas.Admin.Models.Dao
         }
         public List<Product> GetByType(int typeid)
         {
-            return db.Products.Where(m => m.GroupProduct.TypeId == typeid).ToList();
+            return db.Products.Where(m => m.GroupProduct.GetTypeId() == typeid).ToList();
         }
     }
 }

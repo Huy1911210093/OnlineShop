@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -135,6 +134,9 @@
     <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
@@ -196,9 +198,15 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Recaptcha, Version=1.0.5.0, Culture=neutral, PublicKeyToken=9afc4d65b28c38c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\recaptcha.1.0.5.0\lib\.NetFramework 4.0\Recaptcha.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.6.0.0-preview.6.21352.12\lib\net461\System.CodeDom.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -310,11 +318,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -336,6 +339,7 @@
     <Compile Include="Areas\Admin\Models\Dao\ProductDao.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ConfirmOrderController.cs" />
@@ -537,6 +541,33 @@
     <Content Include="Content\assets\images\best-product\trangtri9.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed %281%29.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed.jpg" />
+<<<<<<< HEAD
+    <Content Include="Content\assets\images\best-product\best-1.jpg" />
+    <Content Include="Content\assets\images\best-product\best-2.jpg" />
+    <Content Include="Content\assets\images\best-product\best-3.jpg" />
+    <Content Include="Content\assets\images\best-product\best-4.jpg" />
+    <Content Include="Content\assets\images\best-product\best-5.jpg" />
+    <Content Include="Content\assets\images\best-product\product-1.jpg" />
+    <Content Include="Content\assets\images\best-product\product-2.jpg" />
+    <Content Include="Content\assets\images\best-product\product-3.jpg" />
+    <Content Include="Content\assets\images\best-product\product-4.jpg" />
+    <Content Include="Content\assets\images\best-product\product1.jpg" />
+    <Content Include="Content\assets\images\best-product\product2.jpg" />
+    <Content Include="Content\assets\images\best-product\product3.jpg" />
+    <Content Include="Content\assets\images\best-product\product4.jpg" />
+    <Content Include="Content\assets\images\best-product\product5.jpg" />
+    <Content Include="Content\assets\images\best-product\product6.jpg" />
+    <Content Include="Content\assets\images\best-product\product600.jpg" />
+    <Content Include="Content\assets\images\best-product\product601.jpg" />
+    <Content Include="Content\assets\images\best-product\product602.jpg" />
+    <Content Include="Content\assets\images\best-product\product603.jpg" />
+    <Content Include="Content\assets\images\best-product\product7.jpg" />
+    <Content Include="Content\assets\images\best-product\product8.jpg" />
+    <Content Include="Content\assets\images\best-product\product9.jpg" />
+    <Content Include="Content\assets\images\best-product\watch-1.jpg" />
+    <Content Include="Content\assets\images\best-product\watch-2.jpg" />
+=======
+>>>>>>> origin/master
     <Content Include="Content\assets\images\blog\author.png" />
     <Content Include="Content\assets\images\blog\blo-comment-one.jpg" />
     <Content Include="Content\assets\images\blog\blo-comment-two.jpg" />
@@ -626,6 +657,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Dao\neworder.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -805,6 +837,10 @@
     <Content Include="Views\CuaHang\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Shared\_ScrollTop.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Register\Register.cshtml" />
+=======
+>>>>>>> origin/master
     <Content Include="Views\PhuKien\Loc.cshtml" />
     <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\ThanhToan\Index.cshtml" />
@@ -822,7 +858,10 @@
     <Content Include="Views\GioHang\Success.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
+<<<<<<< HEAD
+=======
     <Content Include="Views\Register\Register.cshtml" />
+>>>>>>> origin/master
     <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -877,10 +916,13 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

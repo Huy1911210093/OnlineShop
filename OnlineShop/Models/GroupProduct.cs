@@ -38,6 +38,17 @@
         [DisplayName("Đơn vị tính")]
         public string DVT { get; set; }
 
+        private int typeId;
+
+        public int GetTypeId()
+        {
+            return typeId;
+        }
+
+        public void SetTypeId(int value)
+        {
+            typeId = value;
+        }
 
         [DisplayName("Mã loại")]
         public int? TypeId { get; set; }

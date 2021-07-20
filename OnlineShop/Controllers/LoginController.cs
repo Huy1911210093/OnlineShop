@@ -1,4 +1,4 @@
-﻿using OnlineShop.Areas.Admin.Common;
+﻿    using OnlineShop.Areas.Admin.Common;
 using OnlineShop.Models;
 using OnlineShop.Models.Dao;
 using System.Linq;
@@ -38,7 +38,11 @@ namespace OnlineShop.Controllers
                     //add session
                     Session["IdUser"] = data.FirstOrDefault().IdUser;
                     Session["Email"] = data.FirstOrDefault().Email;
+<<<<<<< HEAD
+                    Session["FistName"] = data.FirstOrDefault().FirstName;
+=======
                     Session["FirstName"] = data.FirstOrDefault().FirstName;
+>>>>>>> origin/master
                     Session["LastName"] = data.FirstOrDefault().LastName;
                     Session["Phone"] = data.FirstOrDefault().Phone;
                     Session["Password"] = Password;
