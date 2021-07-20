@@ -1,9 +1,8 @@
-﻿
+﻿@model IEnumerable<OnlineShop.Models.Product>
 @{
-    ViewBag.Title = "Betta";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <!--//================Breadcrumb section start==============//-->
 <section>
@@ -18,7 +17,8 @@
                         <div class="breadcrum-box">
                             <ul class="breadcrum">
                                 <li><a href="index.html">trang chủ</a></li>
-                                <li class="active"><a href="#">phụ kiện</a></li>
+                                <li><a href="#">cửa hàng</a></li>
+                                <li class="active"><a href="#">Betta</a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,195 +50,32 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="row">
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-1.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-2.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-md-4 col-sm-6 col-xs-12 marB30">
+                                        <div class="arrival-image">
+                                            <div class="arrival-image-overlay">
+                                                <figure>
+                                                    <span class="overlay-two"></span>
+                                                    <img src="~/Content/assets/images/best-product/@item.Image" alt="">
+                                                    <figcaption>
+                                                        <ul class="cart-icon">
+                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+                                            <div class="arrival-image-content">
+                                                <h4><a href="product-detail.html">@item.Name</a></h4>
+                                                <span>@item.Price</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay best-product">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-3.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/best-5.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/best-4.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/best-2.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-1.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-3.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12 marB30">
-                                    <div class="arrival-image">
-                                        <div class="arrival-image-overlay">
-                                            <figure>
-                                                <span class="overlay-two"></span>
-                                                <img src="~/Content/assets/images/best-product/product-2.jpg" alt="">
-                                                <figcaption>
-                                                    <ul class="cart-icon">
-                                                        <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="arrival-image-content">
-                                            <h4><a href="product-detail.html">Tên sản phẩm</a></h4>
-                                            <span>$90.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+
+
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="blog-pagination">
                                         <nav aria-label="Page navigation">
@@ -267,6 +104,8 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
+=======
 
                 <div class="best-product-deatil" style="display:none;" id="collection_sidebar_list">
                     <div class="row">
@@ -557,6 +396,7 @@
                         </div>
                     </div>
                 </div>
+>>>>>>> 53b41ce55fef70b8a39aedc35890a28106c09d19
             </div>
         </div>
     </div>
