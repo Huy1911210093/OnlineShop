@@ -33,12 +33,12 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Email</th>
-                                        <th>Password</th>
-                                        <th>Họ</th>
-                                        <th>Tên</th>
-                                        <th>SDT</th>
-                                        <th>Ngày tạo</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Email)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Password)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().FirstName)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().LastName)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Phone)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().CreatedDay)</th>
                                         <th>Tác vụ</th>
                                     </tr>
                                 </thead>

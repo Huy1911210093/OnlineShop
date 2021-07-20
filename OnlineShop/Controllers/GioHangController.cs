@@ -120,13 +120,13 @@ namespace OnlineShop.Controllers
         {
             var order = new Order();
             //Nhớ set ID theo customer đăng nhập
-            order.IdUserAccount = 1;
+            order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
             order.Date = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;
             order.ShipName = shipName;
             order.ShipEmail = email;
-
+            order.Status = 0;
             try
             {
                 var id = new OrderDao().Insert(order);

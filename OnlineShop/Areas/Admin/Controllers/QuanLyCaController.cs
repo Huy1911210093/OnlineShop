@@ -49,25 +49,6 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/QuanLyCa/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Products.Add(product);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
-        //    ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
-        //    return View(product);
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)

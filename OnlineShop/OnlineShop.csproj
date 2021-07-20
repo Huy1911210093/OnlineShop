@@ -332,6 +332,7 @@
     <Compile Include="Areas\Admin\Controllers\QuanLyCaController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyPhuKienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyTaiKhoanController.cs" />
+    <Compile Include="Areas\Admin\Models\Dao\OrderDao.cs" />
     <Compile Include="Areas\Admin\Models\Dao\ProductDao.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -768,7 +769,6 @@
     <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\ChiTietDonHang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
-using OnlineShop.Models.Dao;
+
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -16,13 +17,13 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/DonHang
-        public ActionResult Index()
+        public ActionResult Index(int pageNum = 1, int pageSize = 5)
         {
-            //var dao = new OrderDao();
-            //var model = dao.ListAllPaging(page, pageSize);
-            var orders = db.Orders.Include(o => o.UserAccount);
-            return View(orders.ToList());
-            //return View(model);
+            var dao = new OrderDao();
+            var model = dao.ListAllPaging(pageNum, pageSize);
+            //var orders = db.Orders.Include(o => o.UserAccount);
+            //return View(orders.ToList());
+            return View(model);
         }
         [HttpPost]
         public ActionResult ChiTietDonHang(int id)
@@ -66,56 +67,19 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/DonHang/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdOder,IdUserAccount,ShipName,ShipMobile,ShipAddress,ShipEmail,Date,Status")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Orders.Add(order);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //public ActionResult Create(Order entity)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var dao = new OrderDao();
+        //        var order = new Order();
 
-            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email", order.IdUserAccount);
-            return View(order);
-        }
 
-        // GET: Admin/DonHang/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email", order.IdUserAccount);
-            return View(order);
-        }
-
-        // POST: Admin/DonHang/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdOder,IdUserAccount,ShipName,ShipMobile,ShipAddress,ShipEmail,Date,Status")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.IdUserAccount = new SelectList(db.UserAccounts, "IdUser", "Email", order.IdUserAccount);
-            return View(order);
-        }
+        //    }
+        //}
 
         // GET: Admin/DonHang/Delete/5
         public ActionResult Delete(int? id)
