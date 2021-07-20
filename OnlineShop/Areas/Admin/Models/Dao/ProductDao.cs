@@ -35,7 +35,7 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 db.Products.Remove(product);
                 db.SaveChanges();
                 return true;
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 return false;
             }
