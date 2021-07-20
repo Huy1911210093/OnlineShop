@@ -37,14 +37,22 @@
         [StringLength(100)]
         [DisplayName("Đơn vị tính")]
         public string DVT { get; set; }
-<<<<<<< HEAD
-        public int TypeId { get; set; }
 
+        private int typeId;
 
-=======
+        public int GetTypeId()
+        {
+            return typeId;
+        }
+
+        public void SetTypeId(int value)
+        {
+            typeId = value;
+        }
+
         [DisplayName("Mã loại")]
         public int? TypeId { get; set; }
->>>>>>> 53b41ce55fef70b8a39aedc35890a28106c09d19
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

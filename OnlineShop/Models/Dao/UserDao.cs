@@ -65,6 +65,13 @@ namespace OnlineShop.Models.Dao
         {
             return db.UserAccounts.Count(x => x.Email == Email) > 0;
         }
-
+        public UserAccount GetById(int userName)
+        {
+            return db.UserAccounts.SingleOrDefault(x => x.IdUser == userName);
+        }
+        public UserAccount ViewDetail(int id)
+        {
+            return db.UserAccounts.Find(id);
+        }
     }
 }

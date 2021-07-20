@@ -1,7 +1,9 @@
-﻿using OnlineShop.Models;
+﻿using OnlineShop.Common;
+using OnlineShop.Models;
 using OnlineShop.Models.Dao;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -119,9 +121,12 @@ namespace OnlineShop.Controllers
         [HttpPost]
         public ActionResult Payment(string shipName, string mobile, string address, string email)
         {
+          
             var order = new Order();
             //Nhớ set ID theo customer đăng nhập
-            order.IdUserAccount = 1;
+
+            //order.UserAccount.IdUser =order.IdUserAccount ;
+
             order.Date = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;
@@ -133,7 +138,7 @@ namespace OnlineShop.Controllers
                 var id = new OrderDao().Insert(order);
                 var cart = (List<CartItem>)Session[CartSession];
                 var detailDao = new Models.Dao.OrderDetailDao();
-                //decimal total = 0;
+                double total=0;
                 foreach (var item in cart)
                 {
                     var orderDetail = new OrderDetail();
@@ -144,19 +149,19 @@ namespace OnlineShop.Controllers
                     orderDetail.Quantity = item.Quantity;
                     detailDao.Insert(orderDetail);
 
-                    //total += (item.Product.PriceNew.GetValueOrDefault(0) * item.Quantity);
+                    total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
-                //string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Models/Dao/neworder.html"));
 
-                //content = content.Replace("{{CustomerName}}", shipName);
-                //content = content.Replace("{{Phone}}", mobile);
-                //content = content.Replace("{{Email}}", email);
-                //content = content.Replace("{{Address}}", address);
-                //content = content.Replace("{{Total}}", total.ToString("N0"));
-                //var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                content = content.Replace("{{CustomerName}}", shipName);
+                content = content.Replace("{{Phone}}", mobile);
+                content = content.Replace("{{Email}}", email);
+                content = content.Replace("{{Address}}", address);
+                content = content.Replace("{{Total}}", total.ToString("N0"));
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
-                //new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
-                //new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
             }
             catch (Exception)
             {

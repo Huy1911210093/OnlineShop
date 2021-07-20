@@ -44,7 +44,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             var productDao = new ProductDao();
             //khai báo view bag để bỏ qua view cái thằng typeid =1
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 1), "IdGroupProduct", "Name");
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.GetTypeId() == 1), "IdGroupProduct", "Name");
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
         }
