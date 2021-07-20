@@ -41,16 +41,28 @@
             <div class="container">
                 <div class="row">
                     <div class="top-bar padTB20">
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <div class="top-bar-register padTB10">
-                                <h6><a href="@Url.Action("Index","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("index","Register")">Đăng kí</a></h6>
+                        @if (Session["LastName"] != null)
+                        {
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="top-bar-register padTB10">
+                                    <h6>Xin chào<span></span> @Session["LastName"].ToString()</h6>
+                                </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="top-bar-register padTB10">
+                                    <h6><a href="@Url.Action("Login","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("Register","Register")">Đăng kí</a></h6>
+                                </div>
+                            </div>
+                        }
+
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <figure class="logo">
                                 <a href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo.png" alt=""></a>
                             </figure>
-                  
+
                         </div>
 
                         <div class="col-md-3 col-sm-3 col-xs-12">
@@ -76,10 +88,11 @@
     <!--//================Header section end==============//-->
 
     @RenderBody()
-  
+
 
     <!--//================Scroll section start==============//-->
     @Html.Partial("_ScrollTop")
+
     <!--//================Scroll section end==============//-->
     <!--//================Footer section start==============//-->
     <div class="footer-section footer_fixed">
@@ -152,71 +165,72 @@
     <!--//================Footer section end==============//-->
     <!--//================xem nhanh section start==============//-->
     @*<div class="quick-vive-popap">
-        <div class="container">
-            <div class="modal fade" id="myModal">
-                <div class="modal-dialog modal-lg">
-                    <div class="Quick-view-popup modal-content text-left">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        
-                        <div class="col-md-12 col-xs-12 popap-open-box">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-xs-12 marB30">
-                                            <figure>
-                                                <img src="~/Content/assets/images/.jpg" alt="">
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
-                                    <h3 class="theme-headdings text-left  product-detail-title s"><a href="#"></a></h3>
-                                    <div class="clear"></div>
-                                    <div class="per-box texy-left marT15">
-                                        <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
-                                    </div>
-                                    <div class="product-detail-btn  padT15">
-                                        <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
-                                            <div class="row">
-                                                <p>
-                                                    <label for="billing_state28">Color</label>
-                                                    <select class="billing_state28" id="billing_state28" name="billing_state">
-                                                        <option value="">Select Color</option>
-                                                        <option value="AP">Red</option>
-                                                        <option value="AR">Blue</option>
-                                                        <option value="AS">Green</option>
-                                                        <option value="BR">Yellow</option>
-                                                        <option value="CT">Black</option>
-                                                    </select>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="form-row col-sm-5 country-boxs billing-box select down ">
-                                            <div class="row ">
-                                                <p>
-                                                    <label for="billing_state27">Brands</label>
-                                                    <select class="billg_state" id="billing_state27" name="billing_state">
-                                                        <option value="">Select Brands</option>
-                                                        <option value="AP">nghị</option>
-                                                        <option value="AR">Clara</option>
-                                                        <option value="AS">Ziveg</option>
-                                                        <option value="BR">Clara</option>
-                                                    </select>
-                                                </p>
+            <div class="container">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="Quick-view-popup modal-content text-left">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <div class="col-md-12 col-xs-12 popap-open-box">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-xs-12 marB30">
+                                                <figure>
+                                                    <img src="~/Content/assets/images/.jpg" alt="">
+                                                </figure>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-7 row">
-                                        <div class="order-data box order-table ">
-                                            <div class="order-table-cell order-text product-input-type">
-                                                <input type="number" value="01" class="qty" name="qty1">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
+                                        <h3 class="theme-headdings text-left  product-detail-title s"><a href="#"></a></h3>
+                                        <div class="clear"></div>
+                                        <div class="per-box texy-left marT15">
+                                            <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
+                                        </div>
+                                        <div class="product-detail-btn  padT15">
+                                            <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
+                                                <div class="row">
+                                                    <p>
+                                                        <label for="billing_state28">Color</label>
+                                                        <select class="billing_state28" id="billing_state28" name="billing_state">
+                                                            <option value="">Select Color</option>
+                                                            <option value="AP">Red</option>
+                                                            <option value="AR">Blue</option>
+                                                            <option value="AS">Green</option>
+                                                            <option value="BR">Yellow</option>
+                                                            <option value="CT">Black</option>
+                                                        </select>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-row col-sm-5 country-boxs billing-box select down ">
+                                                <div class="row ">
+                                                    <p>
+                                                        <label for="billing_state27">Brands</label>
+                                                        <select class="billg_state" id="billing_state27" name="billing_state">
+                                                            <option value="">Select Brands</option>
+                                                            <option value="AP">nghị</option>
+                                                            <option value="AR">Clara</option>
+                                                            <option value="AS">Ziveg</option>
+                                                            <option value="BR">Clara</option>
+                                                        </select>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-7 col-sm-5 product-box-btm-blog row">
-                                        <a href="#" class="template-button light pro btn left marT">Add To Cart</a>
+                                        <div class="col-md-6 col-sm-7 row">
+                                            <div class="order-data box order-table ">
+                                                <div class="order-table-cell order-text product-input-type">
+                                                    <input type="number" value="01" class="qty" name="qty1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-5 product-box-btm-blog row">
+                                            <a href="#" class="template-button light pro btn left marT">Add To Cart</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -224,8 +238,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
     <!--//================xem nhanh section end==============//-->
     <!--//================Js file start==============//-->
     <script src="~/Content/assets/js/jquery.min.js"></script>
@@ -241,7 +254,7 @@
     <script src="~/Content/assets/plugin/owl-carousel/js/owl.carousel.min.js"></script>
 
     <script src="~/Content/assets/plugin/megamenu/js/hover-dropdown-menu.js"></script>
- 
+
     <script src="~/Content/assets/plugin/megamenu/js/jquery.hover-dropdown-menu-addon.js"></script>
     <script src="~/Content/assets/plugin/jquery-ui/js/jquery-ui.js"></script>
     <script src="~/Content/assets/plugin/mixitup/js/jquery.mixitup.js"></script>
@@ -251,7 +264,7 @@
     <script src="~/Content/assets/js/contronllers/jquery-ui.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB9P8720RmV-t4df_U1TxC-JJ_FKVcc6I"></script>
-    
+
     <script src="~/Content/assets/js/main.js"></script>
 
     <script src="~/Scripts/mustache.js"></script>
@@ -259,8 +272,6 @@
     <script src="/Content/assets/js/contronllers/cartContronller.js"></script>
 
     <!--//================Js file end==============///-->
-
-
     <!--//================Js file end==============///-->
     @RenderSection("jsFooter", required: false)
 

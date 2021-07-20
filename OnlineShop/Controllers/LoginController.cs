@@ -38,7 +38,7 @@ namespace OnlineShop.Controllers
                     //add session
                     Session["IdUser"] = data.FirstOrDefault().IdUser;
                     Session["Email"] = data.FirstOrDefault().Email;
-                    Session["FullName"] = data.FirstOrDefault().FirstName;
+                    Session["FirstName"] = data.FirstOrDefault().FirstName;
                     Session["LastName"] = data.FirstOrDefault().LastName;
                     Session["Phone"] = data.FirstOrDefault().Phone;
                     Session["Password"] = Password;

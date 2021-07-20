@@ -477,7 +477,6 @@
     <Content Include="Content\assets\images\arrival\arrival3.jpg" />
     <Content Include="Content\assets\images\arrival\arrival4.jpg" />
     <Content Include="Content\assets\images\arrival\arrival5.jpg" />
-
     <Content Include="Content\assets\images\best-product\Betta-Fish-Blue-Red-and-White-_1.jpg" />
     <Content Include="Content\assets\images\best-product\ca-betta-dumbo-6-min.jpg" />
     <Content Include="Content\assets\images\best-product\ca-betta-koi-red-galaxy-sp.jpg" />
@@ -537,32 +536,6 @@
     <Content Include="Content\assets\images\best-product\trangtri9.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed %281%29.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed.jpg" />
-
-    <Content Include="Content\assets\images\best-product\best-1.jpg" />
-    <Content Include="Content\assets\images\best-product\best-2.jpg" />
-    <Content Include="Content\assets\images\best-product\best-3.jpg" />
-    <Content Include="Content\assets\images\best-product\best-4.jpg" />
-    <Content Include="Content\assets\images\best-product\best-5.jpg" />
-    <Content Include="Content\assets\images\best-product\product-1.jpg" />
-    <Content Include="Content\assets\images\best-product\product-2.jpg" />
-    <Content Include="Content\assets\images\best-product\product-3.jpg" />
-    <Content Include="Content\assets\images\best-product\product-4.jpg" />
-    <Content Include="Content\assets\images\best-product\product1.jpg" />
-    <Content Include="Content\assets\images\best-product\product2.jpg" />
-    <Content Include="Content\assets\images\best-product\product3.jpg" />
-    <Content Include="Content\assets\images\best-product\product4.jpg" />
-    <Content Include="Content\assets\images\best-product\product5.jpg" />
-    <Content Include="Content\assets\images\best-product\product6.jpg" />
-    <Content Include="Content\assets\images\best-product\product600.jpg" />
-    <Content Include="Content\assets\images\best-product\product601.jpg" />
-    <Content Include="Content\assets\images\best-product\product602.jpg" />
-    <Content Include="Content\assets\images\best-product\product603.jpg" />
-    <Content Include="Content\assets\images\best-product\product7.jpg" />
-    <Content Include="Content\assets\images\best-product\product8.jpg" />
-    <Content Include="Content\assets\images\best-product\product9.jpg" />
-    <Content Include="Content\assets\images\best-product\watch-1.jpg" />
-    <Content Include="Content\assets\images\best-product\watch-2.jpg" />
-
     <Content Include="Content\assets\images\blog\author.png" />
     <Content Include="Content\assets\images\blog\blo-comment-one.jpg" />
     <Content Include="Content\assets\images\blog\blo-comment-two.jpg" />
@@ -832,8 +805,6 @@
     <Content Include="Views\CuaHang\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Shared\_ScrollTop.cshtml" />
-    <Content Include="Views\Register\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\PhuKien\Loc.cshtml" />
     <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\ThanhToan\Index.cshtml" />
@@ -851,6 +822,8 @@
     <Content Include="Views\GioHang\Success.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
+    <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
