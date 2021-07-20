@@ -25,5 +25,20 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             db.SaveChanges();
             return entity.IdOder;
         }
+        public bool Delete(int id)
+        {
+            try
+            {
+                var order = db.Orders.Find(id);
+                db.Orders.Remove(order);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
     }
 }

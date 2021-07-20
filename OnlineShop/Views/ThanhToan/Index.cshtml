@@ -1,4 +1,4 @@
-﻿
+﻿@model List<OnlineShop.Models.CartItem>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -77,119 +77,146 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="checkout-order-section bg-color text-center checkout-order-section-res">
                     <h4>Đơn hàng</h4>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="order-detail-box checkout-order-total">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-8 col-xs-8 text-left">
-                                    <p><strong>Mã đơn hàng</strong></p>
-                                </div>
-                                <div class="col-md-6 col-sm-4 col-xs-4 text-right">
-                                    <p>ABCXYZMLJGDUF</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12 marT30">
+                    @*<div class="col-md-12 col-sm-12 col-xs-12 marT30">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                    <h5><strong>Sản phẩm</strong></h5>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                    <h5><strong>Tổng cộng</strong></h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="order-detail-box">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-8 text-left">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
-                                <h5><strong>Sản phẩm</strong></h5>
+                            <div class="col-md-9 col-sm-12 col-xs-12 text-left">
+                                <p>rocha sleeve sweater</p>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                <h5><strong>Tổng cộng</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="order-detail-box">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-8 col-xs-8 text-left">
-                                    <div class="row">
-                                        <div class="col-md-9 col-sm-12 col-xs-12 text-left">
-                                            <p>rocha sleeve sweater</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-12 col-xs-12 text-left">
-                                            <p><span>x</span> 1</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
-                                    <p>$140.00</p>
-                                </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 text-left">
+                                <p><span>x</span> 1</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="order-detail-box">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-8 col-xs-8 text-left">
-                                    <div class="row">
-                                        <div class="col-md-9 col-sm-12 col-xs-12 text-left">
-                                            <p>mauris tincidunt</p>
-                                        </div>
-                                        <div class="col-md-3 col-sm-12 col-xs-12 text-left">
-                                            <p><span>x</span> 6</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-4 text-right">
-                                    <p>$140.00</p>
-                                </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                        <p>$140.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="order-detail-box">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-8 text-left">
+                        <div class="row">
+                            <div class="col-md-9 col-sm-12 col-xs-12 text-left">
+                                <p>mauris tincidunt</p>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 text-left">
+                                <p><span>x</span> 6</p>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                        <p>$140.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="order-detail-box checkout-order-total">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-5 text-left">
-                                    <p><strong>phí vận chuyển</strong></p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-7 text-right">
-                                    <p>free shipping</p>
-                                </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="order-detail-box checkout-order-total">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-5 text-left">
+                        <p><strong>phí vận chuyển</strong></p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-7 text-right">
+                        <p>free shipping</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="checkout-order-total padT20">
+                <div class="row">
+                    <div class="col-md-6 col-sm-8 col-xs-8 text-left">
+                        <p><strong>tổng đơn hàng</strong></p>
+                    </div>
+                    <div class="col-md-6 col-sm-4 col-xs-4 text-right">
+                        <p class="product-color"><strong>$140.00</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="checkout-payment-method padT20">
+                <div class="row">
+                    <h4>Phương thức thanh toán</h4>
+                    <div class="payment-transfer-detail marT30">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <input type="radio" name="payment" id="direct_bank" value="direct_bank"><label for="direct_bank">Chuyển khoản</label>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <p>
+                                    Thực hiện thanh toán của bạn trực tiếp vào tài khoản của chúng tôi. Vui lòng sử dụng mã đơn đặt hàng của bạn làm nội dung chuyển khoản. Đơn đặt hàng của bạn sẽ không được chuyển cho đến khi chuyển khoản
+                                    thành công.
+                                </p>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <input type="radio" name="payment" id="cash" value="cash"><label for="cash">Thanh toán khi giao hàng</label>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <p>Vui lòng thanh toán 30% giá trị đơn hàng để đảm bảo bạn nhận hàng của chùng tôi.</p>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <input type="radio" name="payment" id="paypal" value="paypal"><label for="paypal">paypal</label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="checkout-order-total padT20">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-8 col-xs-8 text-left">
-                                    <p><strong>tổng đơn hàng</strong></p>
-                                </div>
-                                <div class="col-md-6 col-sm-4 col-xs-4 text-right">
-                                    <p class="product-color"><strong>$140.00</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="checkout-payment-method padT20">
-                            <div class="row">
-                                <h4>Phương thức thanh toán</h4>
-                                <div class="payment-transfer-detail marT30">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                                            <input type="radio" name="payment" id="direct_bank" value="direct_bank"><label for="direct_bank">Chuyển khoản</label>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                                            <p>
-                                                Thực hiện thanh toán của bạn trực tiếp vào tài khoản của chúng tôi. Vui lòng sử dụng mã đơn đặt hàng của bạn làm nội dung chuyển khoản. Đơn đặt hàng của bạn sẽ không được chuyển cho đến khi chuyển khoản
-                                                thành công.
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                                            <input type="radio" name="payment" id="cash" value="cash"><label for="cash">Thanh toán khi giao hàng</label>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                                            <p>Vui lòng thanh toán 30% giá trị đơn hàng để đảm bảo bạn nhận hàng của chùng tôi.</p>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                                            <input type="radio" name="payment" id="paypal" value="paypal"><label for="paypal">paypal</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>*@
+                    <div class="section group">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>Mã Sản Phẩm</td>
+                                        <td>Tên Sản Phẩm</td>
+                                        <td>Ảnh Sản Phẩm</td>
+                                        <td>Số lượng</td>
+                                        <td>Size</td>
+                                        <td>Đơn giá</td>
+                                        <td>Thành tiền</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Product.IdProduct</td>
+                                            <td>@item.Product.Name</td>
+                                            <td><img src="@item.Product.Image" width="100" /></td>
+                                            <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
+                                            <td>@item.Product.Size</td>
+                                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                            <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                            <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+
+
+                        }
+
+
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">

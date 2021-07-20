@@ -25,29 +25,10 @@ namespace OnlineShop.Areas.Admin.Controllers
             //return View(orders.ToList());
             return View(model);
         }
-        [HttpPost]
-        public ActionResult ChiTietDonHang(int id)
-        {
-            if (ModelState.IsValid)
-            {
-                var data = db.OrderDetails.Where(m => m.IdOder.Equals(id)).ToList();
-                if (data.Count > 0)
-                {
-                    Session["Id"] = data.FirstOrDefault().IdOder;
-                    return RedirectToAction("ChiTietDonHang");
-                }
-                else
-                {
-                    //ViewBag.error = "Sai tên hoặc mật khẩu";
 
-                    //return RedirectToAction("Index");
-                }
-            }
-            return View();
-        }
-        // GET: Admin/DonHang/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult ChiTietDonHang(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -59,6 +40,21 @@ namespace OnlineShop.Areas.Admin.Controllers
             }
             return View(order);
         }
+        // GET: Admin/DonHang/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Order order = db.Orders.Find(id);
+        //    if (order == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(order);
+
+        //}
 
         // GET: Admin/DonHang/Create
         public ActionResult Create()
@@ -70,16 +66,17 @@ namespace OnlineShop.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create(Order entity)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var dao = new OrderDao();
-        //        var order = new Order();
+        public ActionResult Create(Order entity)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new OrderDao();
+                var order = new Order();
 
 
-        //    }
-        //}
+            }
+            return View();
+        }
 
         // GET: Admin/DonHang/Delete/5
         public ActionResult Delete(int? id)
@@ -96,17 +93,23 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(order);
         }
 
-        // POST: Admin/DonHang/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //// POST: Admin/DonHang/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Order order = db.Orders.Find(id);
+        //    db.Orders.Remove(order);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
-            db.SaveChanges();
+            new OrderDao().Delete(id);
+
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -39,6 +39,7 @@
                                     <tr>
                                         <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Date)</th>
                                         <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ShipName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().PaymentMethod)</th>
                                         <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ShipAddress)</th>
                                         <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ShipMobile)</th>
                                         <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Status)</th>
@@ -48,40 +49,57 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        @*<td>@Html.DisplayFor(modeliteam => item.Date)</td>*@
-                                        <td>@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.ShipName)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.ShipAddress)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.ShipMobile)</td>
-                                        <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
-                                        @if (item.Status.Value == 0)
-                                        {
-                                            <td class="center">
-                                                @Html.ActionLink("xác nhận", "ChiTietDonHang", new { id = item.IdOder }) |
-                                                @*<a href="@Url.Action("ChiTietDonHang","DonHang")" id="@item.IdOder">Xác nhận</a> |*@
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
-                                                {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        }
-                                        else
-                                        {
-                                            <td class="center">
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
-                                                {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.IdOder + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        }
-                                    </tr>
+                                        <tr>
+                                            @*<td>@Html.DisplayFor(modeliteam => item.Date)</td>*@
+                                            <td>@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
+                                            <td>@Html.DisplayFor(modeliteam => item.ShipName)</td>
+                                            @if (item.PaymentMethod.Value == 0)
+                                            {
+                                                <td>
+                                                    @item.PaymentMethod.Value.ToString("Thanh toán khi giao hàng")
+                                                </td>
+                                            }
+                                            else if (item.PaymentMethod.Value == 1)
+                                            {
+                                                <td>
+                                                    @item.PaymentMethod.Value.ToString("Chuyển khoản")
+                                                </td>
+                                            }
+                                            else {
+                                                <td>
+                                                    @item.PaymentMethod.Value.ToString("Paypal")
+                                                </td>
+                                            }
+                                            <td>@Html.DisplayFor(modeliteam => item.ShipAddress)</td>
+                                            <td>@Html.DisplayFor(modeliteam => item.ShipMobile)</td>
+                                            <td>@(item.Status.Value == 0 ? item.Status.Value.ToString("Chưa xác nhận"):"Đã xác nhận")</td>
+                                            @if (item.Status.Value == 0)
+                                            {
+                                                <td class="center">
+                                                    @Html.ActionLink("Chi tiết", "ChiTietDonHang", new { id = item.IdOder }) |
+                                                    @*<a href="@Url.Action("ChiTietDonHang","DonHang")" id="@item.IdOder">Xác nhận</a> |*@
+                                                    @*Xóa bảng dùng ajax*@
+                                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                                    {
+                                                        Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                        OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                                        HttpMethod = "Delete"
+                                                    })
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td class="center">
+                                                    @*Xóa bảng dùng ajax*@
+                                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions
+                                                    {
+                                                        Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                        OnComplete = "$('#row_" + @item.IdOder + "').remove()",
+                                                        HttpMethod = "Delete"
+                                                    })
+                                                </td>
+                                            }
+                                        </tr>
                                     }
 
 

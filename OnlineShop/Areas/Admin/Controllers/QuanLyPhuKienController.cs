@@ -114,16 +114,6 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/QuanLyPhuKien/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Product product = db.Products.Find(id);
-        //    db.Products.Remove(product);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
         [HttpDelete]
         public ActionResult Delete(int id)
         {

@@ -70,7 +70,7 @@
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>
                                                 <td class="center">
                                                     @*<a class="waves-effect waves-light btn" id = @(item.IdProduct) href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
-                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.IdProduct })
+                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.IdProduct }) | 
 
                                                     @*Xóa bảng dùng ajax*@
                                                     @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdProduct }, new AjaxOptions

@@ -116,7 +116,7 @@ namespace OnlineShop.Controllers
             return View(list);
         }
         [HttpPost]
-        public ActionResult Payment(string shipName, string mobile, string address, string email)
+        public ActionResult Payment(string shipName, string mobile, string address, string email, int paymentMethod)
         {
             var order = new Order();
             //Nhớ set ID theo customer đăng nhập
@@ -127,6 +127,7 @@ namespace OnlineShop.Controllers
             order.ShipName = shipName;
             order.ShipEmail = email;
             order.Status = 0;
+            order.PaymentMethod = paymentMethod;//0: thanh toán khi giao hàng 1: chuyển khoản 2: paypal
             try
             {
                 var id = new OrderDao().Insert(order);
