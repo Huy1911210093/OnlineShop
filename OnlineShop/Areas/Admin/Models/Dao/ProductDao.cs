@@ -43,7 +43,7 @@ namespace OnlineShop.Areas.Admin.Models.Dao
         }
         public List<Product> GetByType(int typeid)
         {
-            return db.Products.Where(m => m.GroupProduct.GetTypeId() == typeid).ToList();
+            return db.Products.Where(m => m.GroupProduct.TypeId == typeid).ToList();
         }
     }
 }

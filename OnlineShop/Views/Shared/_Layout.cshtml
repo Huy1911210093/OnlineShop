@@ -9,7 +9,6 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
         <![endif]-->
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Journey Casual - Multipourpose Fashion HTML Template" />
     <meta name="author" content="desideals4u.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
@@ -22,6 +21,7 @@
     <link href="~/Content/assets/css/color.css" rel="stylesheet">
     <link href="~/Content/assets/css/responsive.css" rel="stylesheet">
     <link href="~/Areas/Admin/Content/assets/css/jquery-ui.css" rel="stylesheet" />
+
 </head>
 <body>
     <!--//================Preloder start==============//-->
@@ -41,33 +41,14 @@
             <div class="container">
                 <div class="row">
                     <div class="top-bar padTB20">
-<<<<<<< HEAD
-                                @if (Session["LastName"] != null)
-                                {
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="top-bar-register padTB10">
-                                            <h6>Xin chào<span></span> @Session["LastName"].ToString()</h6>
-                                        </div>
-                                    </div>
-                               
-                            }
-                            else
-                            {
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="top-bar-register padTB10">
-                                        <h6><a href="@Url.Action("Login","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("Register","Register")">Đăng kí</a></h6>
-                                    </div>
-                                </div>
-                            }
-                       
-=======
                         @if (Session["LastName"] != null)
                         {
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="top-bar-register padTB10">
-                                    <h6>Xin chào<span></span> @Session["LastName"].ToString()</h6>
+                                    <h6>Xin chào<span></span> @Session["LastName"].ToString() <a href="/Login/Logout"> ĐĂNG XUẤT</a></h6>
                                 </div>
                             </div>
+
                         }
                         else
                         {
@@ -77,8 +58,6 @@
                                 </div>
                             </div>
                         }
-
->>>>>>> origin/master
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <figure class="logo">
                                 <a href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo.png" alt=""></a>
@@ -110,10 +89,10 @@
 
     @RenderBody()
 
+    <div class="zalo-chat-widget" data-oaid="1757004593367519761" data-welcome-message="Xin chào! Mình có thể giúp gì cho bạn" data-autopopup="1" data-width="400" data-height="420"></div>
 
     <!--//================Scroll section start==============//-->
     @Html.Partial("_ScrollTop")
-
     <!--//================Scroll section end==============//-->
     <!--//================Footer section start==============//-->
     <div class="footer-section footer_fixed">
@@ -269,6 +248,8 @@
 
     <script src="~/Content/assets/js/contronllers/cartContronller.js"></script>
     <script src="~/Content/assets/js/contronllers/contactcontroller.js"></script>
+    <!--Zalo-->
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
 
     <script src="~/Content/assets/js/bootstrap.min.js"></script>
 
@@ -295,6 +276,7 @@
     <!--//================Js file end==============///-->
     <!--//================Js file end==============///-->
     @RenderSection("jsFooter", required: false)
+
 
 </body>
 

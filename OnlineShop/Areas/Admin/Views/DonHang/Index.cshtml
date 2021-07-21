@@ -76,7 +76,7 @@
                                             @if (item.Status.Value == 0)
                                             {
                                                 <td class="center">
-                                                    @Html.ActionLink("Chi tiết", "ChiTietDonHang", new { id = item.IdOder }) |
+                                                    @Html.ActionLink("Xác nhận", "ChiTietDonHang", new { id = item.IdOder }) |
                                                     @*<a href="@Url.Action("ChiTietDonHang","DonHang")" id="@item.IdOder">Xác nhận</a> |*@
                                                     @*Xóa bảng dùng ajax*@
                                                     @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdOder }, new AjaxOptions

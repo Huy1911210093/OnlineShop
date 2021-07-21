@@ -40,13 +40,16 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyCa/Create
+        [HttpGet]
         public ActionResult Create()
         {
             var productDao = new ProductDao();
             //khai báo view bag để bỏ qua view cái thằng typeid =1
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.GetTypeId() == 1), "IdGroupProduct", "Name");
-            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 1), "IdGroupProduct", "Name");
+            ViewBag.DVT = new SelectList(db.GroupProducts.Where(m => m.DVT == "con" && m.DVT == "cặp"), "IdGroupProduct", "DVT");
             return View();
+          
+            
         }
 
         [HttpPost]

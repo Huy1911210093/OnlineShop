@@ -24,21 +24,6 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(model);
         }
 
-        // GET: Admin/QuanLyTaiKhoan/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserAccount userAccount = db.UserAccounts.Find(id);
-            if (userAccount == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userAccount);
-        }
-
 
         // GET: Admin/QuanLyTaiKhoan/Edit/5
         public ActionResult Edit(int? id)

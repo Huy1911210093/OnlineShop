@@ -57,8 +57,8 @@ namespace OnlineShop.Controllers
         }
         public ActionResult Logout()
         {
-            Session[CommonConstant.USER_SESSION] = null;
-            return Redirect("Home");
+            Session["LastName"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public static string GetMD5(string str)
         {

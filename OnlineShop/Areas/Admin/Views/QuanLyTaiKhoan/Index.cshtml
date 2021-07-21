@@ -26,7 +26,7 @@
                 <!-- Advanced Tables -->
                 <div class="card">
                     <div class="card-action">
-                        Danh sách tài khoản
+                        Danh sách tài khoản User
                     </div>
                     <div class="card-content">
                         <div class="table-responsive">
@@ -34,7 +34,6 @@
                                 <thead>
                                     <tr>
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Email)</th>
-                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Password)</th>
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().FirstName)</th>
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().LastName)</th>
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Phone)</th>
@@ -47,11 +46,10 @@
                                     {
                                         <tr>
                                             <td>@Html.DisplayFor(modeliteam => item.Email)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.Password)</td>
                                             <td>@Html.DisplayFor(modeliteam => item.FirstName)</td>
                                             <td>@Html.DisplayFor(modeliteam => item.LastName)</td>
                                             <td>@Html.DisplayFor(modeliteam => item.Phone)</td>
-                                            <td>@Html.DisplayFor(modeliteam => item.CreatedDay)</td>
+                                            <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDay)</td>
                                             <td class="center">
                                                 @Html.ActionLink("Sửa", "Edit", new { id = item.IdUser }) |
 
