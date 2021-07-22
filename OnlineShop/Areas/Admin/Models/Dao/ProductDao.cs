@@ -21,11 +21,13 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             db.SaveChanges();
             return entity.IdProduct;
         }
-        public IEnumerable<Product> ListAllPagingProduct(int page, int pageSize)
+        public IEnumerable<Product> ListAllPaging(int page, int pageSize)
         {
             //truyền ra số bản ghi và số trang
             return db.Products.OrderByDescending(m => m.Date).ToPagedList(page,pageSize);
         }
+
+        public bool Update() 
 
         public bool Delete(int id)
         {

@@ -16,10 +16,15 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyPhuKien
-        public ActionResult Index()
+        public ActionResult Index(int page = 2, int pageSize = 6)
         {
-            var products = db.Products.Include(p => p.GroupProduct);
-            return View(products.ToList());
+            //var products = db.Products.Include(p => p.GroupProduct);
+            //return View(products.ToList());
+
+            var dao = new ProductDao();
+            var model = dao.ListAllPaging(page, pageSize);
+            
+            return View(model);
         }
 
         // GET: Admin/QuanLyPhuKien/Details/5

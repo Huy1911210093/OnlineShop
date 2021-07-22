@@ -30,7 +30,21 @@ namespace OnlineShop.Models.Dao
             db.SaveChanges();
             return entity.GetId();
         }
+        public bool Delete(int id)
+        {
+            try
+            {
+                var user = db.UserAccounts.Find(id);
+                db.UserAccounts.Remove(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
+        }
         public int Login(string email, string passWord)
         {
             var result = db.Admins.SingleOrDefault(m => m.Email == email);

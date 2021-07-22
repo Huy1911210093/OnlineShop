@@ -57,30 +57,28 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyTaiKhoan/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserAccount userAccount = db.UserAccounts.Find(id);
-            if (userAccount == null)
+            UserAccount user = db.UserAccounts.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(userAccount);
+            return View(user);
         }
-
-        // POST: Admin/QuanLyTaiKhoan/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        //Delete bằng ajax
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            UserAccount userAccount = db.UserAccounts.Find(id);
-            db.UserAccounts.Remove(userAccount);
-            db.SaveChanges();
+            new AdminDao().Delete(id);
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {
