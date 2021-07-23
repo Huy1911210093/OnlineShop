@@ -29,13 +29,13 @@
         [Column(TypeName = "ntext")]
         [DisplayName("Mô tả")]
         public string Detail { get; set; }
-        [DisplayName("Giá")]
+        [DisplayName("Giá nhập")]
         public double? Price { get; set; }
 
         [StringLength(300)]
         [DisplayName("Ảnh")]
         public string Image { get; set; }
-        [DisplayName("Giá mới")]
+        [DisplayName("Giá bán")]
         public double? PriceNew { get; set; }
 
         [Column(TypeName = "date")]

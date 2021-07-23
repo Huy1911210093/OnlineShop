@@ -124,7 +124,6 @@ namespace OnlineShop.Controllers
           
             var order = new Order();
             //Nhớ set ID theo customer đăng nhập
-<<<<<<< HEAD
             //try { order.IdUserAccount = int.Parse(Session["IdUser"].ToString()); }
             //catch (Exception)
             //{
@@ -137,10 +136,8 @@ namespace OnlineShop.Controllers
             }
             else { order.IdUserAccount = 1; }
 
-=======
             //order.IdUserAccount = 1;
             order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
->>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
             order.Date = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;

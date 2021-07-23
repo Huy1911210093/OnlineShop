@@ -549,7 +549,6 @@
     <Content Include="Content\assets\images\best-product\trangtri9.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed %281%29.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed.jpg" />
-<<<<<<< HEAD
     <Content Include="Content\assets\images\best-product\product-1.jpg" />
     <Content Include="Content\assets\images\best-product\product-2.jpg" />
     <Content Include="Content\assets\images\best-product\product-3.jpg" />
@@ -567,8 +566,6 @@
     <Content Include="Content\assets\images\best-product\product7.jpg" />
     <Content Include="Content\assets\images\best-product\product8.jpg" />
     <Content Include="Content\assets\images\best-product\product9.jpg" />
-=======
->>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
     <Content Include="Content\assets\images\best-product\watch-1.jpg" />
     <Content Include="Content\assets\images\best-product\watch-2.jpg" />
     <Content Include="Content\assets\images\blog\author.png" />
@@ -776,6 +773,7 @@
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\XacNhan.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />

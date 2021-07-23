@@ -40,6 +40,26 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             }
 
         }
+
+        public bool Update(Order entity)
+        {
+            try
+            {
+                var order = db.Orders.Find(entity.IdOder);
+                order.Status = 1;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public Order getById(int id)
+        {
+            return db.Orders.Find(id);
+        }
         public int getCount()
         {
             return db.Orders.Count();

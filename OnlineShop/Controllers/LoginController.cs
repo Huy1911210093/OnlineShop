@@ -38,16 +38,11 @@ namespace OnlineShop.Controllers
                     //add session
                     Session["IdUser"] = data.FirstOrDefault().IdUser;
                     Session["Email"] = data.FirstOrDefault().Email;
-<<<<<<< HEAD
-
                     Session["FistName"] = data.FirstOrDefault().FirstName;
 
                     Session["FirstName"] = data.FirstOrDefault().FirstName;
-
-=======
                     Session["FistName"] = data.FirstOrDefault().FirstName;
                     Session["FirstName"] = data.FirstOrDefault().FirstName;
->>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
                     Session["LastName"] = data.FirstOrDefault().LastName;
                     Session["Phone"] = data.FirstOrDefault().Phone;
                     Session["Password"] = Password;

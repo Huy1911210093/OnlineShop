@@ -26,35 +26,48 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(model);
         }
 
-        public ActionResult ChiTietDonHang(int? id)
+        public ActionResult XacNhan(int id)
         {
-
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //quăng về error
+                return RedirectToAction("Index", "Error");
             }
-            Order order = db.Orders.Find(id);
+            var order = new OrderDao().getById(id);
             if (order == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index", "Error");
+                //return HttpNotFound();
             }
+
+
             return View(order);
         }
-        // GET: Admin/DonHang/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Order order = db.Orders.Find(id);
-        //    if (order == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(order);
 
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult XacNhan(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new OrderDao();
+                var id = dao.Update(order);
+                if (id)
+                {
+                    return RedirectToAction("Index", "DonHang");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Xác nhận đơn hàng thất bại");
+                }
+
+            }
+
+
+            return View("Index");
+        }
+
 
         // GET: Admin/DonHang/Create
         public ActionResult Create()
@@ -93,16 +106,6 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(order);
         }
 
-        //// POST: Admin/DonHang/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Order order = db.Orders.Find(id);
-        //    db.Orders.Remove(order);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
         [HttpDelete]
         public ActionResult Delete(int id)
         {
