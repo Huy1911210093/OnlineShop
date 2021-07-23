@@ -75,5 +75,10 @@ namespace OnlineShop.Areas.Admin.Models.Dao
         {
             return db.Products.Where(m => m.GroupProduct.TypeId == typeid).ToList();
         }
+        public List<string> ListName(string keyword)
+        {
+            return db.Products.Where(x => x.Name.Contains(keyword)).Select(x => x.Name).ToList();
+        }
+
     }
 }
