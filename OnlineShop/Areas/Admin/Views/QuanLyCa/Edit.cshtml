@@ -18,7 +18,7 @@
         </ol>
 
     </div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "QuanLyCa", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -26,14 +26,6 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.IdProduct)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.IdGroupProduct, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("IdGroupProduct", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.IdGroupProduct, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -66,23 +58,6 @@
                     @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.PriceNew, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PriceNew, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PriceNew, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -101,8 +76,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    @*<input type="submit" value="Lưu" class="btn btn-default" />*@
-                    <a class="waves-effect waves-light btn" href="@Url.Action("Index", "QuanLyPhuKien")"><i class="material-icons right">check</i>Lưu</a>
+                    <input type="submit" value="Lưu" class="waves-effect waves-light btn" />
                 </div>
             </div>
         </div>

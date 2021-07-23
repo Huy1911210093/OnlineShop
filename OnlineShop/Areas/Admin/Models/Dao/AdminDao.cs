@@ -1,11 +1,12 @@
-﻿using PagedList;
+﻿using OnlineShop.Models;
+using PagedList;
 using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OnlineShop.Models.Dao
+namespace OnlineShop.Models
 {
     public class AdminDao
     {
@@ -44,6 +45,11 @@ namespace OnlineShop.Models.Dao
                 return false;
             }
 
+        }
+
+        public int getCount()
+        {
+            return db.UserAccounts.Count();
         }
         public int Login(string email, string passWord)
         {

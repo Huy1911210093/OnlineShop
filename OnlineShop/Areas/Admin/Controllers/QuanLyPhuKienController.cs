@@ -16,7 +16,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyPhuKien
-        public ActionResult Index(int page = 2, int pageSize = 6)
+        public ActionResult Index(int page = 1, int pageSize = 6)
         {
             //var products = db.Products.Include(p => p.GroupProduct);
             //return View(products.ToList());
@@ -83,7 +83,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 2), "IdGroupProduct", "Name");
             return View(product);
         }
 

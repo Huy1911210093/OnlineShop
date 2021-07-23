@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Areas.Admin.Common;
 using OnlineShop.Areas.Admin.Models;
+using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
 using OnlineShop.Models.Dao;
 

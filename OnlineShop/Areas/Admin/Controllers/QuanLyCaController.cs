@@ -93,54 +93,47 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyCa/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //quăng về error
+                return RedirectToAction("Index","Error");
             }
-            Product product = db.Products.Find(id);
+            var product = new ProductDao().getById(id);
             if (product == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index", "Error");
+                //return HttpNotFound();
             }
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
-           
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 1), "IdGroupProduct", "Name");
+
             return View(product);
         }
 
-        // POST: Admin/QuanLyCa/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var dao = new ProductDao();
+                var id = dao.Update(product);
+                if (id)
+                {
+                    return RedirectToAction("Index", "QuanLyCa");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sửa sản phẩm thất bại");
+                }
+
             }
+
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
-            return View(product);
-        }
-
-        // GET: Admin/QuanLyCa/Delete/5
-        //Khởi tạo trang delete
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
+            return View("Index");
         }
 
 

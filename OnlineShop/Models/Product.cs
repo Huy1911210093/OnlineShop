@@ -46,6 +46,8 @@
 
         [StringLength(100)]
         public string Size { get; set; }
+        
+        public DateTime? TopHot { get; set; }
 
         public virtual GroupProduct GroupProduct { get; set; }
         

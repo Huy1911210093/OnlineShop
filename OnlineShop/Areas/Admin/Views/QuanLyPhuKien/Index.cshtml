@@ -40,7 +40,7 @@
                         </div>
                         <div class="table-responsive">
 
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" >
                                 <thead>
                                     <tr>
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().GroupProduct.Name)</th>
@@ -64,7 +64,7 @@
                                                 <td> @Html.DisplayFor(modelItem => item.Name)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Price)</td>
                                                 <td class="center"> @Html.DisplayFor(modelItem => item.Date)</td>
-                                                <td><img src="@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:50px;" /></td>
+                                                <td><img src="~/Content/assets/images/best-product/@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:100px;" /></td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Size)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>

@@ -40,5 +40,9 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             }
 
         }
+        public int getCount()
+        {
+            return db.Orders.Count();
+        }
     }
 }

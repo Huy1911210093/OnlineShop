@@ -27,7 +27,27 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             return db.Products.OrderByDescending(m => m.Date).ToPagedList(page,pageSize);
         }
 
-        public bool Update() 
+        public bool Update(Product entity)
+        {
+            try
+            {
+                var product = db.Products.Find(entity.IdProduct);
+                product.Price = entity.Price;
+                product.Name = entity.Name;
+                product.Detail = entity.Detail;
+                product.Size = entity.Size;
+                product.Image = entity.Image;
+                product.Status = entity.Status;
+                product.Date = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+           
+        }
 
         public bool Delete(int id)
         {
@@ -42,6 +62,14 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 return false;
             }
             
+        }
+        public Product getById(int id)
+        {
+            return db.Products.Find(id);
+        }
+        public int getCount()
+        {
+            return db.Products.Count();
         }
         public List<Product> GetByType(int typeid)
         {
