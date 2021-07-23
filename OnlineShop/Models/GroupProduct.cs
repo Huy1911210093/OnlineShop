@@ -21,7 +21,7 @@
         public int IdGroupProduct { get; set; }
 
         [StringLength(500)]
-        [DisplayName("Tên nhóm")]
+        [DisplayName("Nhóm sp")]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]

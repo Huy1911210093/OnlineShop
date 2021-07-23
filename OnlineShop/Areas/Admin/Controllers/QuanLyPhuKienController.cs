@@ -16,10 +16,15 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyPhuKien
-        public ActionResult Index()
+        public ActionResult Index(int page = 2, int pageSize = 6)
         {
-            var products = db.Products.Include(p => p.GroupProduct);
-            return View(products.ToList());
+            //var products = db.Products.Include(p => p.GroupProduct);
+            //return View(products.ToList());
+
+            var dao = new ProductDao();
+            var model = dao.ListAllPaging(page, pageSize);
+            
+            return View(model);
         }
 
         // GET: Admin/QuanLyPhuKien/Details/5
@@ -42,7 +47,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             var productDao = new ProductDao();
 
-            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.GetTypeId() == 2), "IdGroupProduct", "Name");
+            ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 2), "IdGroupProduct", "Name");
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
         }
@@ -114,16 +119,6 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/QuanLyPhuKien/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Product product = db.Products.Find(id);
-        //    db.Products.Remove(product);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
         [HttpDelete]
         public ActionResult Delete(int id)
         {

@@ -1,6 +1,7 @@
-﻿@model IEnumerable<OnlineShop.Models.Product>
+﻿@*@model IEnumerable<OnlineShop.Models.Product>*@
 
-
+@model PagedList.IPagedList<OnlineShop.Models.Product>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -42,15 +43,15 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Nhóm</th>
-                                        <th>Tên sp</th>
-                                        <th>Giá</th>
-                                        <th>Ngày tạo</th>
-                                        <th>Ảnh</th>
-                                        <th>Số lượng</th>
-                                        <th>Size</th>
-                                        <th>Chi tiết</th>
-                                        <th>Tác vụ</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().GroupProduct.Name)</th>
+                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Name)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Price)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Date)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Image)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Status)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Size)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Detail)</th>
+                                        <th class="center">Tác vụ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,13 +64,13 @@
                                                 <td> @Html.DisplayFor(modelItem => item.Name)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Price)</td>
                                                 <td class="center"> @Html.DisplayFor(modelItem => item.Date)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Image)</td>
+                                                <td><img src="@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:50px;" /></td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Size)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>
                                                 <td class="center">
                                                     @*<a class="waves-effect waves-light btn" id = @(item.IdProduct) href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
-                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.IdProduct })
+                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.IdProduct }) |
 
                                                     @*Xóa bảng dùng ajax*@
                                                     @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdProduct }, new AjaxOptions
@@ -90,6 +91,7 @@
                                     }
                                 </tbody>
                             </table>
+                            @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }))
                         </div>
 
                     </div>

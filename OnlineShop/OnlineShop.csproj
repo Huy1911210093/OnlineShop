@@ -326,7 +326,6 @@
     <Compile Include="Areas\Admin\Common\EncryptPassword.cs" />
     <Compile Include="Areas\Admin\Common\UserLogin.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ChiTietDonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Admin\Controllers\GopYController.cs" />
@@ -335,6 +334,7 @@
     <Compile Include="Areas\Admin\Controllers\QuanLyCaController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyPhuKienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyTaiKhoanController.cs" />
+    <Compile Include="Areas\Admin\Models\Dao\OrderDao.cs" />
     <Compile Include="Areas\Admin\Models\Dao\ProductDao.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -549,6 +549,7 @@
     <Content Include="Content\assets\images\best-product\trangtri9.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed %281%29.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed.jpg" />
+<<<<<<< HEAD
     <Content Include="Content\assets\images\best-product\product-1.jpg" />
     <Content Include="Content\assets\images\best-product\product-2.jpg" />
     <Content Include="Content\assets\images\best-product\product-3.jpg" />
@@ -566,6 +567,8 @@
     <Content Include="Content\assets\images\best-product\product7.jpg" />
     <Content Include="Content\assets\images\best-product\product8.jpg" />
     <Content Include="Content\assets\images\best-product\product9.jpg" />
+=======
+>>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
     <Content Include="Content\assets\images\best-product\watch-1.jpg" />
     <Content Include="Content\assets\images\best-product\watch-2.jpg" />
     <Content Include="Content\assets\images\blog\author.png" />
@@ -766,15 +769,10 @@
     <Content Include="libman.json" />
     <Content Include="Areas\Admin\Views\LogIn\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyCa\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyCa\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyPhuKien\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyPhuKien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyCa\Edit.cshtml" />
@@ -793,15 +791,7 @@
     <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyTaiKhoan\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ChiTietDonHang\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ChiTietDonHang\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ChiTietDonHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\ChiTietDonHang\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ChiTietDonHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\ChiTietDonHang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

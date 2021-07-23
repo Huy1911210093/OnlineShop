@@ -1,4 +1,4 @@
-﻿    using OnlineShop.Areas.Admin.Common;
+﻿using OnlineShop.Areas.Admin.Common;
 using OnlineShop.Models;
 using OnlineShop.Models.Dao;
 using System.Linq;
@@ -38,11 +38,16 @@ namespace OnlineShop.Controllers
                     //add session
                     Session["IdUser"] = data.FirstOrDefault().IdUser;
                     Session["Email"] = data.FirstOrDefault().Email;
+<<<<<<< HEAD
 
                     Session["FistName"] = data.FirstOrDefault().FirstName;
 
                     Session["FirstName"] = data.FirstOrDefault().FirstName;
 
+=======
+                    Session["FistName"] = data.FirstOrDefault().FirstName;
+                    Session["FirstName"] = data.FirstOrDefault().FirstName;
+>>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
                     Session["LastName"] = data.FirstOrDefault().LastName;
                     Session["Phone"] = data.FirstOrDefault().Phone;
                     Session["Password"] = Password;
@@ -60,8 +65,8 @@ namespace OnlineShop.Controllers
         }
         public ActionResult Logout()
         {
-            Session[CommonConstant.USER_SESSION] = null;
-            return Redirect("Home");
+            Session["LastName"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public static string GetMD5(string str)
         {
