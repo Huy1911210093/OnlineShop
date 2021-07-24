@@ -56,6 +56,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Antiforgery, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Antiforgery.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Antiforgery.dll</HintPath>
     </Reference>
@@ -540,7 +543,6 @@
     <Content Include="Content\assets\images\best-product\trangtri9.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed %281%29.jpg" />
     <Content Include="Content\assets\images\best-product\unnamed.jpg" />
-<<<<<<< HEAD
     <Content Include="Content\assets\images\best-product\best-1.jpg" />
     <Content Include="Content\assets\images\best-product\best-2.jpg" />
     <Content Include="Content\assets\images\best-product\best-3.jpg" />
@@ -565,8 +567,6 @@
     <Content Include="Content\assets\images\best-product\product9.jpg" />
     <Content Include="Content\assets\images\best-product\watch-1.jpg" />
     <Content Include="Content\assets\images\best-product\watch-2.jpg" />
-=======
->>>>>>> origin/master
     <Content Include="Content\assets\images\blog\author.png" />
     <Content Include="Content\assets\images\blog\blo-comment-one.jpg" />
     <Content Include="Content\assets\images\blog\blo-comment-two.jpg" />
@@ -837,12 +837,9 @@
     <Content Include="Views\CuaHang\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Shared\_ScrollTop.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Register\Register.cshtml" />
-=======
->>>>>>> origin/master
     <Content Include="Views\PhuKien\Loc.cshtml" />
-    <Content Include="Views\ProductDetail\Index.cshtml" />
+    <Content Include="Views\ProductDetail\Detail.cshtml" />
     <Content Include="Views\ThanhToan\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\CuaHang\CaVang.cshtml" />
@@ -858,10 +855,7 @@
     <Content Include="Views\GioHang\Success.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
     <Content Include="Views\UserAccount\Index.cshtml" />
-<<<<<<< HEAD
-=======
     <Content Include="Views\Register\Register.cshtml" />
->>>>>>> origin/master
     <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>

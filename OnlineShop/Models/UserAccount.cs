@@ -17,6 +17,7 @@
         }
 
         [Key]
+        [Required]
         [DisplayName("Mã TK")]
         public int IdUser { get; set; }
 

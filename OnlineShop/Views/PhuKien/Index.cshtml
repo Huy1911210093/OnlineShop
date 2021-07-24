@@ -1,4 +1,6 @@
-﻿@model IEnumerable<OnlineShop.Models.Product>
+﻿@*@model IEnumerable<OnlineShop.Models.Product>*@
+@model PagedList.IPagedList<OnlineShop.Models.Product>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -56,7 +58,7 @@
                                             <div class="arrival-image-overlay">
                                                 <figure>
                                                     <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/@item.Image">
+                                                    <a href="#"><img src="~/Content/assets/images/best-product/@item.Image" alt=""></a>
                                                     <figcaption>
                                                         <ul class="cart-icon">
                                                             <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
@@ -67,42 +69,122 @@
                                                 </figure>
                                             </div>
                                             <div class="arrival-image-content">
-                                                <h4><a href="product-detail.html">@item.Name </a></h4>
-                                                <span>@item.Price</span>
+                                                <h4><a href="@Url.Action("Detail","ProductDetail", new { Id = item.IdProduct })">@item.Name </a></h4>
+                                                <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                             </div>
                                         </div>
                                     </div>
                                 }
-                                
 
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="blog-pagination">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination">
-                                                <li>
-                                                    <a href="#" aria-label="Previous">
-                                                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li>
-                                                    <a href="#" aria-label="Next">
-                                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
+                                @*
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="blog-pagination">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li>
+                                            <a href="#" aria-label="Previous">
+                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li>
+                                            <a href="#" aria-label="Next">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                                *@
+
+                            </div>
+                            @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }))
+                        </div>
+                    </div>
+                </div>
+
+                <!--//================xem nhanh section start==============//-->
+                <div class="quick-vive-popap">
+                    <div class="container">
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-lg">
+                                <div class="Quick-view-popup modal-content text-left">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <div class="col-md-12 col-xs-12 popap-open-box">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-xs-12 marB30">
+                                                        <figure>
+                                                            <img src="~/Content/assets/images/best-product/" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
+                                                <h3 class="theme-headdings text-left  product-detail-title s"> <a href="#"></a></h3>
+                                                <div class="clear"></div>
+                                                <div class="per-box texy-left marT15">
+                                                    <p> Mô tả sản phẩm </p>
+                                                </div>
+                                                <div class="product-detail-btn  padT15">
+                                                    <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
+                                                        <div class="row">
+                                                            <p>
+                                                                <label for="billing_state28">Màu Sắc</label>
+                                                                <select class="billing_state28" id="billing_state28" name="billing_state">
+                                                                    <option value="">Chọn màu</option>
+                                                                    <option value="AP">Đỏ</option>
+                                                                    <option value="AR">Xanh</option>
+                                                                    <option value="BR">Vàng</option>
+                                                                    <option value="CT">Đen</option>
+                                                                </select>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row col-sm-5 country-boxs billing-box select down ">
+                                                        <div class="row ">
+                                                            <p>
+                                                                <label for="billing_state27">Loại</label>
+                                                                <select class="billg_state" id="billing_state27" name="billing_state">
+                                                                    <option value="">Chọn loại</option>
+                                                                    <option value="AP">nghị</option>
+                                                                    <option value="AR">Clara</option>
+                                                                    <option value="AS">Ziveg</option>
+                                                                    <option value="BR">Clara</option>
+                                                                </select>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-7 row">
+                                                    <div class="order-data box order-table ">
+                                                        <div class="order-table-cell order-text product-input-type">
+                                                            <input type="number" value="01" class="qty" name="qty1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-sm-5 product-box-btm-blog row">
+                                                    <a href="#" class="template-button light pro btn left marT">Thêm vào giỏ</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
+
             </div>
         </div>
     </div>

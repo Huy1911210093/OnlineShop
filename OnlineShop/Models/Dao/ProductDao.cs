@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace OnlineShop.Models.Dao
 {
     public class ProductDao
@@ -15,6 +16,10 @@ namespace OnlineShop.Models.Dao
         public List<Product> ListNewProduct(int top)
         {
             return db.Products.OrderByDescending(x => x.Date).Take(top).ToList();
+        }
+        public List<Product> ListFeatureProduct(int top)
+        {
+            return db.Products.Where(x => x.TopHot != null && x.TopHot > DateTime.Now).OrderByDescending(x => x.Date).Take(top).ToList();
         }
         public List<string> ListName(string keyword)
         {

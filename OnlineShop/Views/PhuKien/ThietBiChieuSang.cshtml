@@ -1,4 +1,6 @@
-﻿@model IEnumerable<OnlineShop.Models.Product>
+﻿@*@model IEnumerable<OnlineShop.Models.Product>*@
+@model PagedList.IPagedList<OnlineShop.Models.Product>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -57,7 +59,7 @@
                                             <div class="arrival-image-overlay">
                                                 <figure>
                                                     <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/@item.Image">
+                                                    <a href="#"><img src="~/Content/assets/images/best-product/@item.Image" alt=""></a>
                                                     <figcaption>
                                                         <ul class="cart-icon">
                                                             <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
@@ -68,38 +70,14 @@
                                                 </figure>
                                             </div>
                                             <div class="arrival-image-content">
-                                                <h4><a href="product-detail.html">@item.Name </a></h4>
-                                                <span>@item.Price</span>
+                                                <h4><a href="@Url.Action("Detail","ProductDetail", new {Id = @item.IdProduct })">@item.Name </a></h4>
+                                                <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                             </div>
                                         </div>
                                     </div>
                                 }
-
-
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="blog-pagination">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination">
-                                                <li>
-                                                    <a href="#" aria-label="Previous">
-                                                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li>
-                                                    <a href="#" aria-label="Next">
-                                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
                             </div>
+                            @Html.PagedListPager(Model, page => @Url.Action("ThietBiChieuSang", new { page }))
                         </div>
                     </div>
                 </div>

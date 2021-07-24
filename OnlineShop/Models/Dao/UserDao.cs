@@ -16,11 +16,29 @@ namespace OnlineShop.Models.Dao
         {
             return db.UserAccounts.SingleOrDefault(x => x.Email == Email);
         }
-        public string Insert(UserAccount entity)
+        public long Insert(UserAccount entity)
         {
             db.UserAccounts.Add(entity);
             db.SaveChanges();
-            return entity.Email;
+            return entity.IdUser;
+        }
+
+        public long InsertForFacebook(UserAccount entity)
+        {
+            var user = db.UserAccounts.SingleOrDefault(x => x.IdUser == entity.IdUser);
+
+            if (user == null)
+            {
+                db.UserAccounts.Add(entity);
+                db.SaveChanges();
+                return entity.IdUser;
+            }
+            else
+            {
+
+                return user.IdUser;
+            }
+
         }
 
 
