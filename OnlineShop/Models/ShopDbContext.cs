@@ -24,7 +24,7 @@ namespace OnlineShop.Models
         public virtual DbSet<Shop> Shops { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
         public virtual DbSet<UserActivation> UserActivations { get; set; }
-
+        public virtual DbSet<ProductViewModel> ProductViewModels { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FeedBack>()
@@ -54,5 +54,7 @@ namespace OnlineShop.Models
                 .HasForeignKey(e => e.IdUserAccount)
                 .WillCascadeOnDelete(false);
         }
+
+        //public System.Data.Entity.DbSet<OnlineShop.Models.ProductViewModel> ProductViewModels { get; set; }
     }
 }

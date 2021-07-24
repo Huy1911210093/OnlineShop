@@ -11,9 +11,6 @@
         <h1 class="page-header">
             Trang chủ
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#">Trang chủ</a></li>
-        </ol>
 
     </div>
     <div id="page-inner">
@@ -23,29 +20,12 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
 
                     <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image red">
-                            <i class="material-icons dp48">import_export</i>
-                        </div>
-                        <div class="card-stacked red">
-                            <div class="card-content">
-                                <h3>84,198</h3>
-                            </div>
-                            <div class="card-action">
-                                <strong>Doanh thu</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-
-                    <div class="card horizontal cardIcon waves-effect waves-dark">
                         <div class="card-image blue">
                             <i class="material-icons dp48">equalizer</i>
                         </div>
                         <div class="card-stacked blue">
                             <div class="card-content">
-                                <h3>24,225</h3>
+                                <h3>@Session["CountPro"].ToString()</h3>
                             </div>
                             <div class="card-action">
                                 <strong>Sản phẩm</strong>
@@ -58,14 +38,31 @@
 
                     <div class="card horizontal cardIcon waves-effect waves-dark">
                         <div class="card-image green">
-                            <i class="material-icons dp48">supervisor_account</i>
+                            <i class="material-icons dp48">import_export</i>
                         </div>
                         <div class="card-stacked green">
                             <div class="card-content">
-                                <h3>88,658</h3>
+                                <h3>@Session["Order"].ToString()</h3>
                             </div>
                             <div class="card-action">
-                                <strong>Khách hàng</strong>
+                                <strong>Đơn hàng</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                    <div class="card horizontal cardIcon waves-effect waves-dark">
+                        <div class="card-image red">
+                            <i class="material-icons dp48">supervisor_account</i>
+                        </div>
+                        <div class="card-stacked red">
+                            <div class="card-content">
+                                <h3>@Session["User"].ToString()</h3>
+                            </div>
+                            <div class="card-action">
+                                <strong>User</strong>
                             </div>
                         </div>
                     </div>
@@ -117,11 +114,11 @@
             <div class="col-xs-12 col-sm-12 col-md-5">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="card">
+                        @*<div class="card">
                             <div class="card-image donutpad">
                                 <div id="morris-donut-chart"></div>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>

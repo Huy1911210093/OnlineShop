@@ -1,11 +1,12 @@
-﻿using PagedList;
+﻿using OnlineShop.Models;
+using PagedList;
 using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OnlineShop.Models.Dao
+namespace OnlineShop.Models
 {
     public class AdminDao
     {
@@ -30,7 +31,26 @@ namespace OnlineShop.Models.Dao
             db.SaveChanges();
             return entity.GetId();
         }
+        public bool Delete(int id)
+        {
+            try
+            {
+                var user = db.UserAccounts.Find(id);
+                db.UserAccounts.Remove(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
+        }
+
+        public int getCount()
+        {
+            return db.UserAccounts.Count();
+        }
         public int Login(string email, string passWord)
         {
             var result = db.Admins.SingleOrDefault(m => m.Email == email);

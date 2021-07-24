@@ -29,23 +29,25 @@
         [Column(TypeName = "ntext")]
         [DisplayName("Mô tả")]
         public string Detail { get; set; }
-        [DisplayName("Giá")]
+        [DisplayName("Giá nhập")]
         public double? Price { get; set; }
 
         [StringLength(300)]
         [DisplayName("Ảnh")]
         public string Image { get; set; }
-        [DisplayName("Giá mới")]
+        [DisplayName("Giá bán")]
         public double? PriceNew { get; set; }
 
         [Column(TypeName = "date")]
         [DisplayName("Ngày tạo")]
         public DateTime? Date { get; set; }
-        [DisplayName("Trang thái")]
+        [DisplayName("Số lượng")]
         public int? Status { get; set; }
 
         [StringLength(100)]
         public string Size { get; set; }
+        
+        public DateTime? TopHot { get; set; }
 
         public virtual GroupProduct GroupProduct { get; set; }
         

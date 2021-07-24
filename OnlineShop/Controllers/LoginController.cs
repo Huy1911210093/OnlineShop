@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using Facebook;
 using OnlineShop.Areas.Admin.Common;
 using OnlineShop.Common;
+=======
+﻿using OnlineShop.Areas.Admin.Common;
+>>>>>>> 828216926d0a2dd630e707a57a7c35c52c1ad0e3
 using OnlineShop.Models;
 using OnlineShop.Models.Dao;
 using System;
@@ -109,6 +113,12 @@ namespace OnlineShop.Controllers
                     Session["IdUser"] = data.FirstOrDefault().IdUser;
                     Session["Email"] = data.FirstOrDefault().Email;
                     Session["FistName"] = data.FirstOrDefault().FirstName;
+<<<<<<< HEAD
+=======
+
+                    Session["FirstName"] = data.FirstOrDefault().FirstName;
+                    Session["FistName"] = data.FirstOrDefault().FirstName;
+>>>>>>> 828216926d0a2dd630e707a57a7c35c52c1ad0e3
                     Session["FirstName"] = data.FirstOrDefault().FirstName;
                     Session["LastName"] = data.FirstOrDefault().LastName;
                     Session["Phone"] = data.FirstOrDefault().Phone;
@@ -127,8 +137,8 @@ namespace OnlineShop.Controllers
         }
         public ActionResult Logout()
         {
-            Session[CommonConstant.USER_SESSION] = null;
-            return Redirect("Home");
+            Session["LastName"] = null;
+            return RedirectToAction("Index", "Home");
         }
         public static string GetMD5(string str)
         {

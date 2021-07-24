@@ -119,20 +119,32 @@ namespace OnlineShop.Controllers
             return View(list);
         }
         [HttpPost]
-        public ActionResult Payment(string shipName, string mobile, string address, string email)
+        public ActionResult Payment(string shipName, string mobile, string address, string email, int paymentMethod)
         {
           
             var order = new Order();
             //Nhớ set ID theo customer đăng nhập
+            //try { order.IdUserAccount = int.Parse(Session["IdUser"].ToString()); }
+            //catch (Exception)
+            //{
 
-            //order.UserAccount.IdUser =order.IdUserAccount ;
-            order.IdUserAccount = 1;
+            //}
+            var a = Session["IdUser"];
+            if (a != null)
+            {
+                order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
+            }
+            else { order.IdUserAccount = 1; }
+
+            //order.IdUserAccount = 1;
+            order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
             order.Date = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;
             order.ShipName = shipName;
             order.ShipEmail = email;
-
+            order.Status = 0;
+            order.PaymentMethod = paymentMethod;//0: thanh toán khi giao hàng 1: chuyển khoản 2: paypal
             try
             {
                 var id = new OrderDao().Insert(order);

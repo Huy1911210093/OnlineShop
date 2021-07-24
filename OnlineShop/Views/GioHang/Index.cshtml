@@ -52,18 +52,18 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                       
-                    <tr>
-                        <td>@item.Product.IdProduct</td>
-                        <td>@item.Product.Name</td>
-                        <td><img src="@item.Product.Image" width="100" /></td>
-                        <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
-                        <td>@item.Product.Size</td>
-                        <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
-                        <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
-                        <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                    </tr>
-                        }
+
+                        <tr>
+                            <td>@item.Product.IdProduct</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@item.Product.Image" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
+                            <td>@item.Product.Size</td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                            <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                        </tr>
+                    }
 
                 </tbody>
             </table>
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="product-heading-title coupon-button padTB15">
                         <div class="col-md-6 col-sm-8 col-xs-12">
-          
+
                         </div>
                         <div class="col-md-6 col-sm-8 col-xs-12">
                             <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
@@ -85,12 +85,42 @@
                     </div>
                 </div>
             </div>
-          
-         
+
+
         }
         else
         {
-            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã Sản Phẩm</td>
+                        <td>Tên Sản Phẩm</td>
+                        <td>Ảnh Sản Phẩm</td>
+                        <td>Số lượng</td>
+                        <td>Size</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</td>
+
+
+                </tbody>
+            </table>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="product-heading-title coupon-button padTB15">
+                        <div class="col-md-6 col-sm-8 col-xs-12">
+
+                        </div>
+                        <div class="col-md-6 col-sm-8 col-xs-12">
+                            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
 
     </div>
