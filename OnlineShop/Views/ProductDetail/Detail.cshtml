@@ -1,4 +1,4 @@
-﻿@model OnlineShop.Models.Product
+﻿@model IEnumerable<OnlineShop.Models.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -31,29 +31,32 @@
 <div class="product-page padTB60">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="col-md-10 col-sm-10 col-xs-12 pull-right">
-                    <figure class="product-page-image">
-                        <img src="assets/images/all-image/betta-xanh.jpg" alt="">
-                    </figure>
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-md-10 col-sm-10 col-xs-12 pull-right">
+                        <figure class="product-page-image">
+                            <img src="~/Content/assets/images/best-product/@item.Image" alt="" />
+                        </figure>
+                    </div>
                 </div>
-            </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="product-page-heading">
-                    <h4>Tên sản phẩm</h4>
-                    <h3>$90.00</h3>
-                    <p class="marT10">Vivamus at ligula tortor. Nunc eu velit orci. Suspendisse potenti. Aliquam mattis adipiscing nisi quis faucibus.</p>
-                    <p class="marB0"><a href="#"><span>read more....</span></a></p>
+                    <h4>@item.Name</h4>
+                    <h3>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ") VND</h3>
+                    <p class="marT10">@item.Detail</p>
+                    @*<p class="marB0"><a href="#"><span>read more....</span></a></p>*@
                 </div>
-
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="row">
                         <div class="select-size">
                             <select>
                                 <option value="0">Chọn size:</option>
-                                <option>nhỏ</option>
-                                <option>trung bình</option>
-                                <option>trưởng thành</option>
+                                <option>Nhỏ</option>
+                                <option>Trung Bình</option>
+                                <option>Trưởng Thành</option>
                             </select>
                         </div>
                     </div>
@@ -76,16 +79,19 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="product-ability">
-                            <p><strong>mã sản phẩm</strong> : <span>dpc001</span></p>
-                            <p><strong>Còn</strong> : <span>2</span></p>
-                            <p><strong>loại</strong> : loại cá</p>
+                            <p><strong>mã sản phẩm</strong> : <span>@item.IdProduct</span></p>
+                            <p><strong>Còn</strong> : <span>@item.Status</span></p>
+                            <p><strong>loại</strong> : @item.GroupProduct.Name</p>
                         </div>
                     </div>
                 </div>
             </div>
+            }
         </div>
     </div>
 </div>

@@ -15,6 +15,7 @@ namespace OnlineShop.Controllers
         {
             var productDao = new ProductDao();
             ViewBag.NewProducts = productDao.ListNewProduct(4);
+            ViewBag.ListFeatureProduct = productDao.ListFeatureProduct(2);
             return View();
         }
 
@@ -29,5 +30,7 @@ namespace OnlineShop.Controllers
             }
             return PartialView(list);
         }
+
+
     }
 }

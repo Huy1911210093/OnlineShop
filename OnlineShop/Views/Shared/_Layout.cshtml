@@ -1,4 +1,5 @@
 ﻿
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,6 +43,9 @@
                 <div class="row">
                     <div class="top-bar padTB20">
 
+=======
+<<<<<<< HEAD
+
                                 @if (Session["LastName"] != null)
                                 {
                                     <div class="col-md-3 col-sm-3 col-xs-12">
@@ -59,7 +63,16 @@
                                     </div>
                                 </div>
                             }
+<<<<<<< HEAD
                         @*@if (Session["LastName"] != null)
+=======
+
+            
+
+=======
+>>>>>>> 828216926d0a2dd630e707a57a7c35c52c1ad0e3
+                        @if (Session["LastName"] != null)
+>>>>>>> 09aecd89379b10fd3d9da6a11cf4dc6654a2fa08
                         {
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="top-bar-register padTB10">
@@ -75,8 +88,34 @@
                                     <h6><a href="@Url.Action("Login","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("Register","Register")">Đăng kí</a></h6>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         }*@
 
+=======
+                        }
+<<<<<<< HEAD
+
+
+                        @if (Session["LastName"] != null)
+                        {
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="top-bar-register padTB10">
+                                    <h6>Xin chào<span></span> @Session["LastName"].ToString()</h6>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="top-bar-register padTB10">
+                                    <h6><a href="@Url.Action("Login","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("Register","Register")">Đăng kí</a></h6>
+                                </div>
+                            </div>
+                        }
+=======
+>>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
+>>>>>>> 828216926d0a2dd630e707a57a7c35c52c1ad0e3
+>>>>>>> 09aecd89379b10fd3d9da6a11cf4dc6654a2fa08
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <figure class="logo">
                                 <a href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo.png" alt=""></a>
@@ -183,7 +222,8 @@
     </div>
     <!--//================Footer section end==============//-->
     <!--//================xem nhanh section start==============//-->
-    @*<div class="quick-vive-popap">
+    @*
+            <div class="quick-vive-popap">
             <div class="container">
                 <div class="modal fade" id="myModal">
                     <div class="modal-dialog modal-lg">
@@ -191,36 +231,34 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-
                             <div class="col-md-12 col-xs-12 popap-open-box">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-xs-12 marB30">
                                                 <figure>
-                                                    <img src="~/Content/assets/images/.jpg" alt="">
+                                                    <img src="~/Content/assets/images/best-product/" alt="">
                                                 </figure>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
-                                        <h3 class="theme-headdings text-left  product-detail-title s"><a href="#"></a></h3>
+                                        <h3 class="theme-headdings text-left  product-detail-title s">  <a href="#"></a></h3>
                                         <div class="clear"></div>
                                         <div class="per-box texy-left marT15">
-                                            <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
+                                            <p> Loading </p>
                                         </div>
                                         <div class="product-detail-btn  padT15">
                                             <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
                                                 <div class="row">
                                                     <p>
-                                                        <label for="billing_state28">Color</label>
+                                                        <label for="billing_state28">Màu Sắc</label>
                                                         <select class="billing_state28" id="billing_state28" name="billing_state">
-                                                            <option value="">Select Color</option>
-                                                            <option value="AP">Red</option>
-                                                            <option value="AR">Blue</option>
-                                                            <option value="AS">Green</option>
-                                                            <option value="BR">Yellow</option>
-                                                            <option value="CT">Black</option>
+                                                            <option value="">Chọn màu</option>
+                                                            <option value="AP">Đỏ</option>
+                                                            <option value="AR">Xanh</option>
+                                                            <option value="BR">Vàng</option>
+                                                            <option value="CT">Đen</option>
                                                         </select>
                                                     </p>
                                                 </div>
@@ -228,9 +266,9 @@
                                             <div class="form-row col-sm-5 country-boxs billing-box select down ">
                                                 <div class="row ">
                                                     <p>
-                                                        <label for="billing_state27">Brands</label>
+                                                        <label for="billing_state27">Loại</label>
                                                         <select class="billg_state" id="billing_state27" name="billing_state">
-                                                            <option value="">Select Brands</option>
+                                                            <option value="">Chọn loại</option>
                                                             <option value="AP">nghị</option>
                                                             <option value="AR">Clara</option>
                                                             <option value="AS">Ziveg</option>
@@ -248,16 +286,19 @@
                                             </div>
                                         </div>
                                         <div class="col-md-7 col-sm-5 product-box-btm-blog row">
-                                            <a href="#" class="template-button light pro btn left marT">Add To Cart</a>
+                                            <a href="#" class="template-button light pro btn left marT">Thêm vào giỏ</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>*@
+        </div>
+    *@
+
     <!--//================xem nhanh section end==============//-->
     <!--//================Js file start==============//-->
     <script src="~/Content/assets/js/jquery.min.js"></script>

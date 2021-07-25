@@ -18,18 +18,23 @@ namespace OnlineShop
             routes.IgnoreRoute("{*botdetect}",
             new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
+            
+
+
             routes.MapRoute(
             name: "GioHang",
             url: "gio-hang",
             defaults: new { Controller = "GioHang", action = "Index", id = UrlParameter.Optional },
             namespaces: new[] { "OnlineShop.Controllers" }
             );
+
             routes.MapRoute(
             name: "Search",
             url: "tim-kiem",
             defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
             namespaces: new[] { "OnlineShop.Controllers" }
             );
+
             routes.MapRoute(
             name: "Register",
             url: "dang-ky",
@@ -82,6 +87,7 @@ namespace OnlineShop
                 defaults: new { action = "Home", id = UrlParameter.Optional },
                 namespaces: new[] { "OnlineShop.Areas.Admin.Controllers" }
             );
+            
         }
     }
 }
