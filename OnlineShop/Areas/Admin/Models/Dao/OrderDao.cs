@@ -14,10 +14,16 @@ namespace OnlineShop.Areas.Admin.Models.Dao
         {
             db = new ShopDbContext();
         }
-        public IEnumerable<Order> ListAllPaging(int page, int pageSize)
+        public IEnumerable<Order> ListAllPaging(string search,int page, int pageSize)
         {
+            IQueryable<Order> model = db.Orders;//phải convert sang kiểu này mới search được
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(m => m.ShipName.Contains(search) || m.Date.ToString().Contains(search)); //contains: tìm gần đúng
+            }
+
             //truyền ra số bản ghi và số trang
-            return db.Orders.OrderByDescending(m => m.Date).ToPagedList(page, pageSize);
+            return model.OrderByDescending(m => m.Date).ToPagedList(page, pageSize);
         }
         public long Insert(Order entity)
         {
@@ -34,12 +40,13 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
 
         }
+        //public int 
 
         public bool Update(Order entity)
         {
@@ -50,7 +57,7 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,14 +18,13 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyCa
-        public ActionResult Index(int page = 1, int pageSize = 6)
+        public ActionResult Index(string search,int page = 1, int pageSize = 4)
         {
-            //var products = db.Products.Include(p => p.GroupProduct);
 
-            //return View(products.ToList());
             var dao = new ProductDao();
-            var model = dao.ListAllPaging(page, pageSize);
-            //return View(products.ToList());
+            var model = dao.ListAllPaging(search,page, pageSize);
+            ViewBag.Search = search;
+            dao.GetByType(1);
             return View(model);
         }
 
@@ -52,13 +52,11 @@ namespace OnlineShop.Areas.Admin.Controllers
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 1), "IdGroupProduct", "Name");
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
             return View();
-          
-            
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -66,10 +64,12 @@ namespace OnlineShop.Areas.Admin.Controllers
                 var pro = new Product();
                 pro.IdProduct = product.IdProduct;
                 pro.IdGroupProduct = product.IdGroupProduct;
+                string path = Path.Combine(Server.MapPath("~/Content/assets/images/best-product/"), Path.GetFileName(file.FileName));
+                file.SaveAs(path);
                 pro.Name = product.Name;
                 pro.Detail = product.Detail;
                 pro.Price = product.Price;
-                pro.Image = product.Image;
+                pro.Image =  file.FileName;
                 pro.PriceNew = 0;
                 pro.Date = DateTime.Now;
                 pro.Status = product.Status;
@@ -99,11 +99,13 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 //quăng về error
+                Response.StatusCode = 404;
                 return RedirectToAction("Index","Error");
             }
             var product = new ProductDao().getById(id);
             if (product == null)
             {
+                Response.StatusCode = 404;
                 return RedirectToAction("Index", "Error");
                 //return HttpNotFound();
             }

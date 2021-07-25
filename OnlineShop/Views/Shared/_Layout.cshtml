@@ -23,7 +23,7 @@
     <link href="~/Areas/Admin/Content/assets/css/jquery-ui.css" rel="stylesheet" />
 
 </head>
-<body>
+<body  >
     <!--//================Preloder start==============//-->
     <div class="preloder-section">
         <div class="loaderArea">
@@ -41,13 +41,12 @@
             <div class="container">
                 <div class="row">
                     <div class="top-bar padTB20">
-<<<<<<< HEAD
 
                                 @if (Session["LastName"] != null)
                                 {
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         <div class="top-bar-register padTB10">
-                                            <h6>Xin chào<span></span> @Session["LastName"].ToString()</h6>
+                                            <h6>Xin chào<span></span> @Session["LastName"].ToString() | <a href="/Login/Logout"> ĐĂNG XUẤT</a></h6>
                                         </div>
                                     </div>
                                
@@ -60,15 +59,11 @@
                                     </div>
                                 </div>
                             }
-
-            
-
-=======
-                        @if (Session["LastName"] != null)
+                        @*@if (Session["LastName"] != null)
                         {
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="top-bar-register padTB10">
-                                    <h6>Xin chào<span></span> @Session["LastName"].ToString() <a href="/Login/Logout"> ĐĂNG XUẤT</a></h6>
+                                    <h6>Xin chào<span></span> @Session["LastName"].ToString() </h6>
                                 </div>
                             </div>
 
@@ -80,8 +75,8 @@
                                     <h6><a href="@Url.Action("Login","Login")">Đăng nhập</a><span></span> <a href="@Url.Action("Register","Register")">Đăng kí</a></h6>
                                 </div>
                             </div>
-                        }
->>>>>>> 6e94368ea46b8b486322c3b04cbc7a1a9125f0ac
+                        }*@
+
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <figure class="logo">
                                 <a href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo.png" alt=""></a>

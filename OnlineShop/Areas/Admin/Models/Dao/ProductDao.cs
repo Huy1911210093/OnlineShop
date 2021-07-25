@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using PagedList;
 
 namespace OnlineShop.Areas.Admin.Models.Dao
@@ -21,12 +20,17 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             db.SaveChanges();
             return entity.IdProduct;
         }
-        public IEnumerable<Product> ListAllPaging(int page, int pageSize)
+        public IEnumerable<Product> ListAllPaging(string search,int page, int pageSize)
         {
-            //truyền ra số bản ghi và số trang
-            return db.Products.OrderByDescending(m => m.Date).ToPagedList(page,pageSize);
-        }
+            IQueryable<Product> model = db.Products;//phải convert sang kiểu này mới search được
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(m => m.Name.Contains(search) || m.GroupProduct.Name.Contains(search)); //contains: tìm gần đúng theo tên và số lượng
+            }
 
+            //truyền ra số bản ghi và số trang
+            return model.OrderByDescending(m => m.Date).ToPagedList(page, pageSize);
+        }
         public bool Update(Product entity)
         {
             try
@@ -42,7 +46,7 @@ namespace OnlineShop.Areas.Admin.Models.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

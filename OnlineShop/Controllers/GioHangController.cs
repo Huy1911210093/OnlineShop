@@ -104,7 +104,7 @@ namespace OnlineShop.Controllers
                 //Gán vào session
                 Session[CartSession] = list;
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
 
         }
         [HttpGet]
@@ -119,7 +119,7 @@ namespace OnlineShop.Controllers
             return View(list);
         }
         [HttpPost]
-        public ActionResult Payment(string shipName, string mobile, string address, string email, int paymentMethod)
+        public ActionResult Payment(string shipName, string mobile, string address, string email)
         {
           
             var order = new Order();
@@ -133,18 +133,24 @@ namespace OnlineShop.Controllers
             if (a != null)
             {
                 order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
+               
             }
-            else { order.IdUserAccount = 1; }
+            else 
+            {   
+                order.IdUserAccount = 1;
+               
+            }
 
             //order.IdUserAccount = 1;
-            order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
+            //order.IdUserAccount = int.Parse(Session["IdUser"].ToString());
             order.Date = DateTime.Now;
             order.ShipAddress = address;
             order.ShipMobile = mobile;
             order.ShipName = shipName;
             order.ShipEmail = email;
             order.Status = 0;
-            order.PaymentMethod = paymentMethod;//0: thanh toán khi giao hàng 1: chuyển khoản 2: paypal
+            /*order.PaymentMethod = paymentMethod;*///0: thanh toán khi giao hàng 1: chuyển khoản 
+            order.PaymentMethod = 0;
             try
             {
                 var id = new OrderDao().Insert(order);
@@ -163,8 +169,11 @@ namespace OnlineShop.Controllers
 
                     total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
+                order.TotalMoney = long.Parse(total.ToString());
+                new OrderDao().Update(order);
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/Models/Dao/neworder.html"));
 
+                content = content.Replace("{{IdOrder}}", id.ToString("N0"));
                 content = content.Replace("{{CustomerName}}", shipName);
                 content = content.Replace("{{Phone}}", mobile);
                 content = content.Replace("{{Email}}", email);
@@ -172,9 +181,9 @@ namespace OnlineShop.Controllers
                 content = content.Replace("{{Total}}", total.ToString("N0"));
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
 
-                new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(email, "Đơn hàng mới từ N30 Shop", content);
 
-                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
+                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ N30 Shop", content);
             }
             catch (Exception)
             {

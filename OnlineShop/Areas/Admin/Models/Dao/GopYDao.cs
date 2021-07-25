@@ -1,28 +1,26 @@
-﻿using System;
+﻿using OnlineShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OnlineShop.Models.Dao
+namespace OnlineShop.Areas.Admin.Models.Dao
 {
-    public class OrderDao
+    public class GopYDao
     {
         ShopDbContext db = null;
-        public OrderDao()
+
+        public GopYDao()
         {
             db = new ShopDbContext();
         }
-        public int Insert(Order order)
-        {
-            db.Orders.Add(order);
-            db.SaveChanges();
-            return order.IdOder;
-        }
-        public bool Update(Order entity)
+
+        public bool Delete(int id)
         {
             try
             {
-                var order = db.Orders.Find(entity.IdOder);
+                var gopY = db.FeedBacks.Find(id);
+                db.FeedBacks.Remove(gopY);
                 db.SaveChanges();
                 return true;
             }
@@ -30,7 +28,7 @@ namespace OnlineShop.Models.Dao
             {
                 return false;
             }
-        }
 
+        }
     }
 }

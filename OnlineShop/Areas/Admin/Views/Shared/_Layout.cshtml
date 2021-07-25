@@ -21,6 +21,8 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="~/Areas/Admin/Content/assets/js/Lightweight-Chart/cssCharts.css">
+
+
     <!--Review anh-->
     <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -28,7 +30,7 @@
 
 </head>
 
-<body>
+<body >
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
@@ -45,27 +47,24 @@
 
             <ul class="nav navbar-top-links navbar-right">
 
-                @if (Session["Name"] != null)
+                @if (Session["LastName"] != null)
                 {
-                    <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i><b>@Session["Name"].ToString()</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i><b>@Session["LastName"].ToString()</b> <i class="material-icons right">arrow_drop_down</i></a></li>
                 }
-
             </ul>
+            
         </nav>
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
+            @*<li>
+            <a href="empty.html"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
+        </li>*@
             <li>
-                <a href="empty.html"><i class="fa fa-user fa-fw"></i> Hồ sơ</a>
-            </li>
-            <li>
-                <a href="empty.html"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
-            </li>
-            <li>
-                <a href="empty.html"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+                <a href="@Url.Action("Logout","LogIn")"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
             </li>
         </ul>
         <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side " role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
@@ -129,6 +128,7 @@
     <!-- DATA TABLE SCRIPTS -->
     <script src="~/Areas/Admin/Content/assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="~/Areas/Admin/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/Areas/Admin/Content/assets/plugins/ckfinder/ckfinder.js"></script>
     <script>
         $(document).ready(function () {
             $('#dataTables-example').dataTable();
@@ -136,19 +136,7 @@
     </script>
     <!-- Custom Js -->
     <script src="~/Areas/Admin/Content/assets/js/custom-scripts.js"></script>
-    @*<script>
 
-            let list = document.querySelectorAll('.list');
-            for (let i = 0; i < list.length; i++) {
-                list[i].onlick = function () {
-                    let j = 0;
-                    while (j < list.length) {
-                        list[j++].className = 'list';
-                    }
-                    list[i].className = 'active-menu';
-                }
-            }
-        </script>*@
 
     @*review anh*@
     <script>

@@ -2,6 +2,7 @@ namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -9,6 +10,8 @@ namespace OnlineShop.Models
     [Table("Admin")]
     public partial class Admin
     {
+        [Key]
+        public int Id { get => id; set => id = value; }
         private int id;
 
         public int GetId()
@@ -32,6 +35,6 @@ namespace OnlineShop.Models
 
         [StringLength(300)]
         public string Password { get; set; }
-        public int Id { get => id; set => id = value; }
+        
     }
 }

@@ -1,5 +1,4 @@
-﻿using OnlineShop.Models;
-using PagedList;
+﻿using PagedList;
 using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,10 +19,16 @@ namespace OnlineShop.Models
         {
             return db.Admins.SingleOrDefault(m => m.Email == email);
         }
-        public IEnumerable<UserAccount> ListAllPaging(int page, int pageSize)
+        public IEnumerable<UserAccount> ListAllPaging(string search,int page, int pageSize)
         {
+            IQueryable<UserAccount> model = db.UserAccounts;//phải convert sang kiểu này mới search được
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(m => m.Phone.Contains(search) || m.Email.Contains(search)); //contains: tìm gần đúng
+            }
+
             //truyền ra số bản ghi và số trang
-            return db.UserAccounts.OrderByDescending(m => m.CreatedDay).ToPagedList(page, pageSize);
+            return model.OrderByDescending(m => m.CreatedDay).ToPagedList(page, pageSize);
         }
         public long Insert(Admin entity)
         {
@@ -46,8 +51,55 @@ namespace OnlineShop.Models
             }
 
         }
+        public bool UpdateAdmin(Admin entity)
+        {
+            try
+            {
+                var admin = db.Admins.Find(entity.Id);
+                admin.FirstName = entity.FirstName;
+                admin.LastName = entity.LastName;
+                admin.Email = entity.Email;
+                admin.Password = entity.Password;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
+        }
 
-        public int getCount()
+        public Admin getByIdAdmin(int id)
+        {
+            return db.Admins.Find(id);
+        }
+        public UserAccount getByIdUser(int id)
+        {
+            return db.UserAccounts.Find(id);
+        }
+        public bool UpdateUser(UserAccount entity)
+        {
+            try
+            {
+                var user = db.UserAccounts.Find(entity.IdUser);
+                user.Email = entity.Email;
+                user.FirstName = entity.FirstName;
+                user.LastName = entity.LastName;
+                if (!string.IsNullOrEmpty(entity.Password))
+                {
+                    user.Password = entity.Password;
+                }
+                user.Phone = entity.Phone;
+                user.Status = 1;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public int getCountUser()
         {
             return db.UserAccounts.Count();
         }

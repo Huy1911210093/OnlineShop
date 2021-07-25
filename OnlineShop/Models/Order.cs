@@ -43,6 +43,8 @@
         public int? Status { get; set; }
         [DisplayName("Phương thức thanh toán")]
         public int? PaymentMethod { get; set; }
+        [DisplayName("Tổng đơn hàng")]
+        public long? TotalMoney { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

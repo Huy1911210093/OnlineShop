@@ -7,7 +7,6 @@ using OnlineShop.Areas.Admin.Common;
 using OnlineShop.Areas.Admin.Models;
 using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
-using OnlineShop.Models.Dao;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -41,7 +40,11 @@ namespace OnlineShop.Areas.Admin.Controllers
                         adminSession.Email = admin.Email;
                         adminSession.UserId = admin.GetId();
                         Session.Add(CommonConstant.ADMIN_SESSION, adminSession);
-                        Session["Name"] = admin.LastName;
+                        Session["FirstName"] = admin.FirstName;
+                        Session["LastName"] = admin.LastName;
+                        Session["Email"] = admin.Email;
+                        Session["Password"] = admin.Password;
+                        Session["Id"] = adminSession.UserId;
                         return RedirectToAction("Home", "Home");
                     case 0:
                         ModelState.AddModelError("", "Tài khoản chưa có!");
@@ -56,6 +59,16 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View("Index");
 
         }
+
+        public ActionResult Logout()
+        {
+            Session["LastName"] = null;
+            return RedirectToAction("Index", "LogIn");
+        }
+
+       
+
+
         //login dùng linq trỏ thẳng tới db
 
         //[HttpPost]

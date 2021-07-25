@@ -51,16 +51,16 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.Product.IdProduct</td>
-                        <td>@item.Product.Name</td>
-                        <td><img src="@item.Product.Image" width="100" /></td>
-                        <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
-                        <td>@item.Product.Size</td>
-                        <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
-                        <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
-                        <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                    </tr>
+                        <tr>
+                            <td>@item.Product.IdProduct</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@item.Product.Image" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
+                            <td>@item.Product.Size</td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                            <td><a href="#" data-id="@item.Product.IdProduct" class="btn-delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                        </tr>
                     }
 
                 </tbody>
@@ -68,34 +68,34 @@
 
 
         }
+        <div class="section group">
+            <div class="col-md-6">
+                @using (Html.BeginForm("Payment", "GioHang", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label>Người nhận</label>
+                        <input name="shipName" class="form-control" placeholder="Họ và Tên" />
+                    </div>
+                    <div class="form-group">
+                        <label>Điện thoại</label>
+                        <input name="mobile" class="form-control" placeholder="Số điện thoại" />
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input name="address" class="form-control" placeholder="Địa chỉ" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="email" class="form-control" placeholder="Email" />
+                    </div>
+                    <button type="submit" class="btn">Gửi đơn hàng</button>
+                    @*<a href="@Url.Action("Index","ConfirmOrder")" class="template-button">Thanh toán</a>*@
+                }
+            </div>
 
-
-    </div>
-    <div class="section group">
-        <div class="col-md-6">
-            @using (Html.BeginForm("Payment", "GioHang", FormMethod.Post))
-            {
-                <div class="form-group">
-                    <label>Người nhận</label>
-                    <input name="shipName" class="form-control" placeholder="Họ và Tên" />
-                </div>
-                <div class="form-group">
-                    <label>Điện thoại</label>
-                    <input name="mobile" class="form-control" placeholder="Số điện thoại" />
-                </div>
-                <div class="form-group">
-                    <label>Địa chỉ</label>
-                    <input name="address" class="form-control" placeholder="Địa chỉ"/>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input name="email" class="form-control" placeholder="Email" />
-                </div>
-                <button type="submit" class="btn">Gửi đơn hàng</button>
-                @*<a href="@Url.Action("Index","ConfirmOrder")" class="template-button">Thanh toán</a>*@
-            }
         </div>
 
     </div>
+   
 </div>
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,14 +17,11 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyPhuKien
-        public ActionResult Index(int page = 1, int pageSize = 6)
+        public ActionResult Index(string search,int page = 1, int pageSize = 4)
         {
-            //var products = db.Products.Include(p => p.GroupProduct);
-            //return View(products.ToList());
-
             var dao = new ProductDao();
-            var model = dao.ListAllPaging(page, pageSize);
-            
+            var model = dao.ListAllPaging(search,page, pageSize);
+            ViewBag.Search = search;
             return View(model);
         }
 
@@ -57,18 +55,38 @@ namespace OnlineShop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var dao = new ProductDao();
+                var pro = new Product();
+                pro.IdProduct = product.IdProduct;
+                pro.IdGroupProduct = product.IdGroupProduct;
+                string path = Path.Combine(Server.MapPath("~/Content/assets/images/best-product/"), Path.GetFileName(file.FileName));
+                file.SaveAs(path);
+                pro.Name = product.Name;
+                pro.Detail = product.Detail;
+                pro.Price = product.Price;
+                pro.Image = file.FileName;
+                pro.PriceNew = 0;
+                pro.Date = DateTime.Now;
+                pro.Status = product.Status;
+                long id = dao.Insert(pro);
+                if (id > 0)
+                {
+                    return RedirectToAction("Index", "QuanLyPhuKien");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+                }
+
             }
 
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
             ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
-            return View(product);
+            return View("Create");
         }
 
         // GET: Admin/QuanLyPhuKien/Edit/5

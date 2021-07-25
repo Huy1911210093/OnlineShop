@@ -17,14 +17,15 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/DonHang
-        public ActionResult Index(int pageNum = 1, int pageSize = 5)
+        public ActionResult Index(string search,int pageNum = 1, int pageSize = 10)
         {
             var dao = new OrderDao();
-            var model = dao.ListAllPaging(pageNum, pageSize);
-            //var orders = db.Orders.Include(o => o.UserAccount);
-            //return View(orders.ToList());
+            var model = dao.ListAllPaging(search,pageNum, pageSize);
+            ViewBag.Search = search;
             return View(model);
         }
+
+
 
         public ActionResult XacNhan(int id)
         {
@@ -85,26 +86,15 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 var dao = new OrderDao();
                 var order = new Order();
-
-
+            }
+            else
+            {
+                ModelState.AddModelError("", "Thêm đơn hàng thất bại");
             }
             return View();
         }
 
         // GET: Admin/DonHang/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
-        }
 
         [HttpDelete]
         public ActionResult Delete(int id)

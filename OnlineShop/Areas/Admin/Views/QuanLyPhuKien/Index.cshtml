@@ -31,16 +31,22 @@
                     </div>
 
                     <div class="card-content">
-
+                        @using (Html.BeginForm("Index", "QuanLyPhuKien", FormMethod.Get))
+                        {
+                            <div class="row" style="text-align: center;">
+                                <input type="text" name="search" value="@ViewBag.Search" placeholder="Tìm kiếm theo tên hoặc nhóm sp" style="width:25%;" />@*Bỏ viewbag vào để nó lưu lại cái đã search*@
+                                <input class="waves-effect waves-light btn" type="submit" value="Tìm kiếm">
+                            </div>
+                        }
                         <div class="row">
 
                             <a class="waves-effect waves-light btn" href="@Url.Action("Create", "QuanLyPhuKien")"><i class="material-icons right">add</i>Thêm mới</a>
                             @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")"><i class="material-icons right">delete</i>Xóa</a>
-                                <a class="waves-effect waves-light btn" href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
+            <a class="waves-effect waves-light btn" href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
                         </div>
                         <div class="table-responsive">
 
-                            <table class="table table-striped table-bordered table-hover" >
+                            <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().GroupProduct.Name)</th>
@@ -63,7 +69,7 @@
                                                 <td> @Html.DisplayFor(modelItem => item.GroupProduct.Name)</td>
                                                 <td> @Html.DisplayFor(modelItem => item.Name)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Price)</td>
-                                                <td class="center"> @Html.DisplayFor(modelItem => item.Date)</td>
+                                                <td class="center">@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
                                                 <td><img src="~/Content/assets/images/best-product/@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:100px;" /></td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
                                                 <td class="center">@Html.DisplayFor(modelItem => item.Size)</td>
@@ -91,7 +97,7 @@
                                     }
                                 </tbody>
                             </table>
-                            @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }))
+                            @Html.PagedListPager(Model, page => @Url.Action("Index", new { page, @search = ViewBag.Search }))
                         </div>
 
                     </div>

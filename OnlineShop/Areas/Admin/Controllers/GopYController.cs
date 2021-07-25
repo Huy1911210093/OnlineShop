@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
@@ -90,28 +91,11 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/GopY/Delete/5
-        public ActionResult Delete(int? id)
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
+            new GopYDao().Delete(id);
 
-        // POST: Admin/GopY/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

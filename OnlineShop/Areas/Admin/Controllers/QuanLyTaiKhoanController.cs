@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using OnlineShop.Areas.Admin.Common;
 using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
 using OnlineShop.Models.Dao;
@@ -17,11 +18,11 @@ namespace OnlineShop.Areas.Admin.Controllers
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyTaiKhoan
-        public ActionResult Index(int page = 1, int pageSize = 5)
+        public ActionResult Index(string search,int page = 1, int pageSize = 10)
         {
             var dao = new AdminDao();
-            var model = dao.ListAllPaging(page, pageSize);
-            //return View(products.ToList());
+            var model = dao.ListAllPaging(search,page, pageSize);
+            ViewBag.Search = search;
             return View(model);
         }
 
@@ -31,46 +32,48 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.StatusCode = 404;
+                return RedirectToAction("Index", "Error");
             }
             UserAccount userAccount = db.UserAccounts.Find(id);
             if (userAccount == null)
             {
-                return HttpNotFound();
+                Response.StatusCode = 404;
+                return RedirectToAction("Index", "Error");
             }
             return View(userAccount);
         }
 
-        // POST: Admin/QuanLyTaiKhoan/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,FirstName,LastName,Phone,Password,CreatedDay,Status")] UserAccount userAccount)
+        public ActionResult Edit(UserAccount userAccount)
         {
+            if (!string.IsNullOrEmpty(userAccount.Password))
+            {
+                var encryptPass = EncryptPassword.MD5Hash(userAccount.Password);
+                userAccount.Password = encryptPass;
+            }
             if (ModelState.IsValid)
             {
-                db.Entry(userAccount).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var dao = new AdminDao();
+                
+                
+                var id = dao.UpdateUser(userAccount);
+                if (id)
+                {
+                    return RedirectToAction("Index", "QuanLyTaiKhoan");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sửa tài khoản thất bại");
+                }
+
             }
+
             return View(userAccount);
         }
 
-        // GET: Admin/QuanLyTaiKhoan/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserAccount user = db.UserAccounts.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
         //Delete bằng ajax
         [HttpDelete]
         public ActionResult Delete(int id)

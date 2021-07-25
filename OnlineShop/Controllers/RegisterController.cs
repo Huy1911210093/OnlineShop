@@ -48,6 +48,7 @@ namespace OnlineShop.Controllers
                     user.Phone = model.Phone;
                     user.Password = GetMD5(model.Password);
                     user.CreatedDay = DateTime.Now;
+                    user.Status = 0;
                     var result = dao.Insert(user);
                     if (result != null)
                     {
