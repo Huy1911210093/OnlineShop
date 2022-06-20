@@ -36,11 +36,10 @@ namespace OnlineShop.Areas.Admin.Models.Dao
             try
             {
                 var product = db.Products.Find(entity.IdProduct);
-                product.Price = entity.Price;
+                product.PriceNew = entity.PriceNew;
                 product.Name = entity.Name;
                 product.Detail = entity.Detail;
                 product.Size = entity.Size;
-                product.Image = entity.Image;
                 product.Status = entity.Status;
                 product.Date = DateTime.Now;
                 db.SaveChanges();

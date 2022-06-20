@@ -13,7 +13,7 @@ using OnlineShop.Models.Dao;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class QuanLyTaiKhoanController : Controller
+    public class QuanLyTaiKhoanController : BaseController
     {
         private ShopDbContext db = new ShopDbContext();
 
@@ -32,14 +32,16 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (id == null)
             {
+                //quăng về error
                 Response.StatusCode = 404;
-                return RedirectToAction("Index", "Error");
+                return RedirectToAction("Error", "Error");
             }
             UserAccount userAccount = db.UserAccounts.Find(id);
             if (userAccount == null)
             {
+                //quăng về error
                 Response.StatusCode = 404;
-                return RedirectToAction("Index", "Error");
+                return RedirectToAction("Error", "Error");
             }
             return View(userAccount);
         }

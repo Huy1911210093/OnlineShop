@@ -66,8 +66,8 @@
 
                                                     <figcaption>
                                                         <ul class="cart-icon">
-                                                            <li><a href="#"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                            <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                                                            <li><a href="/them-gio-hang1?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
                                                             <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">Xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                                         </ul>
                                                     </figcaption>
@@ -80,31 +80,7 @@
                                         </div>
                                     </div>
                                 }
-                                @*
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="blog-pagination">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                                *@
+                       
                             </div>
                             @Html.PagedListPager(Model, page => @Url.Action("Index", new { page }))
                         </div>

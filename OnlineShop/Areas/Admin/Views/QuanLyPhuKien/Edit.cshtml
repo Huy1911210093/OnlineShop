@@ -18,6 +18,12 @@
         </ol>
 
     </div>
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+            <strong>@TempData["AlertMessage"]</strong>
+        </div>
+    }
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -88,14 +94,6 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
                 </div>
             </div>
 

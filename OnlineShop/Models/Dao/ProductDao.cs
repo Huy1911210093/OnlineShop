@@ -17,19 +17,19 @@ namespace OnlineShop.Models.Dao
         {
             return db.Products.OrderByDescending(x => x.Date).Take(top).ToList();
         }
-<<<<<<< HEAD
+
         public List<Product> ListFeatureProduct(int top)
         {
             return db.Products.Where(x => x.TopHot != null && x.TopHot > DateTime.Now).OrderByDescending(x => x.Date).Take(top).ToList();
         }
-=======
+
         public List<Product> ListRelatedProducts(long productId)
         {
             var product = db.Products.Find(productId);
             return db.Products.Where(x => x.IdProduct != productId && x.IdProduct == product.IdProduct).ToList();
         }
     
->>>>>>> 828216926d0a2dd630e707a57a7c35c52c1ad0e3
+
         public List<string> ListName(string keyword)
         {
             return db.Products.Where(x => x.Name.Contains(keyword)).Select(x => x.Name).ToList();
@@ -42,7 +42,7 @@ namespace OnlineShop.Models.Dao
         }
         public List<ProductViewModel> Search(string keyword, ref int totalRecord, int pageIndex = 1, int pageSize = 2)
         {
-          //  keyword = "Sil";
+            //keyword = "Betta";
             totalRecord = db.Products.Where(x => x.Name.Contains(keyword)).Count();
             var model = (from a in db.Products
                          join b in db.GroupProducts

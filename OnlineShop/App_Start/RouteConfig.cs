@@ -55,9 +55,24 @@ namespace OnlineShop
             );
 
             routes.MapRoute(
+            name: "ErrorTT",
+            url: "loi-thanh-toan",
+            defaults: new { controller = "Error", action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "OnlineShop.Controllers" }
+            );
+
+
+            routes.MapRoute(
             name: "Add Cart",
             url: "them-gio-hang",
             defaults: new { Controller = "GioHang", action = "AddItem", id = UrlParameter.Optional },
+            namespaces: new[] { "OnlineShop.Controllers" }
+             );
+
+            routes.MapRoute(
+            name: "Add Cart1",
+            url: "them-gio-hang",
+            defaults: new { Controller = "GioHang", action = "AddItem1", id = UrlParameter.Optional },
             namespaces: new[] { "OnlineShop.Controllers" }
              );
             routes.MapRoute(
@@ -74,20 +89,29 @@ namespace OnlineShop
            defaults: new { Controller = "Contact", action = "Index", id = UrlParameter.Optional },
            namespaces: new[] { "OnlineShop.Controllers" }
            );
-            routes.MapRoute(
-                name:"Default",
-                url:"{controller}/{action}/{id}",
-                defaults:new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces:new[] { "OnlineShop.Controllers" }
-
-            );
+           
             routes.MapRoute(
                 name: "Admin",
-                url: "{controllers}/{action}/{id}",
-                defaults: new { action = "Home", id = UrlParameter.Optional },
+                url: "admin",
+                defaults: new { controller = "Home", action = "Home", id = UrlParameter.Optional },
                 namespaces: new[] { "OnlineShop.Areas.Admin.Controllers" }
             );
-            
+
+            routes.MapRoute(
+               name: "Ca",
+               url: "quan-ly-ca",
+               defaults: new { controller = "QuanLyCa", action = "Index", id = UrlParameter.Optional },
+               namespaces: new[] { "OnlineShop.Areas.Admin.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "Default",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+               namespaces: new[] { "OnlineShop.Controllers" }
+
+           );
+
         }
     }
 }

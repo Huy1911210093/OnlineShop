@@ -19,7 +19,12 @@
         </ol>
 
     </div>
-
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div id="AlertBox" class="alert @TempData["AlertType"] ">
+            <strong>@TempData["AlertMessage"]</strong>
+        </div>
+    }
     <div id="page-inner">
 
         <div class="row">
@@ -42,20 +47,20 @@
 
                             <a class="waves-effect waves-light btn" href="@Url.Action("Create", "QuanLyPhuKien")"><i class="material-icons right">add</i>Thêm mới</a>
                             @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")"><i class="material-icons right">delete</i>Xóa</a>
-            <a class="waves-effect waves-light btn" href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
+                                <a class="waves-effect waves-light btn" href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
                         </div>
                         <div class="table-responsive">
 
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>@Html.DisplayNameFor(m => m.FirstOrDefault().GroupProduct.Name)</th>
+                                        @*<th>@Html.DisplayNameFor(m => m.FirstOrDefault().GroupProduct.Name)</th>*@
                                         <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Name)</th>
                                         <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Price)</th>
+                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().PriceNew)</th>
                                         <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Date)</th>
                                         <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Image)</th>
                                         <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Status)</th>
-                                        <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Size)</th>
                                         <th class="center">@Html.DisplayNameFor(m => m.FirstOrDefault().Detail)</th>
                                         <th class="center">Tác vụ</th>
                                     </tr>
@@ -65,31 +70,31 @@
                                     {
                                         if (item.GroupProduct.TypeId == 2)
                                         {
-                                            <tr class="odd gradeX" id="row_@item.IdProduct">
-                                                <td> @Html.DisplayFor(modelItem => item.GroupProduct.Name)</td>
-                                                <td> @Html.DisplayFor(modelItem => item.Name)</td>
-                                                <td class="center">@Html.DisplayFor(modelItem => item.Price)</td>
-                                                <td class="center">@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
-                                                <td><img src="~/Content/assets/images/best-product/@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:100px;" /></td>
-                                                <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
-                                                <td class="center">@Html.DisplayFor(modelItem => item.Size)</td>
-                                                <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>
-                                                <td class="center">
-                                                    @*<a class="waves-effect waves-light btn" id = @(item.IdProduct) href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
-                                                    @Html.ActionLink("Sửa", "Edit", new { id = item.IdProduct }) |
+                                    <tr class="odd gradeX" id="row_@item.IdProduct">
+                                        @*<td> @Html.DisplayFor(modelItem => item.GroupProduct.Name)</td>*@
+                                        <td> @Html.DisplayFor(modelItem => item.Name)</td>
+                                        <td class="center">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "null ")</td>
+                                        <td class="center">@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "null ")</td>
+                                        <td class="center">@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
+                                        <td><img src="~/Content/assets/images/best-product/@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:100px;" /></td>
+                                        <td class="center">@Html.DisplayFor(modelItem => item.Status)</td>
+                                        <td class="center">@Html.DisplayFor(modelItem => item.Detail)</td>
+                                        <td class="center">
+                                            @*<a class="waves-effect waves-light btn" id = @(item.IdProduct) href="@Url.Action("Edit","QuanLyCa")"><i class="material-icons right">edit</i>Sửa</a>*@
+                                            @Html.ActionLink("Sửa", "Edit", new { id = item.IdProduct }) |
 
-                                                    @*Xóa bảng dùng ajax*@
-                                                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdProduct }, new AjaxOptions
-                                               {
-                                                   Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                   OnComplete = "$('#row_" + @item.IdProduct + "').remove()",
-                                                   HttpMethod = "Delete"
-                                               })
+                                            @*Xóa bảng dùng ajax*@
+                                            @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdProduct }, new AjaxOptions
+                                       {
+                                           Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                           OnComplete = "$('#row_" + @item.IdProduct + "').remove()",
+                                           HttpMethod = "Delete"
+                                       })
 
-                                                    @*@Html.ActionLink("Xóa", "Delete",new { @class = "waves-effect waves-light btn", id = item.IdProduct })*@
-                                                    @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")">Xóa</a>*@
-                                                </td>
-                                            </tr>
+                                            @*@Html.ActionLink("Xóa", "Delete",new { @class = "waves-effect waves-light btn", id = item.IdProduct })*@
+                                            @*<a class="waves-effect waves-light btn" href="@Url.Action("Delete","QuanLyCa")">Xóa</a>*@
+                                        </td>
+                                    </tr>
                                             //} }
 
 

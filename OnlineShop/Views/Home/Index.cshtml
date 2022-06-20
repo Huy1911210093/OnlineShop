@@ -26,50 +26,28 @@
                             {
                                 //var url = "/Chi-tiet/" + item.GroupProduct + "-" + item.IdProduct;
 
-                                @*if (item.GroupProduct.TypeId == 1)*@
+                                if (item.GroupProduct.TypeId == 1)
                                 {
-<<<<<<< HEAD
                                     <div class="item">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="arrival-image">
                                                 <div class="arrival-image-overlay">
                                                     <figure>
-                                                        @*<span class="overlay-two"></span>*@
-                                                        <a href="#"><img src="~/Content/assets/images/best-product/@item.Image" alt="@item.Name"></a>
+                                                        <span class="overlay-two"></span>
+                                                        <img src="~/Content/assets/images/best-product/@item.Image" alt="@item.Name">
                                                         <figcaption>
                                                             <ul class="cart-icon">
                                                                 <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                                <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                                <li><a href="/xem-nhanh?productId=@item.IdProduct&quantity=1" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                                                <li><a href="/them-gio-hang1?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                                <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                                             </ul>
                                                         </figcaption>
                                                     </figure>
                                                 </div>
                                                 <div class="arrival-image-content">
-                                                    <h4><a href="@Url.Action("Detail","ProductDetail", new { Id = item.IdProduct})">@item.Name</a></h4>
+                                                    <h4><a href="@Url.Action("Detail","ProductDetail", new { Id = item.IdProduct })">@item.Name</a></h4>
                                                     <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                                 </div>
-=======
-                                <div class="item">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="arrival-image">
-                                            <div class="arrival-image-overlay">
-                                                <figure>
-                                                    <span class="overlay-two"></span>
-                                                    <img src="~/Content/assets/images/best-product/@item.Image" alt="@item.Name">
-                                                    <figcaption>
-                                                        <ul class="cart-icon">
-                                                            <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                            <li><a href="/thanh-toan?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
-                                            <div class="arrival-image-content">
-                                                <h4><a href="product-detail.html">@item.Name</a></h4>
-                                                <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ ") VND</span>
->>>>>>> 828216926d0a2dd630e707a57a7c35c52c1ad0e3
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +66,7 @@
 </div>
 <!--//================New arrival section end==============//-->
 <!--//================Best product section start==============//-->
-<div class="best_product padTB60">
+<!--<div class="best_product padTB60">
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-5 col-xs-12">
@@ -98,22 +76,21 @@
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="product_menu">
-                    <ul>
-                        <li><a class="filter-1 wa-button hover-color active" data-filter="all">Tất cả</a></li>
-                        <li><a class="filter-1 wa-button hover-color" data-filter=".cat1">Cá</a></li>
-                        <li><a class="filter-1 wa-button hover-color" data-filter=".cat2">Phụ kiện</a></li>
-                        <li><a class="filter-1 wa-button hover-color" data-filter=".cat3">Thức ăn</a></li>
-                    </ul>
+                    @*<ul>
+                            <li><a class="filter-1 wa-button hover-color active" data-filter="all">Tất cả</a></li>
+                            <li><a class="filter-1 wa-button hover-color" data-filter=".cat1">Cá</a></li>
+                            <li><a class="filter-1 wa-button hover-color" data-filter=".cat2">Phụ kiện</a></li>
+                            <li><a class="filter-1 wa-button hover-color" data-filter=".cat3">Thức ăn</a></li>
+                        </ul>*@
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 padT30">
                 <div class="row">
                     <div id="MixItUp1">
                         <div class="col-md-3 col-sm-6 col-xs-12 marB30 mix cat1">
-                            @foreach (var item in ListFeatureProduct)
+                            @foreach (var item in listNewProducts)
                             {
                                 //var url = "/Chi-tiet/" + item.GroupProduct + "-" + item.IdProduct;
-<<<<<<< HEAD
                                 if (item.GroupProduct.TypeId == 1)
                                 {
                                     <div class="arrival-image">
@@ -124,7 +101,7 @@
                                                 <figcaption>
                                                     <ul class="cart-icon">
                                                         <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="/them-gio-hang1?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
                                                         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                                     </ul>
                                                 </figcaption>
@@ -132,35 +109,12 @@
                                         </div>
                                         <div class="arrival-image-content">
                                             <h4><a href="product-detail.html">@item.Name</a></h4>
-                                            <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ ") VND</span>
+                                            <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                         </div>
-=======
-                                @*if (item.GroupProduct.TypeId == 1)*@
-
-                                <div class="arrival-image">
-                                    <div class="arrival-image-overlay">
-                                        <figure>
-                                            @*<span class="overlay-two"></span>*@
-                                            <a href="#"><img src="~/Content/assets/images/best-product/@item.Image" alt="@item.Name"></a>
-                                            <figcaption>
-                                                <ul class="cart-icon">
-                                                    <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                    <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                                </ul>
-                                            </figcaption>
-                                        </figure>
->>>>>>> 09aecd89379b10fd3d9da6a11cf4dc6654a2fa08
                                     </div>
-                                    <div class="arrival-image-content">
-                                        <h4><a href="@Url.Action("Detail","ProductDetail", new { Id = item.IdProduct})">@item.Name</a></h4>
-                                        <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
-                                    </div>
-                                </div>
-
+                                }
                             }
                         </div>
-<<<<<<< HEAD
 
                         <div class="col-md-3 col-sm-6 col-xs-12 marB30 mix cat2">
 
@@ -176,7 +130,7 @@
                                                 <figcaption>
                                                     <ul class="cart-icon">
                                                         <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="/them-gio-hang1?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
                                                         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                                     </ul>
                                                 </figcaption>
@@ -184,7 +138,7 @@
                                         </div>
                                         <div class="arrival-image-content">
                                             <h4><a href="product-detail.html">@item.Name</a></h4>
-                                            <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ ") VND</span>
+                                            <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                         </div>
                                     </div>
                                 }
@@ -204,71 +158,16 @@
                                                 <figcaption>
                                                     <ul class="cart-icon">
                                                         <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="/them-gio-hang1?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
                                                         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                                     </ul>
                                                 </figcaption>
                                             </figure>
-=======
-                        <!--//================xem nhanh section start==============//-->
-                        @*<div class="quick-vive-popap">
-            <div class="container">
-                <div class="modal fade" id="myModal">
-                    <div class="modal-dialog modal-lg">
-                        <div class="Quick-view-popup modal-content text-left">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="col-md-12 col-xs-12 popap-open-box">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="row">
-                                            <div class="col-xs-12 marB30">
-                                                <figure>
-                                                    <img src="~/Content/assets/images/best-product/@item.Image" alt="">
-                                                </figure>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
-                                        <h3 class="theme-headdings text-left  product-detail-title s"><a href="#">@item.Name</a></h3>
-                                        <div class="clear"></div>
-                                        <div class="per-box texy-left marT15">
-                                            <p>@item.Detail</p>
->>>>>>> 09aecd89379b10fd3d9da6a11cf4dc6654a2fa08
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">@item.Name</a></h4>
+                                            <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                         </div>
-                                        <div class="product-detail-btn  padT15">
-                                            <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
-                                                <div class="row">
-                                                    <p>
-                                                        <label for="billing_state28">Material</label>
-                                                        <select class="billing_state28" id="billing_state28" name="billing_state">
-                                                            <option value="">Select Color</option>
-                                                            <option value="AP">Red</option>
-                                                            <option value="AR">Blue</option>
-                                                            <option value="AS">Green</option>
-                                                            <option value="BR">Yellow</option>
-                                                            <option value="CT">Black</option>
-                                                        </select>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="form-row col-sm-5 country-boxs billing-box select down ">
-                                                <div class="row ">
-                                                    <p>
-                                                        <label for="billing_state27">Brands</label>
-                                                        <select class="billg_state" id="billing_state27" name="billing_state">
-                                                            <option value="">Select Brands</option>
-                                                            <option value="AP">nghị</option>
-                                                            <option value="AR">Clara</option>
-                                                            <option value="AS">Ziveg</option>
-                                                            <option value="BR">Clara</option>
-                                                        </select>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-<<<<<<< HEAD
                                     </div>
                                 }
                             }
@@ -287,136 +186,31 @@
                                                 <figcaption>
                                                     <ul class="cart-icon">
                                                         <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
+                                                        <li><a href="/them-gio-hang1?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
                                                         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                                     </ul>
                                                 </figcaption>
                                             </figure>
-=======
-                                        <div class="col-md-6 col-sm-7 row">
-                                            <div class="order-data box order-table ">
-                                                <div class="order-table-cell order-text product-input-type">
-                                                    <input type="number" value="01" class="qty" name="qty1">
-                                                </div>
-                                            </div>
->>>>>>> 09aecd89379b10fd3d9da6a11cf4dc6654a2fa08
                                         </div>
-                                        <div class="col-md-7 col-sm-5 product-box-btm-blog row">
-                                            <a href="#" class="template-button light pro btn left marT">Add To Cart</a>
+                                        <div class="arrival-image-content">
+                                            <h4><a href="product-detail.html">@item.Name</a></h4>
+                                            <span>@(item.PriceNew.HasValue ? item.PriceNew.Value.ToString("N0") : "Liên hệ ") VND</span>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                }
+                            }
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="product-button">
                                 <a href="@Url.Action("Index","CuaHang")" class="template-button">Xem tất cả</a>
                             </div>
                         </div>
-                        @*
-        <div class="col-md-3 col-sm-6 col-xs-12 marB30 mix cat2">
-
-            @foreach (var item in listNewProducts)
-            {
-                if (item.GroupProduct.TypeId == 1)
-                {
-                    <div class="arrival-image">
-                        <div class="arrival-image-overlay">
-                            <figure>
-                                <span class="overlay-two"></span>
-                                <img src="@item.Image" alt="">
-                                <figcaption>
-                                    <ul class="cart-icon">
-                                        <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="arrival-image-content">
-                            <h4><a href="product-detail.html">@item.Name</a></h4>
-                            <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ ") VND</span>
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12 marB30 mix cat3">
-            @foreach (var item in listNewProducts)
-            {
-                if (item.GroupProduct.TypeId == 1)
-                {
-                    <div class="arrival-image">
-                        <div class="arrival-image-overlay">
-                            <figure>
-                                <span class="overlay-two"></span>
-                                <img src="@item.Image" alt="">
-                                <figcaption>
-                                    <ul class="cart-icon">
-                                        <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="arrival-image-content">
-                            <h4><a href="product-detail.html">@item.Name</a></h4>
-                            <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ ") VND</span>
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12 marB30 mix cat4">
-            @foreach (var item in listNewProducts)
-            {
-                if (item.GroupProduct.TypeId == 1)
-                {
-                    <div class="arrival-image">
-                        <div class="arrival-image-overlay">
-                            <figure>
-                                <span class="overlay-two"></span>
-                                <img src="@item.Image" alt="">
-                                <figcaption>
-                                    <ul class="cart-icon">
-                                        <li><a href="/them-gio-hang?productId=@item.IdProduct&quantity=1"><span class="add-to-wish">thêm vào giỏ</span><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><span class="add-to-wish">Mua ngay</span><i class="fa fa-money" aria-hidden="true"></i></a></li>
-                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="add-to-wish">xem nhanh</span><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="arrival-image-content">
-                            <h4><a href="product-detail.html">@item.Name</a></h4>
-                            <span>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ ") VND</span>
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-                        *@
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--//================Banner-two section end==============//-->
 <!--//================Service section start==============//-->
 <div class="service-section padTB60">
@@ -467,7 +261,79 @@
     </div>
 </div>
 <!--//================Slider-two section end==============//-->
-
-
-
+<!--//================xem nhanh section start==============//-->
+<div class="quick-vive-popap">
+    <div class="container">
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="Quick-view-popup modal-content text-left">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="col-md-12 col-xs-12 popap-open-box">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12 marB30">
+                                        <figure>
+                                            <img src="~/Content/assets/images/best-product/product-3.jpg" alt="">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
+                                <h3 class="theme-headdings text-left  product-detail-title s"><a href="#">Your Product Title</a></h3>
+                                <div class="clear"></div>
+                                <div class="per-box texy-left marT15">
+                                    <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
+                                </div>
+                                <div class="product-detail-btn  padT15">
+                                    <div class="form-row col-sm-5 col-xs-12 country-boxs billing-box select ">
+                                        <div class="row">
+                                            <p>
+                                                <label for="billing_state28">Material</label>
+                                                <select class="billing_state28" id="billing_state28" name="billing_state">
+                                                    <option value="">Select Color</option>
+                                                    <option value="AP">Red</option>
+                                                    <option value="AR">Blue</option>
+                                                    <option value="AS">Green</option>
+                                                    <option value="BR">Yellow</option>
+                                                    <option value="CT">Black</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-row col-sm-5 country-boxs billing-box select down ">
+                                        <div class="row ">
+                                            <p>
+                                                <label for="billing_state27">Brands</label>
+                                                <select class="billg_state" id="billing_state27" name="billing_state">
+                                                    <option value="">Select Brands</option>
+                                                    <option value="AP">nghị</option>
+                                                    <option value="AR">Clara</option>
+                                                    <option value="AS">Ziveg</option>
+                                                    <option value="BR">Clara</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-7 row">
+                                    <div class="order-data box order-table ">
+                                        <div class="order-table-cell order-text product-input-type">
+                                            <input type="number" value="01" class="qty" name="qty1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-sm-5 product-box-btm-blog row">
+                                    <a href="#" class="template-button light pro btn left marT">Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--//================xem nhanh section end==============//-->

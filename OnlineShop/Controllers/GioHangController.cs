@@ -107,6 +107,49 @@ namespace OnlineShop.Controllers
             return RedirectToAction("Index","Home");
 
         }
+        public ActionResult AddItem1(long productId, int quantity)
+        {
+            var product = new ProductDao().ViewDetail(productId);
+            var cart = Session[CartSession];
+            if (cart != null)
+            {
+                var list = (List<CartItem>)cart;
+                if (list.Exists(x => x.Product.IdProduct == productId))
+                {
+
+                    foreach (var item in list)
+                    {
+                        if (item.Product.IdProduct == productId)
+                        {
+                            item.Quantity += quantity;
+                        }
+                    }
+                }
+                else
+                {
+                    //tạo mới đối tượng cart item
+                    var item = new CartItem();
+                    item.Product = product;
+                    item.Quantity = quantity;
+                    list.Add(item);
+                }
+                //Gán vào session
+                Session[CartSession] = list;
+            }
+            else
+            {
+                //tạo mới đối tượng cart item
+                var item = new CartItem();
+                item.Product = product;
+                item.Quantity = quantity;
+                var list = new List<CartItem>();
+                list.Add(item);
+                //Gán vào session
+                Session[CartSession] = list;
+            }
+            return RedirectToAction("Index");
+
+        }
         [HttpGet]
         public ActionResult Payment()
         {
@@ -170,7 +213,9 @@ namespace OnlineShop.Controllers
                     total += (item.Product.Price.GetValueOrDefault(0) * item.Quantity);
                 }
                 order.TotalMoney = long.Parse(total.ToString());
+                Session["total"] = order.TotalMoney;
                 new OrderDao().Update(order);
+
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/Models/Dao/neworder.html"));
 
                 content = content.Replace("{{IdOrder}}", id.ToString("N0"));

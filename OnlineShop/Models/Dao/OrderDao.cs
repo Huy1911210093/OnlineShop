@@ -23,6 +23,7 @@ namespace OnlineShop.Models.Dao
             try
             {
                 var order = db.Orders.Find(entity.IdOder);
+                order.TotalMoney = entity.TotalMoney;
                 db.SaveChanges();
                 return true;
             }

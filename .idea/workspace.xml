@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8a4b3206-42cf-4e66-9d8a-1918be393336" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/OnlineShop/App_Start/RouteConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/App_Start/RouteConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Content/assets/js/custom-scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Content/assets/js/custom-scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/BaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/DonHangController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/DonHangController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/ErrorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/ErrorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/QuanLyCaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/QuanLyCaController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/QuanLyPhuKienController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/QuanLyPhuKienController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/QuanLyTaiKhoanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Controllers/QuanLyTaiKhoanController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Models/Dao/ProductDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Models/Dao/ProductDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/DonHang/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/DonHang/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/DonHang/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/DonHang/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/Error/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/Home/Home.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/Home/Home.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyCa/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyCa/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyCa/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyCa/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyCa/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyCa/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyPhuKien/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyPhuKien/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyPhuKien/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyPhuKien/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyPhuKien/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyPhuKien/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyTaiKhoan/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyTaiKhoan/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyTaiKhoan/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/QuanLyTaiKhoan/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Areas/Admin/Views/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Content/assets/js/contronllers/cartContronller.js" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Content/assets/js/contronllers/cartContronller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Controllers/CuaHangController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Controllers/CuaHangController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Controllers/GioHangController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Controllers/GioHangController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Controllers/ProductDetailController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Controllers/ProductDetailController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Models/Dao/OrderDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Models/Dao/OrderDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Models/Dao/ProductDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Models/Dao/ProductDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/OnlineShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/OnlineShop.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Betta.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Betta.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/CaVang.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/CaVang.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Guppy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Guppy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Koi.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/Koi.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/LaHan.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/CuaHang/LaHan.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/GioHang/Payment.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/GioHang/Payment.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/ChePhamNuoc.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/ChePhamNuoc.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/Loc.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/Loc.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/ThietBiChieuSang.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/ThietBiChieuSang.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/TrangTri.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/PhuKien/TrangTri.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/ProductDetail/Detail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/ProductDetail/Detail.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/Shared/Error.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/Shared/_HeaderMenu.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/Shared/_HeaderMenu.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnlineShop/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineShop/Web.config" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1x8HmR63VxyShjUUBKY6Nf3zLAE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a4b3206-42cf-4e66-9d8a-1918be393336" name="Changes" comment="" />
+      <created>1629729953954</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629729953954</updated>
+    </task>
+    <servers />
+  </component>
+</project>

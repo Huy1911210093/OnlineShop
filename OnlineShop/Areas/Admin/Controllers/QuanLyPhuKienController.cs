@@ -9,20 +9,27 @@ using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
+using PagedList;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class QuanLyPhuKienController : Controller
+    public class QuanLyPhuKienController : BaseController
     {
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyPhuKien
         public ActionResult Index(string search,int page = 1, int pageSize = 4)
         {
-            var dao = new ProductDao();
-            var model = dao.ListAllPaging(search,page, pageSize);
+            IQueryable<Product> model = db.Products.Where(m => m.GroupProduct.TypeId == 2);//phải convert sang kiểu này mới search được
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(m => m.Name.Contains(search) || m.GroupProduct.Name.Contains(search)); //contains: tìm gần đúng theo tên và số lượng
+            }
+
+            //truyền ra số bản ghi và số trang
+            var listPhukien = model.OrderByDescending(m => m.Date).ToPagedList(page, pageSize);
             ViewBag.Search = search;
-            return View(model);
+            return View(listPhukien);
         }
 
         // GET: Admin/QuanLyPhuKien/Details/5
@@ -69,13 +76,14 @@ namespace OnlineShop.Areas.Admin.Controllers
                 pro.Detail = product.Detail;
                 pro.Price = product.Price;
                 pro.Image = file.FileName;
-                pro.PriceNew = 0;
+                pro.PriceNew = product.PriceNew;
                 pro.Date = DateTime.Now;
                 pro.Status = product.Status;
                 long id = dao.Insert(pro);
                 if (id > 0)
                 {
-                    return RedirectToAction("Index", "QuanLyPhuKien");
+                    SetAlert("Thêm sản phẩm thành công", "success");
+                    return RedirectToAction("Create", "QuanLyPhuKien");
                 }
                 else
                 {
@@ -90,58 +98,68 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyPhuKien/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //quăng về error
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
             }
-            Product product = db.Products.Find(id);
+            var product = new ProductDao().getById(id);
             if (product == null)
             {
-                return HttpNotFound();
+                //quăng về error
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
+                //return HttpNotFound();
             }
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 2), "IdGroupProduct", "Name");
+
             return View(product);
         }
 
-        // POST: Admin/QuanLyPhuKien/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdProduct,IdGroupProduct,Name,Detail,Price,Image,PriceNew,Date,Status,Size")] Product product)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var dao = new ProductDao();
+                var id = dao.Update(product);
+                if (id)
+                {
+                    SetAlert("Thêm sản phẩm thành công", "success");
+                    return RedirectToAction("Index", "QuanLyPhuKien");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sửa sản phẩm thất bại");
+                }
+
             }
+
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
-            return View(product);
+            ViewBag.DVT = new SelectList(db.GroupProducts, "IdGroupProduct", "DVT");
+            return View("Index");
         }
 
         // GET: Admin/QuanLyPhuKien/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
-        }
 
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new ProductDao().Delete(id);
+            if(new ProductDao().Delete(id))
+            {
+                SetAlert("Xóa sp thành công", "success");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                SetAlert("Sản phẩm đang có trong đơn hàng. Không thể xóa", "error");
 
+            }
             return RedirectToAction("Index");
         }
 

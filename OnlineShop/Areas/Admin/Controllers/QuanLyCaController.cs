@@ -9,23 +9,29 @@ using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Areas.Admin.Models.Dao;
 using OnlineShop.Models;
+using PagedList;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class QuanLyCaController : Controller
-    //public class QuanLyCaController : BaseController
+
+    //public class QuanLyCaController : Controller
+    public class QuanLyCaController : BaseController
     {
         private ShopDbContext db = new ShopDbContext();
 
         // GET: Admin/QuanLyCa
         public ActionResult Index(string search,int page = 1, int pageSize = 4)
         {
+            IQueryable<Product> model = db.Products.Where(m => m.GroupProduct.TypeId == 1);//phải convert sang kiểu này mới search được
+            if (!string.IsNullOrEmpty(search)) 
+            {
+                model = model.Where(m => m.Name.Contains(search) || m.GroupProduct.Name.Contains(search)); //contains: tìm gần đúng theo tên và số lượng
+            }
 
-            var dao = new ProductDao();
-            var model = dao.ListAllPaging(search,page, pageSize);
+            //truyền ra số bản ghi và số trang
+            var listCa = model.OrderByDescending(m => m.Date).ToPagedList(page, pageSize);
             ViewBag.Search = search;
-            dao.GetByType(1);
-            return View(model);
+            return View(listCa);
         }
 
         // GET: Admin/QuanLyCa/Details/5
@@ -33,12 +39,16 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //quăng về error
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
             }
             Product product = db.Products.Find(id);
             if (product == null)
             {
-                return HttpNotFound();
+                //quăng về error
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
             }
             return View(product);
         }
@@ -70,20 +80,26 @@ namespace OnlineShop.Areas.Admin.Controllers
                 pro.Detail = product.Detail;
                 pro.Price = product.Price;
                 pro.Image =  file.FileName;
-                pro.PriceNew = 0;
+                pro.PriceNew = product.PriceNew;
                 pro.Date = DateTime.Now;
                 pro.Status = product.Status;
                 pro.Size = product.Size;
                 long id = dao.Insert(pro);
                 if(id > 0)
                 {
-                    return RedirectToAction("Index", "QuanLyCa");
+                    SetAlert("Thêm sản phẩm thành công","success");
+                    return RedirectToAction("Create", "QuanLyCa");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Thêm sản phẩm thất bại");
                 }
-       
+
+            }
+            else
+            {
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
             }
 
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts, "IdGroupProduct", "Name", product.IdGroupProduct);
@@ -100,13 +116,13 @@ namespace OnlineShop.Areas.Admin.Controllers
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 //quăng về error
                 Response.StatusCode = 404;
-                return RedirectToAction("Index","Error");
+                return RedirectToAction("Error","Error");
             }
             var product = new ProductDao().getById(id);
             if (product == null)
             {
                 Response.StatusCode = 404;
-                return RedirectToAction("Index", "Error");
+                return RedirectToAction("Error", "Error");
                 //return HttpNotFound();
             }
             ViewBag.IdGroupProduct = new SelectList(db.GroupProducts.Where(m => m.TypeId == 1), "IdGroupProduct", "Name");
@@ -124,11 +140,13 @@ namespace OnlineShop.Areas.Admin.Controllers
                 var id = dao.Update(product);
                 if (id)
                 {
+                    SetAlert("Thêm sản phẩm thành công", "success");
                     return RedirectToAction("Index", "QuanLyCa");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Sửa sản phẩm thất bại");
+                    Response.StatusCode = 404;
+                    return RedirectToAction("Error", "Error");
                 }
 
             }
@@ -143,8 +161,16 @@ namespace OnlineShop.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new ProductDao().Delete(id);
+            if (new ProductDao().Delete(id))
+            {
+                SetAlert("Xóa sp thành công", "success");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                SetAlert("Sản phẩm đang có trong đơn hàng. Không thể xóa", "error");
 
+            }
             return RedirectToAction("Index");
         }
 

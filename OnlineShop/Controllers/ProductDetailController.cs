@@ -16,6 +16,12 @@ namespace OnlineShop.Controllers
         ShopDbContext objWebsiteProduct = new ShopDbContext();
         public ActionResult Detail(int Id)
         {
+            //if(Id.Equals(false))
+            //{
+            //    Response.StatusCode = 404;
+            //    return RedirectToAction("Index", "Error");
+                
+            //}
             var objProduct = objWebsiteProduct.Products.Where(n => n.IdProduct == Id).Take(1).ToList();
             return View(objProduct);
 

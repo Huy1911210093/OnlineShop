@@ -12,7 +12,7 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
-    public class DonHangController : Controller
+    public class DonHangController : BaseController
     {
         private ShopDbContext db = new ShopDbContext();
 
@@ -33,13 +33,16 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 //quăng về error
-                return RedirectToAction("Index", "Error");
+                //quăng về error
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
             }
             var order = new OrderDao().getById(id);
             if (order == null)
             {
-                return RedirectToAction("Index", "Error");
-                //return HttpNotFound();
+                //quăng về error
+                Response.StatusCode = 404;
+                return RedirectToAction("Error", "Error");
             }
 
 
@@ -86,10 +89,23 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 var dao = new OrderDao();
                 var order = new Order();
-            }
-            else
-            {
-                ModelState.AddModelError("", "Thêm đơn hàng thất bại");
+                order.IdUserAccount = 1;
+                order.ShipAddress = entity.ShipAddress;
+                order.ShipEmail = entity.ShipEmail;
+                order.ShipMobile = entity.ShipMobile;
+                order.ShipName = entity.ShipName;
+                order.Status = 0;
+                order.Date = DateTime.Now;
+                order.PaymentMethod = 0;
+                long id = dao.Insert(order);
+                if (id > 0)
+                {
+                    return RedirectToAction("Create", "DonHang");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+                }
             }
             return View();
         }

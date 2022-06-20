@@ -18,7 +18,6 @@
         </ol>
 
     </div>
-
     <div id="page-inner">
 
         <div class="row">
@@ -58,45 +57,45 @@
                                         }
                                         else
                                         {
-                                    <tr id="row_@item.IdUser">
-                                        <td>@Html.DisplayFor(modeliteam => item.Email)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.FirstName)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.LastName)</td>
-                                        <td>@Html.DisplayFor(modeliteam => item.Phone)</td>
-                                        <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDay)</td>
-                                        @if (item.Status == 0)
-                                        {
-                                            <td style="color: red;">@item.Status.Value.ToString("Chưa kích hoạt")</td>
-                                            <td class="center">
-                                                @Html.ActionLink("Kích hoạt", "Edit", new { id = item.IdUser }) |
-
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdUser }, new AjaxOptions
+                                            <tr id="row_@item.IdUser">
+                                                <td>@Html.DisplayFor(modeliteam => item.Email)</td>
+                                                <td>@Html.DisplayFor(modeliteam => item.FirstName)</td>
+                                                <td>@Html.DisplayFor(modeliteam => item.LastName)</td>
+                                                <td>@Html.DisplayFor(modeliteam => item.Phone)</td>
+                                                <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDay)</td>
+                                                @if (item.Status == 0)
                                                 {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.IdUser + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        }
-                                        else
-                                        {
-                                            <td style="color:lawngreen;">@item.Status.Value.ToString("Đã kích hoạt")</td>
-                                            <td class="center">
-                                                @Html.ActionLink("Sửa", "Edit", new { id = item.IdUser }) |
+                                                    <td style="color: red;">@item.Status.Value.ToString("Chưa kích hoạt")</td>
+                                                    <td class="center">
+                                                        @Html.ActionLink("Kích hoạt", "Edit", new { id = item.IdUser }) |
 
-                                                @*Xóa bảng dùng ajax*@
-                                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdUser }, new AjaxOptions
+                                                        @*Xóa bảng dùng ajax*@
+                                                        @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdUser }, new AjaxOptions
+                                                        {
+                                                            Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                            OnComplete = "$('#row_" + @item.IdUser + "').remove()",
+                                                            HttpMethod = "Delete"
+                                                        })
+                                                    </td>
+                                                }
+                                                else
                                                 {
-                                                    Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
-                                                    OnComplete = "$('#row_" + @item.IdUser + "').remove()",
-                                                    HttpMethod = "Delete"
-                                                })
-                                            </td>
-                                        }
+                                                    <td style="color:lawngreen;">@item.Status.Value.ToString("Đã kích hoạt")</td>
+                                                    <td class="center">
+                                                        @Html.ActionLink("Sửa", "Edit", new { id = item.IdUser }) |
+
+                                                        @*Xóa bảng dùng ajax*@
+                                                        @Ajax.ActionLink("Xóa", "Delete", new { id = item.IdUser }, new AjaxOptions
+                                                        {
+                                                            Confirm = "Xóa dòng này dữ liệu sẽ mất và không thể khôi phục",
+                                                            OnComplete = "$('#row_" + @item.IdUser + "').remove()",
+                                                            HttpMethod = "Delete"
+                                                        })
+                                                    </td>
+                                                }
 
 
-                                    </tr>
+                                            </tr>
                                         }
 
                                     }
@@ -104,7 +103,7 @@
 
                                 </tbody>
                             </table>
-                            @Html.PagedListPager(Model, page => @Url.Action("Index", new { page,@search = ViewBag.Search }))
+                            @Html.PagedListPager(Model, page => @Url.Action("Index", new { page, @search = ViewBag.Search }))
                         </div>
                     </div>
                 </div>

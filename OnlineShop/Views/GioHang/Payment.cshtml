@@ -54,7 +54,7 @@
                         <tr>
                             <td>@item.Product.IdProduct</td>
                             <td>@item.Product.Name</td>
-                            <td><img src="@item.Product.Image" width="100" /></td>
+                            <td><img src="~/Content/assets/images/best-product/@item.Product.Image" width="100" /></td>
                             <td><input type="text" class="txtQuantity" data-id="@item.Product.IdProduct" value="@item.Quantity" /></td>
                             <td>@item.Product.Size</td>
                             <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
@@ -89,7 +89,7 @@
                         <input name="email" class="form-control" placeholder="Email" />
                     </div>
                     <button type="submit" class="btn">Gửi đơn hàng</button>
-                    @*<a href="@Url.Action("Index","ConfirmOrder")" class="template-button">Thanh toán</a>*@
+                    <a href="@Url.Action("Index","ConfirmOrder")" class="template-button">Thanh toán</a>
                 }
             </div>
 

@@ -23,10 +23,7 @@ namespace OnlineShop.Controllers
         }
         public ActionResult CaVang(int page = 1, int pageSize = 6)
         {
-            var listCaVang = objWebsiteCuaHang.Products
-                .Where(n => n.IdGroupProduct == 1)
-                .OrderBy(n => n.IdGroupProduct)
-                .ToPagedList(page, pageSize);
+            var listCaVang = objWebsiteCuaHang.Products.Where(n => n.IdGroupProduct == 1).OrderBy(n => n.IdGroupProduct).ToPagedList(page, pageSize);
             return View(listCaVang);
         }
 

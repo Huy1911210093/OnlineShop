@@ -9,7 +9,7 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class ErrorController : Controller
     {
         // GET: Admin/Error
-        public ActionResult Index()
+        public ActionResult Error()
         {
             return View();
         }

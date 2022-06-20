@@ -16,7 +16,7 @@
                 cartList.push({ 
                     Quantity: $(item).val(),
                     Product: {
-                        ID: $(item).data('id')
+                        IdProduct: $(item).data('id')
                     }
                 });
             });
